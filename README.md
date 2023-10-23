@@ -16,9 +16,9 @@
 > * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group. You will need to hold two to three scrum/check-in meetings with your lab TA/reader at different times in addition to the final demo.
 
 ## Project Description
- >We all use planners in order to make sure we keep track of what we need to do in a given day or week, 
- >being able to optimize that is something that would maybe even be helpful for us. Sometimes we have too many
- >things to do and being able to have suggestions of what order to do things helps.
+ >We all use planners in order to make sure we keep track of what we need to do in a given day or week, and
+ >being able to optimize that is something that would definetly be helpful for us as students. Sometimes we have too many
+ >things to do, between club meetings, homework, and everything else, and being able to have suggestions of what order to do things in would help a lot.
  > Everything will be done in C++ and through the terminal. The user will enter tasks the want to complete and their priorities and > generate potential schedules. It will also save the users tasks into a "log" .txt file. 
 
  > ## Phase II
