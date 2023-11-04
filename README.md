@@ -4,7 +4,11 @@
 # \<ChatPlanner\>
  > Your author list below should include links to all members GitHub (remove existing author).
  
- > Authors: \<[Jeffrey McDaniel](https://github.com/jmcda001)\>
+ > Authors: 
+Avia Bequette (https://github.com/aviamb)
+Sangha Jeon (https://github.com/sangha0822)
+Amber Lin (https://github.com/Alin157)
+Marcel Relaford (https://github.com/Mrela001)
 
  > You will be forming a group of **FOUR** students and working on an interesting project. The project has 4 phases, each one with specific requirements. A list of proposed project ideas that have been successful in previous quarters is listed in the project specifications document on Canvas. You can select an idea from the list and start thinking about the features you will implement. If you want to propose your own original idea, you will have to contact your instructor to discuss the project and obtain written permission before you submit your project proposal (Phase 1). The project work should be divided almost equally among team members. You can of course help each other, but it needs to be clear who will be responsible for which features. Additionally, you are expected to follow Scrum patterns, specifically the use of a Scrum (Project) board, Sprints, and Scrum meetings.
 
@@ -16,9 +20,9 @@
 > * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group. You will need to hold two to three scrum/check-in meetings with your lab TA/reader at different times in addition to the final demo.
 
 ## Project Description
- >We all use planners in order to make sure we keep track of what we need to do in a given day or week, 
- >being able to optimize that is something that would maybe even be helpful for us. Sometimes we have too many
- >things to do and being able to have suggestions of what order to do things helps.
+ >We all use planners in order to make sure we keep track of what we need to do in a given day or week, and
+ >being able to optimize that is something that would definetly be helpful for us as students. Sometimes we have too many
+ >things to do, between club meetings, homework, and everything else, and being able to have suggestions of what order to do things in would help a lot.
  > Everything will be done in C++ and through the terminal. The user will enter tasks the want to complete and their priorities and > generate potential schedules. It will also save the users tasks into a "log" .txt file. 
 
  > ## Phase II
