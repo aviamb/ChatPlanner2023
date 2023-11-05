@@ -21,7 +21,8 @@ Marcel Relaford ([https://github.com/Mrela001](https://github.com/mouremr))
  >We all use planners in order to make sure we keep track of what we need to do in a given day or week, and
  >being able to optimize that is something that would definetly be helpful for us as students. Sometimes we have too many
  >things to do, between club meetings, homework, and everything else, and being able to have suggestions of what order to do things in would help a lot.
- > Everything will be done in C++ and through the terminal. The user will enter tasks the want to complete and their priorities and > generate potential schedules. It will also save the users tasks into a "log" .txt file. 
+ > This is NOT a rigid schedule planner where the user enters times and manually moves events around. This is a schedule suggester that organizing your tasks based on your preferences and what times you are already busy.
+ > Everything will be done in C++ and through the terminal.  
  >project features:
  >* generate non rigid schedule for a user based on user input
  >* ability to add, edit and delete tasks
