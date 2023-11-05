@@ -1,35 +1,32 @@
- > As you complete each section you **must** remove the prompt text. Every *turnin* of this project includes points for formatting of this README so keep it clean and keep it up to date. 
- > Prompt text is any lines beginning with "\>"
- > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
-# ChatPlanner
+ # ChatPlanner
   > Authors: 
-Avia Bequette (https://github.com/aviamb)
-Sangha Jeon (https://github.com/sangha0822)
-Amber Lin ([https://github.com/Alin157](https://github.com/pilafnoodle))
-Marcel Relaford ([https://github.com/Mrela001](https://github.com/mouremr))
-
- > You will be forming a group of **FOUR** students and working on an interesting project. The project has 4 phases, each one with specific requirements. A list of proposed project ideas that have been successful in previous quarters is listed in the project specifications document on Canvas. You can select an idea from the list and start thinking about the features you will implement. If you want to propose your own original idea, you will have to contact your instructor to discuss the project and obtain written permission before you submit your project proposal (Phase 1). The project work should be divided almost equally among team members. You can of course help each other, but it needs to be clear who will be responsible for which features. Additionally, you are expected to follow Scrum patterns, specifically the use of a Scrum (Project) board, Sprints, and Scrum meetings.
-
- > ## Expectations
- > * The backend of your project should be implemented in C++. If you wish to choose anoher programming language (e.g. Java, Python), please discuss with your lab TA to obtain permission.
- > * You can incorporate additional technologies/tools but they must be approved (in writing) by the instructor or the TA.
- > * Each member of the group **must** be committing code regularly and make sure their code is correctly attributed to them. We will be checking attributions to determine if there was equal contribution to the project.
- > * **Each member of the group must actively participate in the Github Project board, writing unit tests, and reviewing commited code.**
-> * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group. You will need to hold two to three scrum/check-in meetings with your lab TA/reader at different times in addition to the final demo.
+  >Avia Bequette ([https://github.com/aviamb])
+  >Sangha Jeon ([https://github.com/sangha0822])
+  >Amber Lin ([https://github.com/pilafnoodle])
+  >Marcel Relaford ([https://github.com/mouremr])
 
 ## Project Description
- >We all use planners in order to make sure we keep track of what we need to do in a given day or week, and
- >being able to optimize that is something that would definetly be helpful for us as students. Sometimes we have too many
- >things to do, between club meetings, homework, and everything else, and being able to have suggestions of what order to do things in would help a lot.
- > This is NOT a rigid schedule planner where the user enters times and manually moves events around. This is a schedule suggester that organizing your tasks based on your preferences and what times you are already busy.
- > Everything will be done in C++ and through the terminal.  
- >project features:
+
+Chatplanner is an interactive task manager that can help users plan their daily schedule with just a few questions! Rather than a rigid schedule planner where the user manually organizes events, this is a schedule suggester that organizes your tasks based on your personal preferences and time restrictions throughout a day. 
+
+>#### Why is this project important to us? 
+  >As students, we must have organized and optimized schedules. 
+
+  >Balancing homework, clubs, meetings, classes, and more can be done efficiently with an optimized and interactive dayplanner
+
+ >#### Languages and Input/Output
+  > Chatplanner will be developed using C++.
+
+  > Chatplanner is a textbot and will be executed through the terminal only.
+
+  >Users may enter preferences, tasks, and times not available. Chatplanner will generate a potential schedule for the user with each run.
+
+>#### Project Features:
  >* generate non rigid schedule for a user based on user input
  >* ability to add, edit and delete tasks
  >* automatically categorize tasks
  >* ability to block out time that is currently busy
  >* ability to give schedule preferences (ex. night owl, early sleeper, procrastinator)
- >* check off tasks as day goes on
  >* save schedule to a log.txt file
  >* look at past events
 
