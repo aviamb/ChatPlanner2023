@@ -2,12 +2,10 @@
  > Prompt text is any lines beginning with "\>"
  > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
 # ChatPlanner
- > Your author list below should include links to all members GitHub (remove existing author).
- 
- > Authors: 
+  > Authors: 
 Avia Bequette (https://github.com/aviamb)
 Sangha Jeon (https://github.com/sangha0822)
-Amber Lin (https://github.com/Alin157)
+Amber Lin ([https://github.com/Alin157](https://github.com/pilafnoodle))
 Marcel Relaford ([https://github.com/Mrela001](https://github.com/mouremr))
 
  > You will be forming a group of **FOUR** students and working on an interesting project. The project has 4 phases, each one with specific requirements. A list of proposed project ideas that have been successful in previous quarters is listed in the project specifications document on Canvas. You can select an idea from the list and start thinking about the features you will implement. If you want to propose your own original idea, you will have to contact your instructor to discuss the project and obtain written permission before you submit your project proposal (Phase 1). The project work should be divided almost equally among team members. You can of course help each other, but it needs to be clear who will be responsible for which features. Additionally, you are expected to follow Scrum patterns, specifically the use of a Scrum (Project) board, Sprints, and Scrum meetings.
