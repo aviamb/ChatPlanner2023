@@ -1,14 +1,12 @@
  > As you complete each section you **must** remove the prompt text. Every *turnin* of this project includes points for formatting of this README so keep it clean and keep it up to date. 
  > Prompt text is any lines beginning with "\>"
  > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
-# \<ChatPlanner\>
- > Your author list below should include links to all members GitHub (remove existing author).
- 
- > Authors: 
+# ChatPlanner
+  > Authors: 
 Avia Bequette (https://github.com/aviamb)
 Sangha Jeon (https://github.com/sangha0822)
-Amber Lin (https://github.com/Alin157)
-Marcel Relaford (https://github.com/Mrela001)
+Amber Lin ([https://github.com/Alin157](https://github.com/pilafnoodle))
+Marcel Relaford ([https://github.com/Mrela001](https://github.com/mouremr))
 
  > You will be forming a group of **FOUR** students and working on an interesting project. The project has 4 phases, each one with specific requirements. A list of proposed project ideas that have been successful in previous quarters is listed in the project specifications document on Canvas. You can select an idea from the list and start thinking about the features you will implement. If you want to propose your own original idea, you will have to contact your instructor to discuss the project and obtain written permission before you submit your project proposal (Phase 1). The project work should be divided almost equally among team members. You can of course help each other, but it needs to be clear who will be responsible for which features. Additionally, you are expected to follow Scrum patterns, specifically the use of a Scrum (Project) board, Sprints, and Scrum meetings.
 
@@ -50,12 +48,14 @@ Marcel Relaford (https://github.com/Mrela001)
 
 ### Navigation Diagram
 > Draw a diagram illustrating how the user can navigate from one screen to another. Here is an [example](https://creately.com/diagram/example/ikfqudv82/user-navigation-diagram-classic?r=v). It can be useful to label each symbol that represents a screen so that you can reference the screens in the next section or the rest of the document if necessary. Give a brief description of what the diagram represents.
+> ![chat planner navigation drawio](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/b11e76ce-82ed-44ba-b184-4041777f0267)
 
 ### Screen Layouts
 > Include the layout of each of your screens. The layout should describe the screen’s major components such as menus and prompts for user inputs, expected output, and buttons (if applicable). Explain what is on the layout, and the purpose of each menu item, button, etc. If many screens share the same layout, start by describing the general layout and then list the screens that will be using that layout and the differences between each of them.
 
 ## Class Diagram
  > Include a **class diagram(s)** for your project and a **description** of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
+> ![chat planner uml drawio](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/b34678e0-509a-420e-98fe-15a025f27af5)
  
  > ## Phase III
  > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on Zoom and should be conducted by Wednesday of week 8.
