@@ -24,6 +24,15 @@ Marcel Relaford (https://github.com/Mrela001)
  >being able to optimize that is something that would definetly be helpful for us as students. Sometimes we have too many
  >things to do, between club meetings, homework, and everything else, and being able to have suggestions of what order to do things in would help a lot.
  > Everything will be done in C++ and through the terminal. The user will enter tasks the want to complete and their priorities and > generate potential schedules. It will also save the users tasks into a "log" .txt file. 
+ >project features:
+ >* generate non rigid schedule for a user based on user input
+ >* ability to add, edit and delete tasks
+ >* automatically categorize tasks
+ >* ability to block out time that is currently busy
+ >* ability to give schedule preferences (ex. night owl, early sleeper, procrastinator)
+ >* check off tasks as day goes on
+ >* save schedule to a log.txt file
+ >* look at past events
 
  > ## Phase II
  > In addition to completing the "User Interface Specification" and "Class Diagram" sections below, you will need to:
