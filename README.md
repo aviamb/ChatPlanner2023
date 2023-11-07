@@ -9,19 +9,19 @@
 
 Chatplanner is an interactive task manager that can help users plan their daily schedule with just a few questions! Rather than a rigid schedule planner where the user manually organizes events, this is a schedule suggester that organizes your tasks based on your personal preferences and time restrictions throughout a day. 
 
->#### Why is this project important to us? 
+#### Why is this project important to us? 
   >As students, we must have organized and optimized schedules. 
 
   >Balancing homework, clubs, meetings, classes, and more can be done efficiently with an optimized and interactive dayplanner
 
- >#### Languages and Input/Output
+#### Languages and Input/Output
   > Chatplanner will be developed using C++.
 
   > Chatplanner is a textbot and will be executed through the terminal only.
 
   >Users may enter preferences, tasks, and times not available. Chatplanner will generate a potential schedule for the user with each run.
 
->#### Project Features:
+#### Project Features:
  >* generate non rigid schedule for a user based on user input
  >* ability to add, edit and delete tasks
  >* automatically categorize tasks
@@ -30,29 +30,17 @@ Chatplanner is an interactive task manager that can help users plan their daily 
  >* save schedule to a log.txt file
  >* look at past events
 
- > ## Phase II
- > In addition to completing the "User Interface Specification" and "Class Diagram" sections below, you will need to:
- > * Create an "Epic" (note) for each feature. Place these epics in the `Product Backlog` column
- > * Complete your first *sprint planning* meeting to plan out the next 7 days of work.
- >   * Break down the "Epics" into smaller actionable user stories (i.e. smaller development tasks). Convert them into issues and assign them to team members. Place these in the `TODO` (aka Sprint Backlog) column.
- >   * These cards should represent roughly 7 days worth of development time for your team. Then, once the sprint is over you should be repeating these steps to plan a new sprint, taking you until your second scrum meeting with the reader in phase III.
- > * Schedule two check-ins using Calendly. You need to pick both time slots on Tuesday of week 6. The check-ins will occur on Zoom. Your entire team must be present for both check-ins.
- >   * The first check-in needs to be scheduled with your lab TA. During that meeting, you will discuss your project design/class diagram from phase II.
- >   * The second check-in should be scheduled with a reader. During that meeting you will discuss:
- >     * The tasks you are planning for the first sprint
- >     * How work will be divided between the team members
 ## User Interface Specification
- > Include a navigation diagram for your screens and the layout of each of those screens as desribed below. For all the layouts/diagrams, you can use any tool such as PowerPoint or a drawing program. (Specification requirement is adapted from [this template](https://redirect.cs.umbc.edu/~mgrass2/cmsc345/Template_UI.doc))
 
 ### Navigation Diagram
-> Draw a diagram illustrating how the user can navigate from one screen to another. Here is an [example](https://creately.com/diagram/example/ikfqudv82/user-navigation-diagram-classic?r=v). It can be useful to label each symbol that represents a screen so that you can reference the screens in the next section or the rest of the document if necessary. Give a brief description of what the diagram represents.
+> ChatPlanner will begin by prompting users for perssonal scheduling preferences on one (text) screen within the terminal. The next screen will ask for an event and any associated details such as priority, description, etc. User may terminate task input and generate a schedule, go back to adding tasks (then regenerate), finish a task, or save the schedule to a personal file to terminate the program. 
 > ![chat planner navigation drawio](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/b11e76ce-82ed-44ba-b184-4041777f0267)
 
 ### Screen Layouts
 > Include the layout of each of your screens. The layout should describe the screen’s major components such as menus and prompts for user inputs, expected output, and buttons (if applicable). Explain what is on the layout, and the purpose of each menu item, button, etc. If many screens share the same layout, start by describing the general layout and then list the screens that will be using that layout and the differences between each of them.
 
 ## Class Diagram
- > Include a **class diagram(s)** for your project and a **description** of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
+> Users will be prompted for schedule preferences and their choices will be stored within a vector of bools within the RawInput class. Users will then create tasks from prompts described in the navigation diagram. Tasks will be objects of the event class, and stored in the "RawInput" class in an unsorted schedule of events. The Schedule class will use the unsorted RawInput::tasks vector to generate a sorted schedule of events specific to the users preferences, also stored in RawInput. The Display_schedule class is used for printing and design purposes for the user, as represented by the display/menu section of the navigation diagram. The schedule class may also use the Save-Schedule class to save a user's' most recently generated schedule to a .txt file and "end" the day. 
 > ![chat planner uml drawio](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/b34678e0-509a-420e-98fe-15a025f27af5)
  
  > ## Phase III
