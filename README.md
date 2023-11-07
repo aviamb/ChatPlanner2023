@@ -37,7 +37,6 @@ ChatPlanner will begin by prompting users for perssonal scheduling preferences o
 > ![chat planner navigation drawio](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/b11e76ce-82ed-44ba-b184-4041777f0267)
 
 ### Screen Layouts
-> Include the layout of each of your screens. The layout should describe the screen’s major components such as menus and prompts for user inputs, expected output, and buttons (if applicable). Explain what is on the layout, and the purpose of each menu item, button, etc. If many screens share the same layout, start by describing the general layout and then list the screens that will be using that layout and the differences between each of them.
 > ![screen layout](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/117532511/1235e14d-0b64-45bd-b6b6-eb39394dafec)
 
 ## Class Diagram
