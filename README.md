@@ -28,7 +28,7 @@ Marcel Relaford ([https://github.com/Mrela001](https://github.com/mouremr))
  >* ability to add, edit and delete tasks
  >* automatically categorize tasks
  >* ability to block out time that is currently busy
- >* ability to give schedule preferences (ex. night owl, early sleeper, procrastinator)
+ >* ability to ask for schedule preferences (ex. night owl, early sleeper, procrastinator)
  >* check off tasks as day goes on
  >* save schedule to a log.txt file
  >* look at past events
