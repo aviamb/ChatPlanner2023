@@ -1,29 +1,27 @@
- > As you complete each section you **must** remove the prompt text. Every *turnin* of this project includes points for formatting of this README so keep it clean and keep it up to date. 
- > Prompt text is any lines beginning with "\>"
- > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
-# ChatPlanner
+ # ChatPlanner
   > Authors: 
-Avia Bequette (https://github.com/aviamb)
-Sangha Jeon (https://github.com/sangha0822)
-Amber Lin ([https://github.com/Alin157](https://github.com/pilafnoodle))
-Marcel Relaford ([https://github.com/Mrela001](https://github.com/mouremr))
-
- > You will be forming a group of **FOUR** students and working on an interesting project. The project has 4 phases, each one with specific requirements. A list of proposed project ideas that have been successful in previous quarters is listed in the project specifications document on Canvas. You can select an idea from the list and start thinking about the features you will implement. If you want to propose your own original idea, you will have to contact your instructor to discuss the project and obtain written permission before you submit your project proposal (Phase 1). The project work should be divided almost equally among team members. You can of course help each other, but it needs to be clear who will be responsible for which features. Additionally, you are expected to follow Scrum patterns, specifically the use of a Scrum (Project) board, Sprints, and Scrum meetings.
-
- > ## Expectations
- > * The backend of your project should be implemented in C++. If you wish to choose anoher programming language (e.g. Java, Python), please discuss with your lab TA to obtain permission.
- > * You can incorporate additional technologies/tools but they must be approved (in writing) by the instructor or the TA.
- > * Each member of the group **must** be committing code regularly and make sure their code is correctly attributed to them. We will be checking attributions to determine if there was equal contribution to the project.
- > * **Each member of the group must actively participate in the Github Project board, writing unit tests, and reviewing commited code.**
-> * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group. You will need to hold two to three scrum/check-in meetings with your lab TA/reader at different times in addition to the final demo.
+  >Avia Bequette ([https://github.com/aviamb])
+  >Sangha Jeon ([https://github.com/sangha0822])
+  >Amber Lin ([https://github.com/pilafnoodle])
+  >Marcel Relaford ([https://github.com/mouremr])
 
 ## Project Description
- >We all use planners in order to make sure we keep track of what we need to do in a given day or week, and
- >being able to optimize that is something that would definetly be helpful for us as students. Sometimes we have too many
- >things to do, between club meetings, homework, and everything else, and being able to have suggestions of what order to do things in would help a lot.
- > This is NOT a rigid schedule planner where the user enters times and manually moves events around. This is a schedule suggester that organizing your tasks based on your preferences and what times you are already busy.
- > Everything will be done in C++ and through the terminal.  
- >project features:
+
+Chatplanner is an interactive task manager that can help users plan their daily schedule with just a few questions! Rather than a rigid schedule planner where the user manually organizes events, this is a schedule suggester that organizes your tasks based on your personal preferences and time restrictions throughout a day. 
+
+#### Why is this project important to us? 
+  >As students, we must have organized and optimized schedules. 
+
+  >Balancing homework, clubs, meetings, classes, and more can be done efficiently with an optimized and interactive dayplanner
+
+#### Languages and Input/Output
+  > Chatplanner will be developed using C++.
+
+  > Chatplanner is a textbot and will be executed through the terminal only.
+
+  >Users may enter preferences, tasks, and times not available. Chatplanner will generate a potential schedule for the user with each run.
+
+#### Project Features:
  >* generate non rigid schedule for a user based on user input
  >* ability to add, edit and delete tasks
  >* automatically categorize tasks
@@ -33,29 +31,17 @@ Marcel Relaford ([https://github.com/Mrela001](https://github.com/mouremr))
  >* save schedule to a log.txt file
  >* look at past events
 
- > ## Phase II
- > In addition to completing the "User Interface Specification" and "Class Diagram" sections below, you will need to:
- > * Create an "Epic" (note) for each feature. Place these epics in the `Product Backlog` column
- > * Complete your first *sprint planning* meeting to plan out the next 7 days of work.
- >   * Break down the "Epics" into smaller actionable user stories (i.e. smaller development tasks). Convert them into issues and assign them to team members. Place these in the `TODO` (aka Sprint Backlog) column.
- >   * These cards should represent roughly 7 days worth of development time for your team. Then, once the sprint is over you should be repeating these steps to plan a new sprint, taking you until your second scrum meeting with the reader in phase III.
- > * Schedule two check-ins using Calendly. You need to pick both time slots on Tuesday of week 6. The check-ins will occur on Zoom. Your entire team must be present for both check-ins.
- >   * The first check-in needs to be scheduled with your lab TA. During that meeting, you will discuss your project design/class diagram from phase II.
- >   * The second check-in should be scheduled with a reader. During that meeting you will discuss:
- >     * The tasks you are planning for the first sprint
- >     * How work will be divided between the team members
 ## User Interface Specification
- > Include a navigation diagram for your screens and the layout of each of those screens as desribed below. For all the layouts/diagrams, you can use any tool such as PowerPoint or a drawing program. (Specification requirement is adapted from [this template](https://redirect.cs.umbc.edu/~mgrass2/cmsc345/Template_UI.doc))
 
 ### Navigation Diagram
-> Draw a diagram illustrating how the user can navigate from one screen to another. Here is an [example](https://creately.com/diagram/example/ikfqudv82/user-navigation-diagram-classic?r=v). It can be useful to label each symbol that represents a screen so that you can reference the screens in the next section or the rest of the document if necessary. Give a brief description of what the diagram represents.
+ChatPlanner will begin by prompting users for perssonal scheduling preferences on one (text) screen within the terminal. The next screen will ask for an event and any associated details such as priority, description, etc. User may terminate task input and generate a schedule, go back to adding tasks (then regenerate), finish a task, or save the schedule to a personal file to terminate the program. 
 > ![chat planner navigation drawio](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/b11e76ce-82ed-44ba-b184-4041777f0267)
 
 ### Screen Layouts
-> Include the layout of each of your screens. The layout should describe the screen’s major components such as menus and prompts for user inputs, expected output, and buttons (if applicable). Explain what is on the layout, and the purpose of each menu item, button, etc. If many screens share the same layout, start by describing the general layout and then list the screens that will be using that layout and the differences between each of them.
+> ![screen layout](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/117532511/1235e14d-0b64-45bd-b6b6-eb39394dafec)
 
 ## Class Diagram
- > Include a **class diagram(s)** for your project and a **description** of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
+Users will be prompted for schedule preferences and their choices will be stored within a vector of bools within the RawInput class. Users will then create tasks from prompts described in the navigation diagram. Tasks will be objects of the event class, and stored in the "RawInput" class in an unsorted schedule of events. The Schedule class will use the unsorted RawInput::tasks vector to generate a sorted schedule of events specific to the users preferences, also stored in RawInput. The Display_schedule class is used for printing and design purposes for the user, as represented by the display/menu section of the navigation diagram. The schedule class may also use the Save-Schedule class to save a user's' most recently generated schedule to a .txt file and "end" the day. 
 > ![chat planner uml drawio](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/b34678e0-509a-420e-98fe-15a025f27af5)
  
  > ## Phase III
