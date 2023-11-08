@@ -3,6 +3,9 @@
 
 class Event{
     public:
+        void printTask();
+
+    private:
         string name;
         string category;
         int priority;
