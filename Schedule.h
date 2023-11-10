@@ -4,13 +4,10 @@
 #include "Event.h"
 
 class Schedule{
-    private:
-        std::vector<int> hours;
     public:
-    void Schedule::makeSchedule();
-
+        std::vector<Event> hours;
+    std::vector<Event> makeSchedule(std::vector<Event>);
 };
-
 
 
 #endif

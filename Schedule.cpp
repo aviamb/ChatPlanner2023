@@ -3,10 +3,9 @@
 #include <vector>
 
 class Schedule{
-    // private vector<event> hours[24];
-    private vector<int> = [1,2,3];
-    void Schedule::makeSchedule{
-        cout << "test";
-    }
+    public vector<Event> hours[24];
 }
 
+vector<Event> Schedule::makeSchedule(vector<Event> &input){
+    
+}
