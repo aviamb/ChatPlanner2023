@@ -3,9 +3,8 @@
 #include <vector>
 
 class Schedule{
-    public vector<Event> hours[24];
-}
-
-vector<Event> Schedule::makeSchedule(vector<Event> &input){
-    
-}
+    public: std::vector<Event> hours[24];
+    std::vector<Event> Schedule::makeSchedule(std::vector<Event> &rawinput){
+        return rawinput;
+    }
+};
