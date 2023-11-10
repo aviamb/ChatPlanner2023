@@ -5,8 +5,12 @@
 
 class Schedule{
     private:
-        std::vector<Event> hours[24];
+        std::vector<int> hours;
+    public:
+    void Schedule::makeSchedule();
+
 };
+
 
 
 #endif
