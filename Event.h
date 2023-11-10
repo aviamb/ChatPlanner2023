@@ -4,10 +4,10 @@
 
 class Event{
     public:
-        string name;
-        string category;
-        int priority;
-        string description; 
+        // string name;
+        // string category;
+        // int priority;
+        // string description; 
     
 };
 
