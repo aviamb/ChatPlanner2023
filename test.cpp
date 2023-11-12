@@ -4,10 +4,6 @@
 #include <vector>
 #include <string>
 
-class EventStub : public Event{
-
-}
-
 TEST(ScheduleTests, testScheduleCreation){
     vector<Event> e;
     Schedule s;
