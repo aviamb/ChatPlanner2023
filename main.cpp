@@ -6,22 +6,36 @@
 
 using namespace std;
 
+void printMenu(){
+    cout<<"press a to add another task and c to check off a task and s to save and end program"<<endl;
+}
+
 int main(){
 
-    //ask tasks
+    Schedule schedule;
+    RawInput rawInput;
 
-    //ask preferences
-
-    //while save==false
-    //display schedule
-    //print out menu
-    //if(add task)
-    //add task to next available slot in schedule
-    //if(checkoff task)
-    //set that tasks timeslot to none
-    //if(save)
-    //save to txt and end program
+    //ask for rawinput
+    schedule.taskList=rawInput.askTasks();
+    //as for tasks
+    schedule.preferences=rawInput.askPreferences();
     
+    char input;
+    cin>>input;
+    while(input!='s'){
+        s.displaySchedule();
+        //print out menu
+        printMenu();
+        cin>>input;
+        if(input==a){
+            s.addTask();
+        }else if(input==c){
+            s.checkOffTask();
+        }else if(input=s){
+            s.saveSchedule();
+        }
+
+    }
 
     return 1;
 };
