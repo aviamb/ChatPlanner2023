@@ -7,35 +7,38 @@
 using namespace std;
 
 void printMenu(){
-    cout<<"press a to add another task and c to check off a task and s to save and end program"<<endl;
+    cout<<"a: to add another task"<<endl;
+    cout<<"c: to check off a task"<<endl;
+    cout<<"s: to save and end program"<<endl;
 }
 
 int main(){
 
-    Schedule schedule;
+    Schedule s;
     RawInput rawInput;
 
-    //ask for rawinput
-    schedule.taskList=rawInput.askTasks();
-    //as for tasks
-    schedule.preferences=rawInput.askPreferences();
+    s.setTaskList(rawInput.askTasks());
+    s.setPreferences(rawInput.askPreferences());
     
     char input;
-    cin>>input;
+    Event dummy;
+
     while(input!='s'){
         s.displaySchedule();
         //print out menu
         printMenu();
         cin>>input;
-        if(input==a){
-            s.addTask();
-        }else if(input==c){
-            s.checkOffTask();
-        }else if(input=s){
+
+        if(input=='a'){
+            s.addTask(dummy);
+        }else if(input=='c'){
+            s.checkOffTask("dummy");
+        }else if(input=='s'){
             s.saveSchedule();
+            break;
+        }else{
+            cout<<"not a valid input, try again"<<endl;
         }
-
     }
-
     return 1;
 };
