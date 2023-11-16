@@ -34,8 +34,9 @@ Chatplanner is an interactive task manager that can help users plan their daily 
 ## User Interface Specification
 
 ### Navigation Diagram
-ChatPlanner will begin by prompting users for perssonal scheduling preferences on one (text) screen within the terminal. The next screen will ask for an event and any associated details such as priority, description, etc. User may terminate task input and generate a schedule, go back to adding tasks (then regenerate), finish a task, or save the schedule to a personal file to terminate the program. 
- ![chat planner navigation drawio](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/b11e76ce-82ed-44ba-b184-4041777f0267)
+ChatPlanner will begin by prompting users for perssonal scheduling preferences on one (text) screen within the terminal. The next screen will ask for an event and any associated details such as priority, description, etc. User may terminate task input and generate a schedule, go back to adding tasks (then regenerate), finish a task, or save the schedule to a personal file to terminate the program. ![chat planner drawio](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/fe5239cf-658d-4cfd-a7dc-830255050fd4)
+
+
 
 ### Screen Layouts
  ![screen layout](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/117532511/1235e14d-0b64-45bd-b6b6-eb39394dafec)
