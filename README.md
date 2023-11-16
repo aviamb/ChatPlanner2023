@@ -46,11 +46,6 @@ Users will be prompted for schedule preferences and their choices will be stored
 ![chat planner drawio](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/fe5239cf-658d-4cfd-a7dc-830255050fd4)
  
   ## Phase III
-  You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on Zoom and should be conducted by Wednesday of week 8.
- 
-  BEFORE the meeting you should do the following:
-  * Update your class diagram from Phase II to include any feedback you received from your TA/grader.
-  * Considering the SOLID design principles, reflect back on your class diagram and think about how you can use the SOLID principles to improve your design. You should then update the README.md file by adding the following:
   * We made the following changes to our class diagram:
   * Display_Schedule and Save_Schedule are now inside the Schedule class
      * We applied SRP in a reverse way to fix our Schedule class. Display and Save are functions that the Schedule class should be responsible for, and not their own classes. Now Schedule is responsible for all functions requiring a Schedule. This reduces the amount of classes we have and makes the UML and code easier to read. It also reduces the amount of times a vector has to be passed into functions during the program.
@@ -58,12 +53,6 @@ Users will be prompted for schedule preferences and their choices will be stored
      * We applied OCP to the schedule class. Before, we had these vectors inside a RawInput class (class to ask for user input). This meant that whenever we wanted to add another vector of variable for a preference(ie a boolean for whether or not you are a procrastinator) we had to change a member variable outside of Schedule. This is also an example of SRP because now RawInput only takes input, and Schedule is self contained with all the data it needs to run. This makes our code easier to debug and read because, for example, we don't have to pass in a taskList from an outside class when it should be accessible from Schedule itself.
   * Event is now an abstract base class with specific event classes derived from it
      * We applied ISP to the Event class. Before, every type of event(work, free, busy) had to have a priority and description field when that didn't make sense for events as a null event for time already busy. To solve this, instead of having a category member variable we made subtypes to keep track of the different types of events instead. This makes the code more organized as different kinds of events are defined by their object type, and not by a string member variable entered by the user.
-  *  
-    * A new class diagram incorporating your changes after considering the SOLID principles.
-    * For each update in your class diagram, you must explain in 3-4 sentences:
-      * What SOLID principle(s) did you apply?
-      * How did you apply it? i.e. describe the change.
-      * How did this change help you write better code?
   * Perform a new sprint plan like you did in Phase II.
   * You should also make sure that your README file (and Project board) are up-to-date reflecting the current status of your project and the most recent class diagram. Previous versions of the README file should still be visible through your commit history.
  
