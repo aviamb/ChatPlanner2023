@@ -34,7 +34,7 @@ Chatplanner is an interactive task manager that can help users plan their daily 
 ## User Interface Specification
 
 ### Navigation Diagram
-ChatPlanner will begin by prompting users for perssonal scheduling preferences on one (text) screen within the terminal. The next screen will ask for an event and any associated details such as priority, description, etc. User may terminate task input and generate a schedule, go back to adding tasks (then regenerate), finish a task, or save the schedule to a personal file to terminate the program. ![chat planner drawio](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/fe5239cf-658d-4cfd-a7dc-830255050fd4)
+ChatPlanner will begin by prompting users for perssonal scheduling preferences on one (text) screen within the terminal. The next screen will ask for an event and any associated details such as priority, description, etc. User may terminate task input and generate a schedule, go back to adding tasks (then regenerate), finish a task, or save the schedule to a personal file to terminate the program. 
 
 
 
@@ -43,7 +43,7 @@ ChatPlanner will begin by prompting users for perssonal scheduling preferences o
 
 ## Class Diagram
 Users will be prompted for schedule preferences and their choices will be stored within a vector of bools within the RawInput class. Users will then create tasks from prompts described in the navigation diagram. Tasks will be objects of the event class, and stored in the "RawInput" class in an unsorted schedule of events. The Schedule class will use the unsorted RawInput::tasks vector to generate a sorted schedule of events specific to the users preferences, also stored in RawInput. The Display_schedule class is used for printing and design purposes for the user, as represented by the display/menu section of the navigation diagram. The schedule class may also use the Save-Schedule class to save a user's' most recently generated schedule to a .txt file and "end" the day. 
- ![chat planner uml drawio](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/b34678e0-509a-420e-98fe-15a025f27af5)
+![chat planner drawio](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/fe5239cf-658d-4cfd-a7dc-830255050fd4)
  
   ## Phase III
   You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on Zoom and should be conducted by Wednesday of week 8.
