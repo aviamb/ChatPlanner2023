@@ -7,14 +7,10 @@ using namespace std;
 #include "Event.h"
 
 class RawInput{
-    private:
-    vector<Event> rawTaskList;
-    vector<bool> prefList;
-    
     public: 
     RawInput();
-    void askPreferences(); 
-    void askTasks(); 
+    vector<bool> askPreferences(); 
+    vector<Event> askTasks(); 
 };
 
 #endif

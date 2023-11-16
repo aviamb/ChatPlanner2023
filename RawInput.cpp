@@ -5,8 +5,9 @@ using namespace std;
 
 RawInput::RawInput() { }
 
-void RawInput::askPreferences()
+vector<bool> RawInput::askPreferences()
 {
+    vector<bool> prefList;
     string userInput = "";
 
     cout << "Do you not want to do nothing today? (Yes or No)" << endl;
@@ -17,7 +18,7 @@ void RawInput::askPreferences()
     {
         character = tolower(character);
     }
-    this->prefList.push_back(userInput == "yes"); // if the userInput is yes, it will add true, else otherwiese.
+    prefList.push_back(userInput == "yes"); // if the userInput is yes, it will add true, else otherwiese.
 
     if (userInput == "no") // if the user wants to do tasks today, then we ask the rest of the questions.
     {
@@ -28,7 +29,7 @@ void RawInput::askPreferences()
         {
             character = tolower(character);
         }
-        this->prefList.push_back(userInput == "yes");
+        prefList.push_back(userInput == "yes");
 
         cout << "Do you feel being silly today? (Yes or No)" << endl; // We flip the order to least important to most important
         cin >> userInput;
@@ -37,8 +38,10 @@ void RawInput::askPreferences()
         {
             character = tolower(character);
         }
-        this->prefList.push_back(userInput == "yes");
+        prefList.push_back(userInput == "yes");
     }
+    
+    return prefList;
     
     /*for(bool preference : prefList) //TestFunction to check inside the vector.
     {
@@ -54,8 +57,9 @@ void RawInput::askPreferences()
     */
 }
 
-void RawInput::askTasks() {
+vector<Event> RawInput::askTasks() {
     char userDecision;
+    vector<Event> rawTaskList;
 
     string name;
     string category;
@@ -87,10 +91,13 @@ void RawInput::askTasks() {
 
     } while (userDecision != 'q');
 
-    /*for (int i = 0; i < rawTaskList.size(); i++) {
+
+    /* for (int i = 0; i < rawTaskList.size(); i++) {
         rawTaskList.at(i).printTask();
-    }*/ //testing code
+    } */ //testing code
   
+    return rawTaskList;
+
 //function currently doesn't accomodate other constructors.
 //function currently doesn't use input validation.
 //function doesn't use getline yet.
