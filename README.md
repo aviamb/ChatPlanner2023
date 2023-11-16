@@ -51,6 +51,14 @@ Users will be prompted for schedule preferences and their choices will be stored
   BEFORE the meeting you should do the following:
   * Update your class diagram from Phase II to include any feedback you received from your TA/grader.
   * Considering the SOLID design principles, reflect back on your class diagram and think about how you can use the SOLID principles to improve your design. You should then update the README.md file by adding the following:
+  * We made the following changes to our class diagram:
+  * Display_Schedule and Save_Schedule are now inside the Schedule class
+  * -//what principle is this
+  * Schedule now contains 3 vectors, a list of tasks, a list of hours and a list of preferences
+  * -We applied OCP to the schedule class. Before, we had these vectors inside a RawInput class (class to ask for user input). This meant that whenever we wanted to add another vector of variable for a preference(ie a boolean for whether or not you are a procrastinator) we had to change a member variable outside of Schedule. This is also an example of SRP because now RawInput only takes input, and Schedule is self contained with all the data it needs to run.
+  * Event is now an abstract base class with specific event classes derived from it
+  * -We applied ISP to the Event class. Before, every type of event(work, free, busy) had to have a priority and description field when that didn't make sense for events as a null event for time already busy. To solve this, instead of having a category member variable we made subtypes to keep track of the different types of events instead. 
+  *  
     * A new class diagram incorporating your changes after considering the SOLID principles.
     * For each update in your class diagram, you must explain in 3-4 sentences:
       * What SOLID principle(s) did you apply?
