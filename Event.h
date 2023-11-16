@@ -7,14 +7,30 @@ using namespace std;
 
 class Event{
     public:
-        void printTask();
-
-    private:
+        Event();
+        virtual void printEvent();
+    protected:
         string name;
-        string category;
+        string description;
+};
+
+class Work: public Event{
+    public:
+        void printEvent();
+        Work(string,int,string);
         int priority;
-        string description; 
-    
+};
+
+class Leisure: public Event{
+    public:
+        void printEvent();
+        Leisure(string,string);
+};
+
+class Taken: public Event{
+    public:
+        void printEvent();
+        Taken();
 };
 
 #endif

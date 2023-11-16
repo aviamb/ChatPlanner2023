@@ -14,19 +14,28 @@ void printMenu(){
 
 int main(){
 
+    // Event e();
+    // Work w("do hw",2,"i hate hw");
+    // Leisure l("go to the mall","going with bill to get pastrami");
+    // Taken t;
+    // w.printEvent();
+    // l.printEvent();
+    // t.printEvent();
+    // return 1;
+
+    char input;
+    Event dummy;
     Schedule s;
     RawInput rawInput;
 
     s.setTaskList(rawInput.askTasks());
     s.setPreferences(rawInput.askPreferences());
-    
-    char input;
-    Event dummy;
 
     while(input!='s'){
+
         s.displaySchedule();
-        //print out menu
         printMenu();
+
         cin>>input;
 
         if(input=='a'){
