@@ -2,22 +2,37 @@
 #define __EVENT_H__
 
 #include <string>
+#include <iostream>
 using namespace std;
 
 class Event{
-    public:        
-        Event(string name, string category,int priority,string description);
-        Event(string name, string category,int priority);
-        Event(string name, string category);
-        Event(string name);
+    public:
         Event();
-        void printTask();
-    private: 
+        virtual void printEvent(){}
+        string getName();
+        string getDescription();
+    protected:
         string name;
-        string category;
+        string description;
+};
+
+class Work: public Event{
+    public:
+        void printEvent();
+        Work(string,int,string);
         int priority;
-        string description; 
-    
+};
+
+class Leisure: public Event{
+    public:
+        void printEvent();
+        Leisure(string,string);
+};
+
+class Taken: public Event{
+    public:
+        void printEvent();
+        Taken();
 };
 
 #endif

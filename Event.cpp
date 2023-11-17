@@ -1,48 +1,48 @@
 #include "Event.h"
 #include <iostream>
 using namespace std;
+Event::Event(){
+    this->name="dummy";
+    this->description="dummy description";
+}
 
-Event::Event(string name, string category,int priority,string description){
+string Event::getName(){
+    return name;
+}
+string Event::getDescription(){
+    return description;
+}
+
+Work::Work(string name,int priority,string description){ //Default constructor 
     this->name=name;
-    this->category=category;
     this->priority=priority;
     this->description=description;
 }
+void Work::printEvent(){
+    cout<<"* "<<name<<" *"<<endl;
+    cout<<"- "<<description<<" - ";
+    if(priority=1){
+        cout<<"high priority"<<endl;
+    } else if(priority=2){
+        cout<<"middle priority"<<endl;
+    }else{
+        cout<<"low priority"<<endl;
+    }
+}
 
-Event::Event(string name, string category,int priority){
+Leisure::Leisure(string name, string description){
     this->name=name;
-    this->category=category;
-    this->priority=priority;
+    this->description=description;
+}
+void Leisure::printEvent(){
+    cout<<"* "<<name<<" *"<<endl;
+    cout<<"- "<<description<<" -"<<endl; 
+}
+Taken::Taken(){
+    this->name="";
     this->description="";
 }
-
-Event::Event(string name, string category){
-    this->name=name;
-    this->category=category;
-    if(category=="work"){
-        this->priority=1;
-    }else{
-        this->priority=3;
-    }
-    this->description="none";
+void Taken::printEvent(){
+    cout<<"-------------------"<<endl;
 }
 
-Event::Event(string name){
-    this->name=name;
-    this->category="uncategorized";
-    this->priority=3;
-    this->description="none";
-}
-
-Event::Event(){
-    this->name="null event";
-    this->category="uncategorized";
-    this->priority=3;
-    this->description="none";
-}
-
-void Event::printTask(){
-    cout<<"*"<<name<<"*"<<endl;
-    cout<<"-"<<description<<"-"<<endl;
-}
- 
