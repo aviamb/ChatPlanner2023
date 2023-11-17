@@ -35,6 +35,7 @@ class Schedule{
         vector<Event>taskList;
         vector<Event>hours;
         vector<bool>preferences;
+        
     
 };
 

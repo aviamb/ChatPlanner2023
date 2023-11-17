@@ -12,16 +12,11 @@ void printMenu(){
     cout<<"s: to save and end program"<<endl;
 }
 
+// int main(int argc, char **argv){
+//     ::testing::InitGoogleTest(&argc,argv);
+//     return RUN_ALL_TESTS();
+// }
 int main(){
-
-    // Event e();
-    // Work w("do hw",2,"i hate hw");
-    // Leisure l("go to the mall","going with bill to get pastrami");
-    // Taken t;
-    // w.printEvent();
-    // l.printEvent();
-    // t.printEvent();
-    // return 1;
 
     char input;
     Event dummy;

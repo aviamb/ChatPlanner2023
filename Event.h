@@ -8,7 +8,9 @@ using namespace std;
 class Event{
     public:
         Event();
-        virtual void printEvent();
+        virtual void printEvent(){}
+        string getName();
+        string getDescription();
     protected:
         string name;
         string description;

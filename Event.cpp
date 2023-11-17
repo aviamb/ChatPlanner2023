@@ -5,9 +5,11 @@ Event::Event(){
     this->description="dummy description";
 }
 
-void Event::printEvent(){
-    // cout<<"*"<<name<<"*"<<endl;
-    // cout<<"-"<<description<<"-"<<endl;
+string Event::getName(){
+    return name;
+}
+string Event::getDescription(){
+    return description;
 }
 
 Work::Work(string name,int priority,string description){ //Default constructor 
@@ -17,7 +19,6 @@ Work::Work(string name,int priority,string description){ //Default constructor
 }
 void Work::printEvent(){
     cout<<"* "<<name<<" *"<<endl;
-
     cout<<"- "<<description<<" - ";
     if(priority=1){
         cout<<"high priority"<<endl;
@@ -36,10 +37,10 @@ void Leisure::printEvent(){
     cout<<"* "<<name<<" *"<<endl;
     cout<<"- "<<description<<" -"<<endl; 
 }
-
 Taken::Taken(){
+    this->name="";
+    this->description="";
 }
-
 void Taken::printEvent(){
     cout<<"-------------------"<<endl;
 }
