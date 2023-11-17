@@ -1,5 +1,6 @@
 #include "Event.h"
-
+#include <iostream>
+using namespace std;
 Event::Event(){
     this->name="dummy";
     this->description="dummy description";
@@ -45,4 +46,3 @@ void Taken::printEvent(){
     cout<<"-------------------"<<endl;
 }
 
- 
