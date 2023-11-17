@@ -6,15 +6,17 @@
 using namespace std;
 
     // public: std::vector<Event> hours[24];
-vector<Event> Schedule::makeSchedule(vector<Event> &taskList){
+vector<Event> Schedule::makeSchedule(){
     hours = taskList;
     return hours;
 }
 
-void Schedule::displaySchedule(){
+ostream Schedule::displaySchedule(){
+    ostream s;
     for(int i = 0; i < hours.size(); i++){
-        cout << "hour " << i << ":00 - " << hours[i].getName();
+        return s << "hour " << i << ":00 - " << schedule[i].getName();
     }
+
 }
 
 void Schedule::displayDetailedSchedule(){
@@ -24,12 +26,26 @@ void Schedule::displayDetailedSchedule(){
     }
 }
 
-void Schedule::writeToFile(){
+void Schedule::saveSchedule(){
 
 }
 
+void Schedule::checkOffTask(string taskName){
+
+}
+
+void Schedule::setTaskList(vector<Event> e){
+    taskList = e;
+}
+void Schedule::setPreferences(vector<bool> p){
+        preferences = p;
+}
+        
+void addTask(Event);
+
 Schedule::Schedule(){
-    vector<Event> hours;
-    vector<bool> prefrences;
-    vector<int> priority;
+    // vector<Event> hours;
+    // vector<bool> preferences;
+    // vector<int> priority;
+    // vector<Event> taskList;
 }

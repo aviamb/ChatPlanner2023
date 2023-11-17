@@ -4,17 +4,25 @@
 #include <string>
 #include "Event.h"
 
+using namespace std;
+
 class Schedule{
+    private:
+        vector<Event> hours;
+        vector<bool> preferences;
+        vector<int> priority;
+        vector<Event> taskList;
     public:
-        std::vector<Event> hours;
-        std::vector<std::string> prefrences;
-        std::vector<int> priority;
-        
-        std::vector<Event> makeSchedule(std::vector<Event> &e);
-        void displaySchedule();
+        vector<Event> makeSchedule();
+        ostream displaySchedule();
         void displayDetailedSchedule();
-        void writeToFile();
+        void saveSchedule();
+        void checkOffTask(string taskName);
         Schedule();
+        void setTaskList(vector<Event> e);
+        void setPreferences(vector<bool>);
+        void addTask(Event);
+
 };
 
 

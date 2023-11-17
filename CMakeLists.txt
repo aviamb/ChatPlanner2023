@@ -6,6 +6,7 @@ ADD_EXECUTABLE(test
     test.cpp
     Schedule.cpp
     Event.cpp
+    main.cpp
 )
 
 TARGET_LINK_LIBRARIES(test gtest)

@@ -7,14 +7,23 @@
 using namespace std;
 
 TEST(ScheduleTests, testScheduleCreation){
-    vector<Event> e;
+    Event e;
+    vector<Event> vectorOfE = {e};
     Schedule s;
-    EXPECT_EQ(s.makeSchedule(e).size(),0);
+    s.setTaskList(vectorOfE);
+    EXPECT_EQ(s.makeSchedule().size(),1);
 }
 
-// TEST(ScheduleTests, testScheduleDisplay){
-//     vector<Event> e = [Event(), Event(), Event()];
-// }
+TEST(ScheduleTests, testScheduleDisplay){
+    // Event e;
+    // vector<Event> vectorOfE = {e};
+    // Schedule s;
+    // ostream h;
+    // h = s.displaySchedule()
+    // s.setTaskList(vectorOfE);
+
+    // EXPECT_EQ(h,cout << "hour 1:00 - dummy");
+}
 
 int main(int argc, char **argv){
     ::testing::InitGoogleTest(&argc,argv);
