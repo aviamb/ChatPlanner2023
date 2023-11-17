@@ -1,5 +1,7 @@
 #ifndef __EVENT_H__
 #define __EVENT_H__
+#include <vector>
+#include <string>
 
 
 class Event{
@@ -7,8 +9,10 @@ class Event{
         // string name;
         // string category;
         // int priority;
-        // string description; 
-    
+        // string description;
+        string getName();
+        string printEvent();
+        Event();
 };
 
 #endif

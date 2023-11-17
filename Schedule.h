@@ -11,6 +11,9 @@ class Schedule{
         std::vector<int> priority;
         
         std::vector<Event> makeSchedule(std::vector<Event> &e);
+        void displaySchedule();
+        void displayDetailedSchedule();
+        void writeToFile();
         Schedule();
 };
 

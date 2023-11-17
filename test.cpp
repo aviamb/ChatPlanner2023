@@ -7,10 +7,14 @@
 using namespace std;
 
 TEST(ScheduleTests, testScheduleCreation){
-    std::vector<Event> e;
+    vector<Event> e;
     Schedule s;
     EXPECT_EQ(s.makeSchedule(e).size(),0);
 }
+
+// TEST(ScheduleTests, testScheduleDisplay){
+//     vector<Event> e = [Event(), Event(), Event()];
+// }
 
 int main(int argc, char **argv){
     ::testing::InitGoogleTest(&argc,argv);
