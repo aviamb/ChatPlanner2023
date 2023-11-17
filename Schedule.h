@@ -9,8 +9,9 @@ class Schedule{
         std::vector<Event> hours;
         std::vector<std::string> prefrences;
         std::vector<int> priority;
-
-    std::vector<Event> makeSchedule(std::vector<Event>);
+        
+        std::vector<Event> makeSchedule(std::vector<Event> &e);
+        Schedule();
 };
 
 

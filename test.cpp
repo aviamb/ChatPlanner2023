@@ -3,6 +3,8 @@
 #include "Event.h"
 #include <vector>
 #include <string>
+#include <iostream>
+using namespace std;
 
 TEST(ScheduleTests, testScheduleCreation){
     std::vector<Event> e;

@@ -2,7 +2,16 @@
 #include "Event.h"
 #include <vector>
 
+using namespace std;
+
     // public: std::vector<Event> hours[24];
-std::vector<Event> Schedule::makeSchedule(std::vector<Event> taskList){
+vector<Event> Schedule::makeSchedule(vector<Event> &taskList){
     hours = taskList;
+    return hours;
+}
+
+Schedule::Schedule(){
+    vector<Event> hours;
+    vector<string> prefrences;
+    vector<int> priority;
 }
