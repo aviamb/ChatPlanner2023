@@ -2,6 +2,7 @@
 #include "Event.h"
 #include <vector>
 #include <iostream>
+#include <sstream>
 
 using namespace std;
 
@@ -11,11 +12,14 @@ vector<Event> Schedule::makeSchedule(){
     return hours;
 }
 
-ostream Schedule::displaySchedule(){
-    ostream s;
+string Schedule::displaySchedule(){
+    string s;
     for(int i = 0; i < hours.size(); i++){
-        return s << "hour " << i << ":00 - " << schedule[i].getName();
+        s = s + "hour " + to_string(i) + ":00 - " + hours[i].getName();
+        endl(cout);
     }
+    cout << s;
+    return s;
 
 }
 

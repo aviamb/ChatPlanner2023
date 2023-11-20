@@ -15,14 +15,13 @@ TEST(ScheduleTests, testScheduleCreation){
 }
 
 TEST(ScheduleTests, testScheduleDisplay){
-    // Event e;
-    // vector<Event> vectorOfE = {e};
-    // Schedule s;
-    // ostream h;
-    // h = s.displaySchedule()
-    // s.setTaskList(vectorOfE);
-
-    // EXPECT_EQ(h,cout << "hour 1:00 - dummy");
+    Event e;
+    Event f;
+    vector<Event> vectorOfE = {e, f};
+    Schedule s;
+    s.setTaskList(vectorOfE);
+    s.makeSchedule();
+    EXPECT_EQ(s.displaySchedule(),"hour 0:00 - dummyhour 1:00 - dummy");
 }
 
 int main(int argc, char **argv){

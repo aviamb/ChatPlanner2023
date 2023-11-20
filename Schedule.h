@@ -14,7 +14,7 @@ class Schedule{
         vector<Event> taskList;
     public:
         vector<Event> makeSchedule();
-        ostream displaySchedule();
+        string displaySchedule();
         void displayDetailedSchedule();
         void saveSchedule();
         void checkOffTask(string taskName);
