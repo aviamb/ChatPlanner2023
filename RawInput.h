@@ -12,8 +12,8 @@ class RawInput{
     
     public: 
     RawInput();
-    void askPreferences(); 
-    void askTasks(); 
+    vector<bool> askPreferences(); 
+    vector<Event> askTasks(); 
 };
 
 #endif

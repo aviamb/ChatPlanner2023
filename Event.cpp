@@ -1,5 +1,6 @@
 #include "Event.h"
 #include <iostream>
+#include <fstream>
 using namespace std;
 Event::Event(){
     this->name="dummy";
@@ -18,31 +19,40 @@ Work::Work(string name,int priority,string description){ //Default constructor
     this->priority=priority;
     this->description=description;
 }
-void Work::printEvent(){
-    cout<<"* "<<name<<" *"<<endl;
-    cout<<"- "<<description<<" - ";
+ostream Work::printEvent(){
+    ostream s;
+    s<<"* "<<name<<" *"<<endl;
+    s<<"- "<<description<<" - ";
     if(priority=1){
-        cout<<"high priority"<<endl;
+        s<<"high priority"<<endl;
     } else if(priority=2){
-        cout<<"middle priority"<<endl;
+        s<<"middle priority"<<endl;
     }else{
-        cout<<"low priority"<<endl;
+        s<<"low priority"<<endl;
     }
+    return s;
 }
 
 Leisure::Leisure(string name, string description){
     this->name=name;
     this->description=description;
 }
-void Leisure::printEvent(){
-    cout<<"* "<<name<<" *"<<endl;
-    cout<<"- "<<description<<" -"<<endl; 
+ostream Leisure::printEvent(){
+    ostream s;
+    s<<"* "<<name<<" *"<<endl;
+    s<<"- "<<description<<" -"<<endl; 
+    return s;
+
 }
 Taken::Taken(){
     this->name="";
     this->description="";
 }
-void Taken::printEvent(){
-    cout<<"-------------------"<<endl;
+ostream Taken::printEvent(){
+    ostream s;
+
+    s<<"-------------------"<<endl;
+    return s;
+
 }
 

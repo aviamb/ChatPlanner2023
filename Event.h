@@ -3,12 +3,13 @@
 
 #include <string>
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 class Event{
     public:
         Event();
-        virtual void printEvent(){}
+        virtual ostream printEvent();
         string getName();
         string getDescription();
     protected:
@@ -18,20 +19,20 @@ class Event{
 
 class Work: public Event{
     public:
-        void printEvent();
+        ostream printEvent();
         Work(string,int,string);
         int priority;
 };
 
 class Leisure: public Event{
     public:
-        void printEvent();
+        ostream printEvent();
         Leisure(string,string);
 };
 
 class Taken: public Event{
     public:
-        void printEvent();
+        ostream printEvent();
         Taken();
 };
 
