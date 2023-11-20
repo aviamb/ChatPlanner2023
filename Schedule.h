@@ -28,9 +28,8 @@ class Schedule{
             cout<<"schedule should display here"<<endl;
         }
 
-        void saveSchedule(){
-            cout<<"schedule should be written to txt and program exited"<<endl;
-        }
+        void saveSchedule();
+        
     private:
         vector<Event>taskList;
         vector<Event>hours;

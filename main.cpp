@@ -21,10 +21,13 @@ int main(){
     char input;
     Event dummy;
     Schedule s;
-    RawInput rawInput;
+    // RawInput rawInput;
+    s.
 
-    s.setTaskList(rawInput.askTasks());
-    s.setPreferences(rawInput.askPreferences());
+    return 0;
+
+    // s.setTaskList(rawInput.askTasks());
+    // s.setPreferences(rawInput.askPreferences());
 
     while(input!='s'){
 
