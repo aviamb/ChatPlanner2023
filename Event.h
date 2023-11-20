@@ -8,8 +8,8 @@ using namespace std;
 
 class Event{
     public:
-        Event();
-        virtual ostream printEvent();
+        Event(){}
+        virtual void printEvent(){}
         string getName();
         string getDescription();
     protected:
@@ -19,20 +19,20 @@ class Event{
 
 class Work: public Event{
     public:
-        ostream printEvent();
+        void printEvent();
         Work(string,int,string);
         int priority;
 };
 
 class Leisure: public Event{
     public:
-        ostream printEvent();
+        void printEvent();
         Leisure(string,string);
 };
 
 class Taken: public Event{
     public:
-        ostream printEvent();
+        void printEvent();
         Taken();
 };
 

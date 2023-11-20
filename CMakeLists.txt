@@ -1,12 +1,14 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.0)
+
 ADD_SUBDIRECTORY(googletest)
 
-ADD_EXECUTABLE(runAllTests
+ADD_EXECUTABLE(test
     test.cpp
     Schedule.cpp
     Event.cpp
+    main.cpp
     RawInput.cpp
 )
 
-TARGET_LINK_LIBRARIES(runAllTests gtest)
-TARGET_COMPILE_DEFINITIONS(runAllTests PRIVATE gtest_disable_pthreads=ON)
+TARGET_LINK_LIBRARIES(test gtest)
+TARGET_COMPILE_DEFINITIONS(test PRIVATE gtest_disable_pthreads=ON)

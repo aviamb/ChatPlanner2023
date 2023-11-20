@@ -12,22 +12,19 @@ void printMenu(){
     cout<<"s: to save and end program"<<endl;
 }
 
-// int main(int argc, char **argv){
-//     ::testing::InitGoogleTest(&argc,argv);
-//     return RUN_ALL_TESTS();
-// }
+int main(int argc, char **argv){
+    ::testing::InitGoogleTest(&argc,argv);
+    return RUN_ALL_TESTS();
+}
 int main(){
 
     char input;
     Event dummy;
     Schedule s;
-    // RawInput rawInput;
-    s.
+    RawInput rawInput;
 
-    return 0;
-
-    // s.setTaskList(rawInput.askTasks());
-    // s.setPreferences(rawInput.askPreferences());
+    s.setTaskList(rawInput.askTasks());
+    s.setPreferences(rawInput.askPreferences());
 
     while(input!='s'){
 
