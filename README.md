@@ -12,7 +12,7 @@ Chatplanner is an interactive task manager that can help users plan their daily 
 #### Why is this project important to us? 
   As students, we must have organized and optimized schedules. 
 
-  Balancing homework, clubs, meetings, classes, and more can be done efficiently with an optimized and interactive dayplanner
+  Balancing homework, clubs, meetings, classes, and more can be done efficiently with an optimized and interactive dayplanner.
 
 #### Languages and Input/Output
   Chatplanner will be developed using C++.
@@ -34,9 +34,7 @@ Chatplanner is an interactive task manager that can help users plan their daily 
 ## User Interface Specification
 
 ### Navigation Diagram
-ChatPlanner will begin by prompting users for perssonal scheduling preferences on one (text) screen within the terminal. The next screen will ask for an event and any associated details such as priority, description, etc. User may terminate task input and generate a schedule, go back to adding tasks (then regenerate), finish a task, or save the schedule to a personal file to terminate the program. 
-
-
+ChatPlanner will begin by prompting users for personal scheduling preferences on one (text) screen within the terminal. The next screen will ask for an event and any associated details such as priority, description, etc. User may terminate task input and generate a schedule, go back to adding tasks (then regenerate), finish a task, or save the schedule to a personal file to terminate the program. 
 
 ### Screen Layouts
  ![screen layout](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/117532511/1235e14d-0b64-45bd-b6b6-eb39394dafec)
@@ -53,6 +51,7 @@ Users will be prompted for schedule preferences and their choices will be stored
      * We applied OCP to the schedule class. Before, we had these vectors inside a RawInput class (class to ask for user input). This meant that whenever we wanted to add another vector of variable for a preference(ie a boolean for whether or not you are a procrastinator) we had to change a member variable outside of Schedule. This is also an example of SRP because now RawInput only takes input, and Schedule is self contained with all the data it needs to run. This makes our code easier to debug and read because, for example, we don't have to pass in a taskList from an outside class when it should be accessible from Schedule itself.
   * Event is now an abstract base class with specific event classes derived from it
      * We applied ISP to the Event class. Before, every type of event(work, free, busy) had to have a priority and description field when that didn't make sense for events as a null event for time already busy. To solve this, instead of having a category member variable we made subtypes to keep track of the different types of events instead. This makes the code more organized as different kinds of events are defined by their object type, and not by a string member variable entered by the user.
+     
   * Perform a new sprint plan like you did in Phase II.
   * You should also make sure that your README file (and Project board) are up-to-date reflecting the current status of your project and the most recent class diagram. Previous versions of the README file should still be visible through your commit history.
  
