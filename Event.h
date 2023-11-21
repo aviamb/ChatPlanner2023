@@ -9,7 +9,7 @@ using namespace std;
 class Event{
     public:
         Event(){}
-        virtual void printEvent(){}
+        virtual void printEvent(ostream & out){}
         string getName();
         string getDescription();
     protected:
@@ -19,20 +19,20 @@ class Event{
 
 class Work: public Event{
     public:
-        void printEvent();
+        void printEvent(ostream & out);
         Work(string,int,string);
         int priority;
 };
 
 class Leisure: public Event{
     public:
-        void printEvent();
+        void printEvent(ostream & out);
         Leisure(string,string);
 };
 
 class Taken: public Event{
     public:
-        void printEvent();
+        void printEvent(ostream & out);
         Taken();
 };
 

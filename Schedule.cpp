@@ -7,7 +7,6 @@ using namespace std;
 
 
 void Schedule::saveSchedule(){
-    //open file
     ofstream outFS;
     string str;
     outFS.open("log.txt");
@@ -40,7 +39,7 @@ string Schedule::displaySchedule(){
 void Schedule::displayDetailedSchedule(){
     for(int i = 0; i < hours.size(); i++){
         cout << "hour " << i << ":00 - ";
-        hours[i].printEvent();
+        hours[i].printEvent(cout);
     }
 }
 
