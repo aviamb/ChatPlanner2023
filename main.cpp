@@ -3,6 +3,8 @@
 #include "RawInput.h"
 #include <iostream>
 #include <string>
+//  #include "gtest/gtest.h"
+
 
 using namespace std;
 
@@ -12,19 +14,34 @@ void printMenu(){
     cout<<"s: to save and end program"<<endl;
 }
 
-int main(int argc, char **argv){
-    ::testing::InitGoogleTest(&argc,argv);
-    return RUN_ALL_TESTS();
-}
+// int main(int argc, char **argv){
+//     // ::testing::InitGoogleTest(&argc,argv);
+//     // return RUN_ALL_TESTS();
+// }
 int main(){
 
     char input;
     Event dummy;
     Schedule s;
-    RawInput rawInput;
+    // RawInput rawInput;
 
-    s.setTaskList(rawInput.askTasks());
-    s.setPreferences(rawInput.askPreferences());
+    Work w1("hw",2,"due tomorrow");
+    Work w2("mow lawn",1,"ew");
+    Work w3("study",2,"due in two days");
+
+    s.addTask(w1);
+    s.addTask(w2);
+    s.addTask(w3);
+
+    s.makeSchedule();
+
+    s.saveSchedule();
+  
+
+    return 0;
+
+    // s.setTaskList(rawInput.askTasks());
+    // s.setPreferences(rawInput.askPreferences());
 
     while(input!='s'){
 

@@ -44,10 +44,6 @@ void Schedule::displayDetailedSchedule(){
     }
 }
 
-void Schedule::saveSchedule(){
-
-}
-
 void Schedule::checkOffTask(string taskName){
 
 }
@@ -59,7 +55,10 @@ void Schedule::setPreferences(vector<bool> p){
         preferences = p;
 }
         
-void addTask(Event);
+void Schedule::addTask(Event e){
+    taskList.push_back(e);
+
+}
 
 Schedule::Schedule(){
     // vector<Event> hours;
