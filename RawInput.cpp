@@ -57,48 +57,65 @@ vector<bool> RawInput::askPreferences()
     */
 }
 
-vector<Event> RawInput::askTasks() {
+vector<Event *> RawInput::askTasks() {
     char userDecision;
-    vector<Event> rawTaskList;
+    vector<Event *> rawTaskList;
 
     string name;
-    string category;
+    char category;
     string description;
-    int priority;
+    int priority = 0;
 
     do {
         cout << "Enter task name: ";
-        cin >> name;
-        cout << endl;
-
-        cout << "Enter task category: ";
-        cin >> category;
-        cout << endl; 
-
-        cout << "Enter task priority (1 = most, 5 = least): " ;
-        cin >> priority;
+        getline(cin, name);
         cout << endl;
 
         cout << "Enter task description: ";
-        cin >> description;
+        getline(cin >> ws, description);
+        cout << endl;
 
-        Event currEvent(name, category, priority, description);
-        rawTaskList.push_back(currEvent);
+        cout << "Is this task work-related? (y/n): ";
+        
+        while (cin >> category) {
+            if (category == 'y' || category == 'Y') {
+                cout << "Enter task priority (1 = most, 3 = least): " ;
 
+                while (cin >> priority) {
+                    if (priority >= 1 && priority <= 3) {
+                        Work *currWorkEvent = new Work(name, priority, description);
+                        rawTaskList.push_back(currWorkEvent);
+                        break;
+                    }
+                    else {
+                        cout << "Not a valid input. " << endl;
+                        cout << "Enter task priority (1 = most, 3 = least): ";
+                    }
+                }
+                //break;
+            } else if (category == 'n' || category == 'N') {
+                Leisure *currLeisureEvent = new Leisure(name, description);
+                rawTaskList.push_back(currLeisureEvent);
+                break;
+            } else {
+                cout << "Not a valid input. " << endl;
+                cout << "Is this task work-related? (y/n): ";
+            }
+            cin.clear();
+            break;
+        }
+        
+        cout << "Task added successfully!" << endl;
         cout << "Press q to quit. Any other key to continue. . ." << endl;
         cin >> userDecision;
         cout << endl;
+        cin.ignore();
+    } while (userDecision != 'q' && userDecision != 'Q');
 
-    } while (userDecision != 'q');
 
-
-    /* for (int i = 0; i < rawTaskList.size(); i++) {
-        rawTaskList.at(i).printTask();
-    } */ //testing code
+     for (int i = 0; i < rawTaskList.size(); i++) {
+        rawTaskList.at(i)->printEvent();
+    }  //testing code
   
     return rawTaskList;
-
-//function currently doesn't accomodate other constructors.
-//function currently doesn't use input validation.
-//function doesn't use getline yet.
 }

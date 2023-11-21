@@ -10,7 +10,7 @@ class RawInput{
     public: 
     RawInput();
     vector<bool> askPreferences(); 
-    vector<Event> askTasks(); 
+    vector<Event*> askTasks(); 
 };
 
 #endif
