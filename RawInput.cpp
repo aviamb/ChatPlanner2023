@@ -116,10 +116,10 @@ vector<Event *> RawInput::askTasks() {
     } while (userDecision != 'q' && userDecision != 'Q');
 
 
-     for (int i = 0; i < rawTaskList.size(); i++) {
+     /*for (int i = 0; i < rawTaskList.size(); i++) {
         rawTaskList.at(i)->printEvent();
         cout << endl;
-    }  //testing code
+    }  //testing code */
   
     return rawTaskList;
 }
