@@ -81,28 +81,31 @@ vector<Event *> RawInput::askTasks() {
             if (category == 'y' || category == 'Y') {
                 cout << "Enter task priority (1 = most, 3 = least): " ;
 
-                while (cin >> priority) {
-                    if (priority >= 1 && priority <= 3) {
-                        Work *currWorkEvent = new Work(name, priority, description);
-                        rawTaskList.push_back(currWorkEvent);
-                        break;
-                    }
-                    else {
-                        cout << "Not a valid input. " << endl;
-                        cout << "Enter task priority (1 = most, 3 = least): ";
-                    }
+                cin >> priority;
+                while (cin.fail() || (priority < 1 || priority > 3)) {
+                    cout << "Not a valid input. " << endl;
+                    cout << "Enter task priority (1 = most, 3 = least): ";
+                    cin.clear();
+                    cin.ignore();
+                    cin >> priority;
+                    cout << endl;
                 }
-                //break;
-            } else if (category == 'n' || category == 'N') {
+
+                Work *currWorkEvent = new Work(name, priority, description);
+                rawTaskList.push_back(currWorkEvent);
+                break;
+            } 
+            else if (category == 'n' || category == 'N') {
                 Leisure *currLeisureEvent = new Leisure(name, description);
                 rawTaskList.push_back(currLeisureEvent);
                 break;
-            } else {
+            } 
+            else {
                 cout << "Not a valid input. " << endl;
                 cout << "Is this task work-related? (y/n): ";
             }
             cin.clear();
-            break;
+            //break;
         }
         
         cout << "Task added successfully!" << endl;
@@ -115,6 +118,7 @@ vector<Event *> RawInput::askTasks() {
 
      for (int i = 0; i < rawTaskList.size(); i++) {
         rawTaskList.at(i)->printEvent();
+        cout << endl;
     }  //testing code
   
     return rawTaskList;
