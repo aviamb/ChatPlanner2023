@@ -14,16 +14,14 @@ void printMenu(){
     cout<<"s: to save and end program"<<endl;
 }
 
-// int main(int argc, char **argv){
-//     // ::testing::InitGoogleTest(&argc,argv);
-//     // return RUN_ALL_TESTS();
-// }
+
 int main(){
 
     char input;
     Event dummy;
     Schedule s;
-    // RawInput rawInput;
+    RawInput r;
+
 
     Work w1("hw",2,"due tomorrow");
     Work w2("mow lawn",1,"ew");
@@ -34,17 +32,17 @@ int main(){
     s.addTask(w3);
 
     s.makeSchedule();
-
     s.saveSchedule();
-  
+
+    s.setTaskList(r.askTasks());
+    s.setPreferences(r.askPreferences());
+    s.setBusyTimes(r.askBusyTimes());
 
     return 0;
 
-    // s.setTaskList(rawInput.askTasks());
-    // s.setPreferences(rawInput.askPreferences());
 
     while(input!='s'){
-
+        s.makeSchedule();
         s.displaySchedule();
         printMenu();
 

@@ -13,7 +13,6 @@ void Schedule::saveSchedule(){
     if(!outFS.is_open()){
         cout<<"error opening log"<<endl;
     }
-
     for(int i=0; i<hours.size();i++){
         outFS<<hours.at(i).getName()<<" - "<<hours.at(i).getDescription()<<endl;
     }
@@ -51,7 +50,10 @@ void Schedule::setTaskList(vector<Event> e){
     taskList = e;
 }
 void Schedule::setPreferences(vector<bool> p){
-        preferences = p;
+    preferences = p;
+}
+void Schedule::setBusyTimes(vector<bool> b){
+    busyTimes=b;
 }
         
 void Schedule::addTask(Event e){

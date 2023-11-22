@@ -14,6 +14,7 @@ class RawInput{
     RawInput();
     vector<bool> askPreferences(); 
     vector<Event> askTasks(); 
+    vector<bool> askBusyTimes();
 };
 
 #endif

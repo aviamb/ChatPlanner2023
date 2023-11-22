@@ -10,8 +10,9 @@ class Schedule{
     private:
         vector<Event> hours;
         vector<bool> preferences;
-        vector<int> priority;
+        // vector<int> priority;
         vector<Event> taskList;
+        vector<bool>busyTimes;
     public:
         vector<Event> makeSchedule();
         string displaySchedule();
@@ -21,6 +22,7 @@ class Schedule{
         Schedule();
         void setTaskList(vector<Event> e);
         void setPreferences(vector<bool>);
+        void setBusyTimes(vector<bool>);
         void addTask(Event);
 
 };
