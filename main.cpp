@@ -3,40 +3,59 @@
 #include "RawInput.h"
 #include <iostream>
 #include <string>
+//  #include "gtest/gtest.h"
 
 using namespace std;
 
 void printMenu(){
     cout<<"a: to add another task"<<endl;
     cout<<"c: to check off a task"<<endl;
-    cout<<"s: to save and end program"<<endl;
+    cout<<"s: to save and end day"<<endl;
 }
-int main(){
 
+void clearLog(){
+    ofstream outFS;
+    outFS.open("log.txt");
+    while(outFS.eof()){
+        outFS<<"";
+    }
+}
+
+
+int main(){
+    clearLog();
     char input;
     Event dummy;
     Schedule s;
-    RawInput rawInput;
+    RawInput r;
+    int dayCounter=0;
+    bool dayIsOver=false;
 
-    s.setTaskList(rawInput.askTasks());
-    s.setPreferences(rawInput.askPreferences());
+    while(true){
+        s.setTaskList(r.askTasks());
+        s.setPreferences(r.askPreferences());
+        s.setBusyTimes(r.askBusyTimes(cin));
+        while(input!='s'){
+            cout<<"DAY - "<<dayCounter<<endl;
 
-    while(input!='s'){
+            s.makeSchedule();
+            s.displaySchedule(cout);
+            printMenu();
 
-        s.displaySchedule();
-        printMenu();
+            cin>>input;
 
-        cin>>input;
-
-        if(input=='a'){
-            s.addTask(dummy);
-        }else if(input=='c'){
-            s.checkOffTask("dummy");
-        }else if(input=='s'){
-            s.saveSchedule();
-            break;
-        }else{
-            cout<<"not a valid input, try again"<<endl;
+            if(input=='a'){
+                s.addTask(cin);
+            }else if(input=='c'){
+                s.checkOffTask("dummy");
+            }else if(input=='s'){
+                s.saveSchedule();
+                dayCounter++;
+                input=' ';
+                break;
+            }else{
+                cout<<"not a valid choice, try again"<<endl;
+            }
         }
     }
     return 1;
