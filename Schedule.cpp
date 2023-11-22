@@ -34,8 +34,22 @@ void Schedule::saveSchedule(){
 
 }
 
-void Schedule::checkOffTask(string taskName){
+void Schedule::checkOffTask() {//main
+    Event* targetEvent;
 
+    string taskName;
+    string newName;
+    string newDesc;
+    
+    cout << "Enter the current name of your task: ";
+    getline(cin, taskName);
+    cout << endl;
+
+    targetEvent = checkOffTask(taskName);
+}
+
+Event* Schedule::checkOffTask(string taskName){//helper
+    
 }
 
 void Schedule::setTaskList(vector<Event> e){

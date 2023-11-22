@@ -17,7 +17,8 @@ class Schedule{
         string displaySchedule();
         void displayDetailedSchedule();
         void saveSchedule();
-        void checkOffTask(string taskName);
+        void checkOffTask();//
+        Event* checkOffTask(string taskName);//
         Schedule();
         void setTaskList(vector<Event> e);
         void setPreferences(vector<bool>);
