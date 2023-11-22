@@ -6,9 +6,24 @@
 
 using namespace std;
 
-    // public: std::vector<Event> hours[24];
 vector<Event> Schedule::makeSchedule(){
-    hours = taskList;
+    int j = 0;
+    for(int i = 1; i < busy.size(); i++){
+        if(busy[i] == false){
+            hours.push_back(taskList[j]);
+            j++;
+        }
+        else{
+            Taken e = Taken();
+            hours.push_back(e);
+        }
+    }
+
+    
+    // for(int i = 1; i < 24){
+    //     hours.push_back(Event());
+    // }
+
     return hours;
 }
 
@@ -44,12 +59,15 @@ void Schedule::setTaskList(vector<Event> e){
 void Schedule::setPreferences(vector<bool> p){
         preferences = p;
 }
+
+void Schedule::setBusyTimes(vector<bool> b){
+    busyTimes=b;
+}
         
-void addTask(Event);
+void addTask(Event e){
+    taskList.push_back(e);
+}
 
 Schedule::Schedule(){
-    // vector<Event> hours;
-    // vector<bool> preferences;
-    // vector<int> priority;
-    // vector<Event> taskList;
+
 }
