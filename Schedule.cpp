@@ -8,7 +8,8 @@ using namespace std;
 
     // public: std::vector<Event> hours[24];
 vector<Event> Schedule::makeSchedule(){
-    hours = new vector<Event>{24};
+    hours = taskList;
+    return hours;
 }
 
 string Schedule::displaySchedule(){
