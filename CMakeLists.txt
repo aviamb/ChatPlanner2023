@@ -6,8 +6,16 @@ ADD_EXECUTABLE(test
     test.cpp
     Schedule.cpp
     Event.cpp
-    main.cpp
+    RawInput.cpp
 )
+
+ADD_EXECUTABLE(runProgram
+    main.cpp
+    Schedule.cpp
+    Event.cpp
+    RawInput.cpp
+)
+
 
 TARGET_LINK_LIBRARIES(test gtest)
 TARGET_COMPILE_DEFINITIONS(test PRIVATE gtest_disable_pthreads=ON)
