@@ -9,7 +9,7 @@ using namespace std;
 class RawInput{
     public: 
     RawInput();
-    vector<bool> askPreferences(); 
+    vector<bool> askPreferences(istream& input); 
     vector<Event> askTasks(); 
 };
 
