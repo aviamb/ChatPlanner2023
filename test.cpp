@@ -2,6 +2,7 @@
 #include "Event.h"
 #include "Schedule.h"
 #include "RawInput.h"
+#include <sstream>
 
 TEST(EventTests,TestTakenConstructor){
     Taken t;
@@ -36,6 +37,24 @@ TEST(EventTests,TestPrintTaken){
     t.printEvent(out);
     EXPECT_EQ(out.str(),"-------------------\n");
 }
+
+TEST(ScheduleTests, TestAddLeisureTask){
+    string testInputString="go workout\ngo to the gym\nno";
+    istringstream testIn(testInputString);
+    ostringstream out;
+    Schedule s;
+    s.addTask(testIn);
+    s.displaySchedule(out);
+    EXPECT_EQ("hour 0:00\ngo workout\n",out.str());
+}
+// TEST(ScheduleTests, TestAddWorkTask){
+//     string testInputString="do hw\nat the library\nyes\n2";
+//     stringstream testIn(testInputString);
+//     Schedule s;
+//     s.addTask(testIn);
+//     EXPECT_EQ(s.getTaskListSize(),1);
+// }
+
 
 
 

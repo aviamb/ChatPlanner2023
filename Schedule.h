@@ -15,15 +15,17 @@ class Schedule{
         vector<bool>busyTimes;
     public:
         vector<Event> makeSchedule();
-        string displaySchedule();
-        void displayDetailedSchedule();
+        void displaySchedule(ostream &);
+        void displayDetailedSchedule(ostream &);
         void saveSchedule();
         void checkOffTask(string taskName);
         Schedule();
         void setTaskList(vector<Event> e);
         void setPreferences(vector<bool>);
         void setBusyTimes(vector<bool>);
-        void addTask(Event);
+        void addTask(istream &in);
+
+        int getTaskListSize();
 
 };
 
