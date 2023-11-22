@@ -23,7 +23,7 @@ Chatplanner is an interactive task manager that can help users plan their daily 
 
 #### Project Features:
  * generate non rigid schedule for a user based on user input
- * ability to add and edit tasks
+ * ability to add, edit, and delete tasks
  * automatically categorize tasks
  * ability to block out time that is currently busy
  * ability to ask for schedule preferences (ex. night owl, early sleeper, procrastinator)

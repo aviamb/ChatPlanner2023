@@ -8,33 +8,19 @@
 using namespace std;
 
 void printMenu(){
-    cout<<"a: to add another task"<<endl;
-    cout<<"c: to check off a task"<<endl;
-    cout<<"s: to save and end day"<<endl;
+    cout<<"d: to delete a task"<<endl;
 }
-
-void clearLog(){
-    ofstream outFS;
-    outFS.open("log.txt");
-    while(outFS.eof()){
-        outFS<<"";
-    }
-}
-
 
 int main(){
-    clearLog();
-    char input;
-    Event dummy;
     Schedule s;
     RawInput r;
-    int dayCounter=0;
-    bool dayIsOver=false;
-
+    char input;
+    int dayCounter = 0;
+    
     while(true){
         s.setTaskList(r.askTasks());
         s.setPreferences(r.askPreferences());
-        s.setBusyTimes(r.askBusyTimes(cin));
+        cin >> input;
         while(input!='s'){
             cout<<"DAY - "<<dayCounter<<endl;
 
@@ -44,16 +30,12 @@ int main(){
 
             cin>>input;
 
-            if(input=='a'){
-                s.addTask(cin);
-            }else if(input=='c'){
-                s.checkOffTask("dummy");
-            }else if(input=='s'){
-                s.saveSchedule();
-                dayCounter++;
-                input=' ';
-                break;
-            }else{
+            if(input == 'd')
+            {
+                s.deleteTask();
+            }
+            else
+            {
                 cout<<"not a valid choice, try again"<<endl;
             }
         }

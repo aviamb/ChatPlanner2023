@@ -86,6 +86,28 @@ void Schedule::addTask(istream &in){
     }    
 }
 
+void Schedule::deleteTask()
+{
+
+    string name;
+    cout << "Enter task NAME to delete from schedule: " << endl;
+    cin.ignore();
+    getline(cin,name);
+    
+    for(int i = 0 ; i < taskList.size(); i ++)
+    {
+        if(taskList.at(i).getName() == name)
+        {
+            swap(taskList[i], taskList.back()); // swaps index i with last element of the taskList.
+            taskList.pop_back();
+            cout << "Successfully deleted the " << name << " task." << endl;
+            return;
+        }
+    }
+    cout << "Error: could not been found or there is an error." << endl;
+    return;
+}
+
 int Schedule::getTaskListSize(){
     return taskList.size();
 }

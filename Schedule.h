@@ -25,6 +25,7 @@ class Schedule{
         void addTask(Event);
         void setBusyTimes(vector<bool>);
         void addTask(istream &in);
+        void deleteTask();
 
         int getTaskListSize();
 
