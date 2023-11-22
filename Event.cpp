@@ -44,4 +44,3 @@ Taken::Taken(){
 }
 void Taken::printEvent(){
     cout<<"-------------------"<<endl;
-}
