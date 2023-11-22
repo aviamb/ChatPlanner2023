@@ -12,14 +12,34 @@ void printMenu(){
     cout<<"s: to save and end program"<<endl;
 }
 
-// int main(int argc, char **argv){
-//     ::testing::InitGoogleTest(&argc,argv);
-//     return RUN_ALL_TESTS();
-// }
 int main(){
 
-    RawInput r;
-    //r.askPreferences();
-    r.askTasks();
+    char input;
+    Event dummy;
+    Schedule s;
+    RawInput rawInput;
 
+    s.setTaskList(rawInput.askTasks());
+    s.setPreferences(rawInput.askPreferences());
+
+    while(input!='s'){
+
+        s.displaySchedule();
+        printMenu();
+
+        cin>>input;
+
+        if(input=='a'){
+            s.addTask(dummy);
+        }else if(input=='c'){
+            s.checkOffTask("dummy");
+        }else if(input=='s'){
+            s.saveSchedule();
+            break;
+        }else{
+            cout<<"not a valid input, try again"<<endl;
+        }
+    }
+    return 1;
 };
+
