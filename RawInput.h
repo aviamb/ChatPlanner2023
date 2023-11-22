@@ -6,10 +6,6 @@
 using namespace std;
 
 class RawInput{
-    private:
-    vector<Event> rawTaskList;
-    vector<bool> prefList;
-    
     public: 
     RawInput();
     vector<bool> askPreferences(); 
