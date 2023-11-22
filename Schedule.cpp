@@ -25,6 +25,7 @@ vector<Event> Schedule::makeSchedule(){
     return hours;
 }
 
+
 void Schedule::displaySchedule(ostream & out){
     for(int i = 0; i < hours.size(); i++){
         out<< "hour "<< to_string(i) <<":00 - " << hours[i].getName()<<endl;
@@ -82,15 +83,12 @@ void Schedule::addTask(istream &in){
     }else{
         Leisure newTask(name,description);
         taskList.push_back(newTask);
-    }
-    
-
+    }    
 }
 
 int Schedule::getTaskListSize(){
     return taskList.size();
 }
-
 
 Schedule::Schedule(){
     // vector<Event> hours;

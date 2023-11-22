@@ -22,6 +22,7 @@ class Schedule{
         Schedule();
         void setTaskList(vector<Event> e);
         void setPreferences(vector<bool>);
+        void addTask(Event);
         void setBusyTimes(vector<bool>);
         void addTask(istream &in);
 
