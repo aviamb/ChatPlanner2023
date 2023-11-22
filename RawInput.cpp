@@ -56,6 +56,7 @@ vector<bool> RawInput::askPreferences(istream& input)
     }
     */
 }
+
 /*
 vector<Event> RawInput::askTasks() {
     char userDecision;
@@ -90,6 +91,7 @@ vector<Event> RawInput::askTasks() {
         cout << endl;
 
     } while (userDecision != 'q');
+
 */
 
     /* for (int i = 0; i < rawTaskList.size(); i++) {
@@ -100,8 +102,9 @@ vector<Event> RawInput::askTasks() {
 /*  
     return rawTaskList;
 
+
 //function currently doesn't accomodate other constructors.
 //function currently doesn't use input validation.
 //function doesn't use getline yet.
 }
-*/
+
