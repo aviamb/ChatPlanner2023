@@ -6,3 +6,5 @@ Makefile
 nav.png
 navigation-diagram.png
 uml-diagram.png
+/CMakeFiles
+/lib
