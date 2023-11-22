@@ -10,12 +10,13 @@ class Schedule{
     private:
         vector<Event> hours;
         vector<bool> preferences;
-        vector<int> priority;
+        // vector<int> priority;
         vector<Event> taskList;
+        vector<bool>busyTimes;
     public:
         vector<Event> makeSchedule();
-        string displaySchedule();
-        void displayDetailedSchedule();
+        void displaySchedule(ostream &);
+        void displayDetailedSchedule(ostream &);
         void saveSchedule();
         void checkOffTask();//
         Event* checkOffTask(string taskName);//
@@ -23,6 +24,10 @@ class Schedule{
         void setTaskList(vector<Event> e);
         void setPreferences(vector<bool>);
         void addTask(Event);
+        void setBusyTimes(vector<bool>);
+        void addTask(istream &in);
+
+        int getTaskListSize();
 
 };
 

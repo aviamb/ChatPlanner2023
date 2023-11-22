@@ -3,8 +3,21 @@
 #include <vector>
 #include <iostream>
 #include <sstream>
-
 using namespace std;
+
+
+void Schedule::saveSchedule(){
+    ofstream outFS;
+    string str;
+    outFS.open("log.txt",ios::app);
+    if(!outFS.is_open()){
+        cout<<"error opening log"<<endl;
+    }
+    for(int i=0; i<hours.size();i++){
+        outFS<<hours.at(i).getName()<<" - "<<hours.at(i).getDescription()<<endl;
+    }
+    outFS.close();
+}
 
     // public: std::vector<Event> hours[24];
 vector<Event> Schedule::makeSchedule(){
@@ -12,26 +25,18 @@ vector<Event> Schedule::makeSchedule(){
     return hours;
 }
 
-string Schedule::displaySchedule(){
-    string s;
-    for(int i = 0; i < hours.size(); i++){
-        s = s + "hour " + to_string(i) + ":00 - " + hours[i].getName();
-        endl(cout);
-    }
-    cout << s;
-    return s;
 
-}
-
-void Schedule::displayDetailedSchedule(){
+void Schedule::displaySchedule(ostream & out){
     for(int i = 0; i < hours.size(); i++){
-        cout << "hour " << i << ":00 - ";
-        hours[i].printEvent();
+        out<< "hour "<< to_string(i) <<":00 - " << hours[i].getName()<<endl;
     }
 }
 
-void Schedule::saveSchedule(){
-
+void Schedule::displayDetailedSchedule(ostream &out){
+    for(int i = 0; i < hours.size(); i++){
+        out << "hour " << i << ":00 - \n";
+        hours.at(i).printEvent(out);
+    }
 }
 
 void Schedule::checkOffTask() {//main
@@ -73,10 +78,48 @@ void Schedule::setTaskList(vector<Event> e){
     taskList = e;
 }
 void Schedule::setPreferences(vector<bool> p){
-        preferences = p;
+    preferences = p;
+}
+void Schedule::setBusyTimes(vector<bool> b){
+    busyTimes=b;
 }
         
-void addTask(Event);
+void Schedule::addTask(istream &in){
+    string name;
+    string input;
+    string priority;
+    string description;
+    cout<<"Enter task name"<<endl;
+    in.ignore();
+    getline(in,name);
+    cout<<"Enter description of task"<<endl;
+    getline(in,description);
+
+    cout<<"Is this a work task?(yes/no)"<<endl;
+    in>>input;
+    if(input=="yes"){
+        cout<<"Enter priority of task"<<endl;
+        in>>priority;
+        bool validPriority=false;
+        while(!validPriority){
+            if(isdigit(priority[0])){
+                Work newTask(name,stoi(priority),description);
+                taskList.push_back(newTask);
+                validPriority=true;
+            }else{
+                cout<<"please enter an int"<<endl;
+                in>>priority;
+            }
+        }
+    }else{
+        Leisure newTask(name,description);
+        taskList.push_back(newTask);
+    }    
+}
+
+int Schedule::getTaskListSize(){
+    return taskList.size();
+}
 
 Schedule::Schedule(){
     // vector<Event> hours;
