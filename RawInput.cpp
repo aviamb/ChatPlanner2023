@@ -57,9 +57,9 @@ vector<bool> RawInput::askPreferences()
     */
 }
 
-vector<Event *> RawInput::askTasks() {
+vector<Event> RawInput::askTasks() {
     char userDecision;
-    vector<Event *> rawTaskList;
+    vector<Event> rawTaskList;
 
     string name;
     char category;
@@ -91,12 +91,12 @@ vector<Event *> RawInput::askTasks() {
                     cout << endl;
                 }
 
-                Work *currWorkEvent = new Work(name, priority, description);
+                Work currWorkEvent(name, priority, description);
                 rawTaskList.push_back(currWorkEvent);
                 break;
             } 
             else if (category == 'n' || category == 'N') {
-                Leisure *currLeisureEvent = new Leisure(name, description);
+                Leisure currLeisureEvent(name, description);
                 rawTaskList.push_back(currLeisureEvent);
                 break;
             } 
