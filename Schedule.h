@@ -1,42 +1,32 @@
 #ifndef __SCHEDULE_H__
 #define __SCHEDULE_H__
-#include "Event.h"
 #include <vector>
+#include <string>
+#include "Event.h"
+
 using namespace std;
-#include <iostream>
 
 class Schedule{
-
-    public:
-    
-        void setTaskList(vector<Event> cpy){
-            taskList=cpy;
-        }
-        void setPreferences(vector<bool> cpy){
-            preferences=cpy;
-        }
-
-        void addTask(Event newTask){
-            cout<<"task should be added to next available hour slot"<<endl;
-        }
-
-        void checkOffTask(string name){
-            cout<<"task that has same name as inputted parameter should be removed"<<endl;
-        }
-
-        void displaySchedule(){
-            cout<<"schedule should display here"<<endl;
-        }
-
-        void saveSchedule(){
-            cout<<"schedule should be written to txt and program exited"<<endl;
-        }
     private:
-        vector<Event>taskList;
-        vector<Event>hours;
-        vector<bool>preferences;
-        
-    
+        vector<Event> hours;
+        vector<bool> preferences;
+        // vector<int> priority;
+        vector<Event> taskList;
+        vector<bool>busyTimes;
+    public:
+        vector<Event> makeSchedule();
+        void displaySchedule(ostream &);
+        void displayDetailedSchedule(ostream &);
+        void saveSchedule();
+        void checkOffTask(string taskName);
+        Schedule();
+        void setTaskList(vector<Event> e);
+        void setPreferences(vector<bool>);
+        void setBusyTimes(vector<bool>);
+        void addTask(istream &in);
+
+        int getTaskListSize();
+
 };
 
 

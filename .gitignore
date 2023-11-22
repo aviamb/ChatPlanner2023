@@ -1,1 +1,16 @@
+googletest
+.gitmodules
+googletest
+CMakeCache.txt
+CMakeFiles/
+lib/
+Makefile
+cmake_install.cmake
+test
 a.out
+runnAllTests
+
+
+
+
+
