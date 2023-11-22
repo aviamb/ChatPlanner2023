@@ -17,9 +17,5 @@ void printMenu(){
 //     return RUN_ALL_TESTS();
 // }
 int main(){
-
-    RawInput r;
-    //r.askPreferences();
-    r.askTasks();
-
+    return 0;
 };

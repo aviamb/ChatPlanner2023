@@ -96,7 +96,7 @@ vector<Event> RawInput::askTasks() {
                 break;
             } 
             else if (category == 'n' || category == 'N') {
-                Leisure currLeisureEventLeisure(name, description);
+                Leisure currLeisureEvent(name, description);
                 rawTaskList.push_back(currLeisureEvent);
                 break;
             } 

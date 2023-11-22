@@ -9,8 +9,10 @@ class Event{
     public:
         Event();
         virtual void printEvent(){}
-        string getName();
-        string getDescription();
+        const string getName();
+        const string getDescription();
+        void setName(string);
+        void setDescription(string);
     protected:
         string name;
         string description;

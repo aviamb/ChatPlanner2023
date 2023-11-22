@@ -6,11 +6,19 @@ Event::Event(){
     this->description="dummy description";
 }
 
-string Event::getName(){
+const string Event::getName(){
     return name;
 }
-string Event::getDescription(){
+const string Event::getDescription(){
     return description;
+}
+
+void Event::setName(string newName){
+    name = newName;
+}
+
+void Event::setDescription(string newDesc){
+    description = newDesc;
 }
 
 Work::Work(string name,int priority,string description){ //Default constructor 
@@ -44,3 +52,4 @@ Taken::Taken(){
 }
 void Taken::printEvent(){
     cout<<"-------------------"<<endl;
+}
