@@ -41,15 +41,27 @@ void Schedule::checkOffTask() {//main
     string newName;
     string newDesc;
     
-    cout << "Enter the current name of your task: ";
-    getline(cin, taskName);
-    cout << endl;
+    do {
+        cout << "Enter the current name of your task: ";
+        getline(cin, taskName);
+        cout << endl;
 
-    targetEvent = checkOffTask(taskName);
+        targetEvent = checkOffTask(taskName);
+        if (targetEvent == nullptr) {
+            cout << "Not a valid input." << endl;
+        }
+    } while (targetEvent != nullptr);
 }
 
-Event* Schedule::checkOffTask(string taskName){//helper
-    
+const Event* Schedule::checkOffTask(const string taskName){//helper
+    Event* task = nullptr;
+    for(int i = 0; i < taskList.size(); i++) {
+        if (taskList.at(i) == taskName) {
+            task = taskList.at(i);
+            break;
+        }
+    }
+    return task;
 }
 
 void Schedule::setTaskList(vector<Event> e){
