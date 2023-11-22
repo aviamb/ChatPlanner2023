@@ -29,9 +29,6 @@ vector<bool> RawInput::askBusyTimes(istream & in){
         }else{
             cout<<"please enter an integer"<<endl;
         }
-
-             
-
     }
     cout<<"You have entered all the time you are already busy"<<endl;
     return busyTimes;

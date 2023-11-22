@@ -5,13 +5,12 @@
 #include <string>
 //  #include "gtest/gtest.h"
 
-
 using namespace std;
 
 void printMenu(){
     cout<<"a: to add another task"<<endl;
     cout<<"c: to check off a task"<<endl;
-    cout<<"s: to save and end program"<<endl;
+    cout<<"s: to save and end day"<<endl;
 }
 
 void clearLog(){
@@ -36,7 +35,6 @@ int main(){
         s.setTaskList(r.askTasks());
         s.setPreferences(r.askPreferences());
         s.setBusyTimes(r.askBusyTimes(cin));
-        cout<<"ending ask preferences"<<endl;
         while(input!='s'){
             cout<<"DAY - "<<dayCounter<<endl;
 
