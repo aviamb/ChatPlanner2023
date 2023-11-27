@@ -21,8 +21,23 @@ void Schedule::saveSchedule(){
 
     // public: std::vector<Event> hours[24];
 vector<Event> Schedule::makeSchedule(){
+    int j = 0;
+    for(int i = 1; i < busy.size(); i++){
+        if(busy[i] == false){
+            hours.push_back(taskList[j]);
+            j++;
+        }
+        else{
+            Taken e = Taken();
+            hours.push_back(e);
+        }
+    }
+
     
-    hours = taskList;
+    // for(int i = 1; i < 24){
+    //     hours.push_back(Event());
+    // }
+
     return hours;
 }
 
@@ -123,8 +138,5 @@ int Schedule::getTaskListSize(){
 }
 
 Schedule::Schedule(){
-    // vector<Event> hours;
-    // vector<bool> preferences;
-    // vector<int> priority;
-    // vector<Event> taskList;
+
 }

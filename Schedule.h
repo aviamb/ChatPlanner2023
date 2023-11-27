@@ -21,8 +21,9 @@ class Schedule{
         void checkOffTask();//
         Event* checkOffTask(string taskName);//
         Schedule();
-        void setTaskList(vector<Event> e);
+        void setTaskList(vector<Event>);
         void setPreferences(vector<bool>);
+        void setBusyTime(vector<bool>);
         void addTask(Event);
         void setBusyTimes(vector<bool>);
         void addTask(istream &in);
