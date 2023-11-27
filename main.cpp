@@ -32,11 +32,13 @@ int main(){
     bool dayIsOver=false;
 
     while(true){
-        s.setTaskList(r.askTasks());
+        cout<<"DAY - "<<dayCounter<<endl;
         s.setPreferences(r.askPreferences());
         s.setBusyTimes(r.askBusyTimes(cin));
+        cin.ignore();
+        s.setTaskList(r.askTasks());
+
         while(input!='s'){
-            cout<<"DAY - "<<dayCounter<<endl;
 
             s.makeSchedule();
             s.displaySchedule(cout);
@@ -52,6 +54,7 @@ int main(){
                 s.saveSchedule();
                 dayCounter++;
                 input=' ';
+                cin.ignore();
                 break;
             }else{
                 cout<<"not a valid choice, try again"<<endl;
