@@ -34,13 +34,16 @@ int main(){
 
     while(true){
         cout<<"DAY - "<<dayCounter<<endl;
+        cout<<"What hour is it now? Enter an hour from 1-24"<<endl;
+        int hour;
+        cin>>hour;
+        s.setTimeNow(hour);
         s.setPreferences(r.askPreferences());
-        s.setBusyTimes(r.askBusyTimes(cin));
+        s.setBusyTimes(r.askBusyTimes(hour,cin));
         cin.ignore();
         s.setTaskList(r.askTasks());
 
         while(input!='s'){
-
             s.makeSchedule();
             s.displaySchedule(cout);
             printMenu();

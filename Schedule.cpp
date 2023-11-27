@@ -21,31 +21,52 @@ void Schedule::saveSchedule(){
 
     // public: std::vector<Event> hours[24];
 vector<Event> Schedule::makeSchedule(){
-    int j = 0;
-    for(int i = 1; i < busy.size(); i++){
-        if(busy[i] == false){
-            hours.push_back(taskList[j]);
-            j++;
-        }
-        else{
-            Taken e = Taken();
-            hours.push_back(e);
-        }
-    }
 
-    
-    // for(int i = 1; i < 24){
-    //     hours.push_back(Event());
-    // }
+    for(unsigned i = 0; i < busyTimes.size(); i++){
+        if(busyTimes.at(i) == true){
+            Taken e;
+            hours.at(i-timeNow)=e;
+        }
+    } 
+
+    if(preferences.at(0)==false){//index 0 is hardcoded to doing nothing
+        for(unsigned int i=0; i<hours.size();i++){
+
+
+        }
+            // if(typeID(hours.at(i)).name()!="Taken"){
+                    
+            // }
+    //     //     // // hours.at(0)taskList
+
+    //     // }
+    //     // if(preference.at(1)==true){//index 1 is hardcoded to lazy or not, true = yes lazy
+    }
 
     return hours;
 }
 
+void Schedule::setTimeNow(int t){
+    timeNow=t;
+}
 
 void Schedule::displaySchedule(ostream & out){
-    for(int i = 0; i < hours.size(); i++){
-        out<< "hour "<< to_string(i) <<":00 - " << hours[i].getName()<<endl;
+
+    for(unsigned i=0;i<hours.size();i++){
+        out<<"hour "<<1+timeNow+i;
+        out<<":00 - " << hours.at(i).getName()<<endl;
     }
+    
+    // for(int i = 0; i < hours.size(); i++){
+    //     out<< "hour ";
+        
+    //     if(1+timeNow+i >=24){
+    //         out<<(1+timeNow+i)-23;
+    //     }else{
+    //         out<<" "<<1+timeNow+i;
+    //     }
+    //     out<<":00 - " << hours.at(i).getName()<<endl;
+    // }
 }
 
 void Schedule::displayDetailedSchedule(ostream &out){
@@ -138,5 +159,9 @@ int Schedule::getTaskListSize(){
 }
 
 Schedule::Schedule(){
+    for(int i=0; i<24;i++){
+        Leisure e("free time"," ");
+        hours.push_back(e);
+    }
 
 }

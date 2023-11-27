@@ -5,18 +5,21 @@
 
 RawInput::RawInput() { }
 
-vector<bool> RawInput::askBusyTimes(istream & in){
+vector<bool> RawInput::askBusyTimes(int currentTime,istream & in){
 
     vector <bool> busyTimes(24);
     string input;
     bool endUserInput=false;
     
     while(!endUserInput){
-        cout<<"Enter hour(1-24) that you are already busy (enter 0 to stop)"<<endl;
+        cout<<"Enter hours (after the current hour) that you are already busy (enter 0 to stop)"<<endl;
         in>>input;
         if(isdigit(input[0])){
             if(stoi(input)==0){
             endUserInput=true;
+            }
+            else if(stoi(input)<currentTime){
+                cout<<"that is less than the current Time"<<endl;
             }
             else if(stoi(input)>25){
                 cout<<"there are only 24 hours in a day"<<endl;

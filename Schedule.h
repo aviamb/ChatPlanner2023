@@ -13,6 +13,7 @@ class Schedule{
         // vector<int> priority;
         vector<Event> taskList;
         vector<bool>busyTimes;
+        int timeNow;
     public:
         vector<Event> makeSchedule();
         void displaySchedule(ostream &);
@@ -27,7 +28,7 @@ class Schedule{
         void addTask(Event);
         void setBusyTimes(vector<bool>);
         void addTask(istream &in);
-
+        void setTimeNow(int);
         int getTaskListSize();
 
 };

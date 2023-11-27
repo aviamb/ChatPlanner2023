@@ -14,6 +14,7 @@ class Event{
         const string getDescription();
         void setName(string);
         void setDescription(string);
+        virtual string getType(){}
     protected:
         string name;
         string description;
@@ -21,6 +22,7 @@ class Event{
 
 class Work: public Event{
     public:
+        string getType();
         void printEvent(ostream & out);
         Work(string,int,string);
         int priority;
@@ -28,12 +30,14 @@ class Work: public Event{
 
 class Leisure: public Event{
     public:
+        string getType();   
         void printEvent(ostream & out);
         Leisure(string,string);
 };
 
 class Taken: public Event{
     public:
+        string getType();
         void printEvent(ostream & out);
         Taken();
 };

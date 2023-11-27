@@ -34,6 +34,10 @@ void Work::printEvent(ostream & out){
     out<<"- "<<description<<" -"<<endl;
 }
 
+string Work::getType(){
+    return "Work";
+}
+
 Leisure::Leisure(string name, string description){
     this->name=name;
     this->description=description;
@@ -42,10 +46,17 @@ void Leisure::printEvent(ostream & out){
     out<<name<<endl;
     out<<"- "<<description<<" -"<<endl; 
 }
+
+string Leisure::getType(){
+    return "Leisure";
+}
 Taken::Taken(){
-    this->name="";
+    this->name="-------";
     this->description="";
 }
 void Taken::printEvent(ostream & out){
     out<<"-------------------"<<endl;
+}
+string Taken::getType(){
+    return "Taken";
 }
