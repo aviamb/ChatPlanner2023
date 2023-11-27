@@ -21,6 +21,7 @@ void Schedule::saveSchedule(){
 
     // public: std::vector<Event> hours[24];
 vector<Event> Schedule::makeSchedule(){
+    
     hours = taskList;
     return hours;
 }

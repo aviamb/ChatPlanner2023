@@ -8,8 +8,8 @@ using namespace std;
 
 class Event{
     public:
-        Event();
-        virtual void printEvent(){}
+        Event(){}
+        virtual void printEvent(ostream &){}
         const string getName();
         const string getDescription();
         void setName(string);

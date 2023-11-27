@@ -50,7 +50,7 @@ int main(){
             if(input=='a'){
                 s.addTask(cin);
             }else if(input=='c'){
-                s.checkOffTask("dummy");
+                s.checkOffTask();
             }else if(input=='s'){
                 s.saveSchedule();
                 dayCounter++;
