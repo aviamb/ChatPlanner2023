@@ -3,9 +3,7 @@
 
 // using namespace std;
 
-RawInput::RawInput() { 
-    
-}
+RawInput::RawInput() { }
 
 vector<bool> RawInput::askBusyTimes(istream & in){
 
@@ -72,6 +70,20 @@ vector<bool> RawInput::askPreferences()
     }
     
     return prefList;
+
+    /*for(bool preference : prefList) //TestFunction to check inside the vector.
+    {
+        if(preference)
+        {
+            cout << "Yes" << endl;
+        }
+        else
+        {
+            cout << "No" << endl;
+        }
+    }
+    */
+
 }
 
 

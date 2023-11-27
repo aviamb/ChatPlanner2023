@@ -13,6 +13,7 @@ void printMenu(){
     cout<<"s: to save and end day"<<endl;
 }
 
+
 void clearLog(){
     ofstream outFS;
     outFS.open("log.txt");

@@ -18,10 +18,12 @@ class Schedule{
         void displaySchedule(ostream &);
         void displayDetailedSchedule(ostream &);
         void saveSchedule();
-        void checkOffTask(string taskName);
+        void checkOffTask();//
+        Event* checkOffTask(string taskName);//
         Schedule();
         void setTaskList(vector<Event> e);
         void setPreferences(vector<bool>);
+        void addTask(Event);
         void setBusyTimes(vector<bool>);
         void addTask(istream &in);
 
