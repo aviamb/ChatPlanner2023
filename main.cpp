@@ -25,7 +25,6 @@ void clearLog(){
 
 int main(){
     clearLog();
-    char input;
     Event dummy;
     Schedule s;
     RawInput r;
@@ -34,15 +33,15 @@ int main(){
 
     while(true){
         cout<<"DAY - "<<dayCounter<<endl;
-        cout<<"What hour is it now? Enter an hour from 1-24"<<endl;
-        int hour;
-        cin>>hour;
-        s.setTimeNow(hour);
+        s.setTimeNow(r.askTimeNow());
+        s.setSleepTime(r.askSleepTime());
         s.setPreferences(r.askPreferences());
-        s.setBusyTimes(r.askBusyTimes(hour,cin));
+        s.setBusyTimes(r.askBusyTimes(s.getTimeNow(),cin));
         cin.ignore();
         s.setTaskList(r.askTasks());
+        s.popOffExtraHours();
 
+        char input='z';
         while(input!='s'){
             s.makeSchedule();
             s.displaySchedule(cout);
@@ -64,6 +63,7 @@ int main(){
                 cout<<"not a valid choice, try again"<<endl;
             }
         }
+        break;
     }
     return 1;
 };

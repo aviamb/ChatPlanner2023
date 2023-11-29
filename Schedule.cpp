@@ -5,6 +5,12 @@
 #include <sstream>
 using namespace std;
 
+Schedule::~Schedule(){
+    hours.clear();
+    preferences.clear();
+    taskList.clear();
+    busyTimes.clear();
+}
 
 void Schedule::saveSchedule(){
     ofstream outFS;
@@ -20,7 +26,9 @@ void Schedule::saveSchedule(){
 }
 
     // public: std::vector<Event> hours[24];
-vector<Event> Schedule::makeSchedule(){
+void Schedule::makeSchedule(){
+    Leisure sleep("go to bed","");
+    hours.at(hours.size()-1)=sleep;
 
     for(unsigned i = 0; i < busyTimes.size(); i++){
         if(busyTimes.at(i) == true){
@@ -28,27 +36,61 @@ vector<Event> Schedule::makeSchedule(){
             hours.at(i-timeNow)=e;
         }
     } 
+    vector<Event> leisureList;
+    vector<Event> workList;
+    for(int i=0; i<taskList.size();i++){
+        if(taskList.at(i).getType()=="Leisure"){
+            leisureList.push_back(taskList.at(i));
+        }else{
+            workList.push_back(taskList.at(i));
+        }
+    }
+    cout<<"leisurelist size is "<<leisureList.size()<<endl;
+    cout<<"worklist size is "<<workList.size()<<endl;
 
+    int leisureIndex=0;
+    int workIndex=0;
     if(preferences.at(0)==false){//index 0 is hardcoded to doing nothing
-        for(unsigned int i=0; i<hours.size();i++){
+        if(preferences.at(1)==true){//true means procrastinator
+            cout<<"procrastinator"<<endl;
+            for(int i=0; i<hours.size();i++){
+                if(leisureList.size()==leisureIndex){//if already at end of list
+                    break;
+                }
+                if(hours.at(i).getName()=="free time"){
+                    hours.at(i)=leisureList.at(leisureIndex);
+                    leisureIndex++;
+                }
 
+            }
+            for(int i=hours.size()-1; i>=0;i--){//last element is always go to bed
+                cout<<"setting work events"<<endl;
+                if(workList.size()==workIndex){//if already at end of list
+                    break;
+                }
+            if( !(hours.at(i).getType()=="Taken"|| (hours.at(i).getType()=="Leisure" && hours.at(i).getName()!="free time"))){//if it is not a user set leisure activity or taken
+                    hours.at(i)=workList.at(workIndex);
+                    workIndex++;
+                }
+            }
 
         }
-            // if(typeID(hours.at(i)).name()!="Taken"){
-                    
-            // }
-    //     //     // // hours.at(0)taskList
-
-    //     // }
-    //     // if(preference.at(1)==true){//index 1 is hardcoded to lazy or not, true = yes lazy
     }
 
-    return hours;
 }
 
 void Schedule::setTimeNow(int t){
     timeNow=t;
 }
+
+int Schedule::getTimeNow(){
+    return timeNow;
+}
+
+void Schedule::setSleepTime(int t){
+    sleepTime=t;
+}
+
 
 void Schedule::displaySchedule(ostream & out){
 
@@ -164,4 +206,10 @@ Schedule::Schedule(){
         hours.push_back(e);
     }
 
+}
+
+void Schedule::popOffExtraHours(){
+    for(int i=0; i<timeNow+(24-sleepTime);i++){
+        hours.pop_back();
+    }
 }

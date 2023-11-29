@@ -5,6 +5,49 @@
 
 RawInput::RawInput() { }
 
+int RawInput::askTimeNow(){
+    bool endUserInput=false;
+    string timeNow;
+    while(!endUserInput){
+        cout<<"What hour is it now? Enter an hour from 1-24"<<endl;
+        cin>>timeNow;
+        if(isdigit(timeNow[0])){
+            if(stoi(timeNow)>25){
+                cout<<"there are only 24 hours in a day"<<endl;
+                timeNow="0";
+            }else{
+                return stoi(timeNow);
+            }
+            
+        }else{
+            cout<<"please enter an integer"<<endl;
+            cin>>timeNow;
+        }
+    }
+    return -1;
+}
+int RawInput::askSleepTime(){
+    string sleepTime;
+    bool endUserInput=false;
+    while(!endUserInput){
+        cout<<"Enter what time you want to sleep (must be no later than 24:00)"<<endl;
+        cin>>sleepTime;
+        if(isdigit(sleepTime[0])){
+            if(stoi(sleepTime)>25){
+                cout<<"there are only 24 hours in a day"<<endl;
+                sleepTime="0";
+            }else{
+                return stoi(sleepTime);
+            }
+        }else{
+            cout<<"please enter an integer"<<endl;
+            cin>>sleepTime;
+        }
+    }
+    return -1;
+}
+
+
 vector<bool> RawInput::askBusyTimes(int currentTime,istream & in){
 
     vector <bool> busyTimes(24);

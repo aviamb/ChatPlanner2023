@@ -6,13 +6,13 @@
 #include <iostream>
 using namespace std;
 
-TEST(ScheduleTests, testScheduleCreation){
-    Event e;
-    vector<Event> vectorOfE = {e};
-    Schedule s;
-    s.setTaskList(vectorOfE);
-    EXPECT_EQ(s.makeSchedule().size(),1);
-}
+// TEST(ScheduleTests, testScheduleCreation){
+//     Event e;
+//     vector<Event> vectorOfE = {e};
+//     Schedule s;
+//     s.setTaskList(vectorOfE);
+//     EXPECT_EQ(s.makeSchedule().size(),1);
+// }
 
 // TEST(ScheduleTests, testScheduleDisplayMult){
 //     Event e;

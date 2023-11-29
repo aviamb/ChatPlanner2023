@@ -8,16 +8,18 @@ using namespace std;
 
 class Event{
     public:
+        ~Event(){}
         Event(){}
         virtual void printEvent(ostream &){}
         const string getName();
         const string getDescription();
         void setName(string);
         void setDescription(string);
-        virtual string getType(){}
+        string getType();
     protected:
         string name;
         string description;
+        string type;
 };
 
 class Work: public Event{

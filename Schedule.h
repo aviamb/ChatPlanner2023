@@ -14,8 +14,9 @@ class Schedule{
         vector<Event> taskList;
         vector<bool>busyTimes;
         int timeNow;
+        int sleepTime;
     public:
-        vector<Event> makeSchedule();
+        void makeSchedule();
         void displaySchedule(ostream &);
         void displayDetailedSchedule(ostream &);
         void saveSchedule();
@@ -29,7 +30,11 @@ class Schedule{
         void setBusyTimes(vector<bool>);
         void addTask(istream &in);
         void setTimeNow(int);
+        void setSleepTime(int);
         int getTaskListSize();
+        int getTimeNow();
+        void popOffExtraHours();
+        ~Schedule();
 
 };
 
