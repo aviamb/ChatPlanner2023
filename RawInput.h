@@ -10,7 +10,7 @@ class RawInput{
     RawInput();
     vector<bool> askPreferences(); 
     vector<Event> askTasks(); 
-    vector<bool> askBusyTimes(int,istream &);
+    vector<bool> askBusyTimes(int,int,istream &);
     int askTimeNow();
     int askSleepTime();
 };

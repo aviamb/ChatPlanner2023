@@ -33,7 +33,7 @@ int RawInput::askSleepTime(){
         cout<<"Enter what time you want to sleep (must be no later than 24:00)"<<endl;
         cin>>sleepTime;
         if(isdigit(sleepTime[0])){
-            if(stoi(sleepTime)>25){
+            if(stoi(sleepTime)>24){
                 cout<<"there are only 24 hours in a day"<<endl;
                 sleepTime="0";
             }else{
@@ -48,7 +48,7 @@ int RawInput::askSleepTime(){
 }
 
 
-vector<bool> RawInput::askBusyTimes(int currentTime,istream & in){
+vector<bool> RawInput::askBusyTimes(int currentTime,int sleepTime,istream & in){
 
     vector <bool> busyTimes(24);
     string input;
@@ -64,9 +64,14 @@ vector<bool> RawInput::askBusyTimes(int currentTime,istream & in){
             else if(stoi(input)<currentTime){
                 cout<<"that is less than the current Time"<<endl;
             }
-            else if(stoi(input)>25){
-                cout<<"there are only 24 hours in a day"<<endl;
-                input="0";
+            else if(stoi(input)>sleepTime){
+                if(stoi(input)>25){
+                    cout<<"there are only 24 hours in a day"<<endl;
+
+                }else{
+                    cout<<"You should be asleep by that time"<<endl;
+
+                }
             }else{
                 busyTimes.at(stoi(input)-1)=true;
             }   
