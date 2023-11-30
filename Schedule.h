@@ -10,7 +10,6 @@ class Schedule{
     private:
         vector<Event> hours;
         vector<bool> preferences;
-        // vector<int> priority;
         vector<Event> taskList;
         vector<bool>busyTimes;
         int timeNow;
@@ -34,6 +33,7 @@ class Schedule{
         int getTaskListSize();
         int getTimeNow();
         int getSleepTime();
+        vector<Event>getHours();
         void popOffExtraHours();
         ~Schedule();
 

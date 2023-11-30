@@ -27,6 +27,10 @@ void Schedule::saveSchedule(){
 
     // public: std::vector<Event> hours[24];
 void Schedule::makeSchedule(){
+    cout<<"hours length is "<<hours.size()<<endl;
+    cout<<"busy times lenght is "<<busyTimes.size()<<endl;
+    cout<<"preferences length is "<<preferences.size()<<endl;
+    cout<<"tasklist length is "<<taskList.size()<<endl;
     Leisure sleep("go to bed","");
     hours.at(hours.size()-1)=sleep;
 
@@ -72,7 +76,6 @@ void Schedule::makeSchedule(){
                     workIndex++;
                 }
             }
-
         }else{
             leisureIndex=0;
             workIndex=0;
@@ -120,6 +123,10 @@ int Schedule::getSleepTime(){
 
 void Schedule::setSleepTime(int t){
     sleepTime=t;
+}
+
+vector<Event> Schedule::getHours(){
+    return hours;
 }
 
 

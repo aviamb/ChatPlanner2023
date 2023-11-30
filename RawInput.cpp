@@ -64,7 +64,7 @@ vector<bool> RawInput::askBusyTimes(int currentTime,int sleepTime,istream & in){
             else if(stoi(input)<currentTime){
                 cout<<"that is less than the current Time"<<endl;
             }
-            else if(stoi(input)>sleepTime){
+            else if(stoi(input)>=sleepTime){
                 if(stoi(input)>25){
                     cout<<"there are only 24 hours in a day"<<endl;
 
@@ -84,14 +84,14 @@ vector<bool> RawInput::askBusyTimes(int currentTime,int sleepTime,istream & in){
     return busyTimes;
 }
 
-vector<bool> RawInput::askPreferences()
+vector<bool> RawInput::askPreferences(istream &in)
 {
     vector<bool> prefList;
     string userInput = "";
 
     cout << "Do you not want to do nothing today? (Yes or No)" << endl;
 
-    cin >> userInput;
+    in >> userInput;
 
     for (auto &character : userInput)
     {
@@ -102,7 +102,7 @@ vector<bool> RawInput::askPreferences()
     if (userInput == "no") // if the user wants to do tasks today, then we ask the rest of the questions.
     {
         cout << "Do you feel lazy today? (Yes or No)" << endl; // We discuss what we do for this later
-        cin >> userInput;
+        in >> userInput;
 
         for (auto &character : userInput)
         {
@@ -111,7 +111,7 @@ vector<bool> RawInput::askPreferences()
         prefList.push_back(userInput == "yes");
 
         cout << "Do you feel being silly today? (Yes or No)" << endl; // We flip the order to least important to most important
-        cin >> userInput;
+        in >> userInput;
 
         for (auto &character : userInput)
         {
@@ -139,7 +139,7 @@ vector<bool> RawInput::askPreferences()
 
 
 
-vector<Event> RawInput::askTasks() {
+vector<Event> RawInput::askTasks(istream &in) {
     char userDecision;
     vector<Event> rawTaskList;
 
@@ -150,26 +150,26 @@ vector<Event> RawInput::askTasks() {
 
     do {
         cout << "Enter task name: ";
-        getline(cin, name);
+        getline(in, name);
         cout << endl;
 
         cout << "Enter task description: ";
-        getline(cin >> ws, description);
+        getline(in >> ws, description);
         cout << endl;
 
         cout << "Is this task work-related? (y/n): ";
         
-        while (cin >> category) {
+        while (in >> category) {
             if (category == 'y' || category == 'Y') {
                 cout << "Enter task priority (1 = most, 3 = least): " ;
 
-                cin >> priority;
-                while (cin.fail() || (priority < 1 || priority > 3)) {
+                in >> priority;
+                while (in.fail() || (priority < 1 || priority > 3)) {
                     cout << "Not a valid input. " << endl;
                     cout << "Enter task priority (1 = most, 3 = least): ";
-                    cin.clear();
-                    cin.ignore();
-                    cin >> priority;
+                    in.clear();
+                    in.ignore();
+                    in >> priority;
                     cout << endl;
                 }
 
@@ -186,15 +186,15 @@ vector<Event> RawInput::askTasks() {
                 cout << "Not a valid input. " << endl;
                 cout << "Is this task work-related? (y/n): ";
             }
-            cin.clear();
+            in.clear();
             //break;
         }
         
         cout << "Task added successfully!" << endl;
         cout << "Press q to quit. Any other key to continue. . ." << endl;
-        cin >> userDecision;
+        in >> userDecision;
         cout << endl;
-        cin.ignore();
+        in.ignore();
     } while (userDecision != 'q' && userDecision != 'Q');
 
 

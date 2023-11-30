@@ -35,10 +35,10 @@ int main(){
         cout<<"DAY - "<<dayCounter<<endl;
         s.setTimeNow(r.askTimeNow());
         s.setSleepTime(r.askSleepTime());
-        s.setPreferences(r.askPreferences());
+        s.setPreferences(r.askPreferences(cin));
         s.setBusyTimes(r.askBusyTimes(s.getTimeNow(),s.getSleepTime(),cin));
         cin.ignore();
-        s.setTaskList(r.askTasks());
+        s.setTaskList(r.askTasks(cin));
         s.popOffExtraHours();
 
         char input='z';
