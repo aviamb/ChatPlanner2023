@@ -29,6 +29,9 @@ string Event::getType(){
     return type;
 }   
 
+int Event::getPriority(){
+    return priority;
+}
 
 Work::Work(string name,int priority,string description){ //Default constructor 
     this->name=name;
@@ -45,7 +48,7 @@ Leisure::Leisure(string name, string description){
     this->name=name;
     this->description=description;
     this->type="Leisure";
-
+    this->priority=0;
 }
 void Leisure::printEvent(ostream & out){
     out<<name<<endl;
@@ -57,6 +60,7 @@ Taken::Taken(){
     this->name="-------";
     this->description="";
     this->type="Taken";
+    this->priority=-1;
 
 }
 void Taken::printEvent(ostream & out){

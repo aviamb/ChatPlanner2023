@@ -16,10 +16,12 @@ class Event{
         void setName(string);
         void setDescription(string);
         string getType();
+        int getPriority();
     protected:
         string name;
         string description;
         string type;
+        int priority;
 };
 
 class Work: public Event{
@@ -27,7 +29,6 @@ class Work: public Event{
         string getType();
         void printEvent(ostream & out);
         Work(string,int,string);
-        int priority;
 };
 
 class Leisure: public Event{
