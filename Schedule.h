@@ -33,6 +33,7 @@ class Schedule{
         void setSleepTime(int);
         int getTaskListSize();
         int getTimeNow();
+        int getSleepTime();
         void popOffExtraHours();
         ~Schedule();
 

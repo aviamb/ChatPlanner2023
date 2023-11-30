@@ -36,7 +36,7 @@ int main(){
         s.setTimeNow(r.askTimeNow());
         s.setSleepTime(r.askSleepTime());
         s.setPreferences(r.askPreferences());
-        s.setBusyTimes(r.askBusyTimes(s.getTimeNow(),cin));
+        s.setBusyTimes(r.askBusyTimes(s.getTimeNow(),s.getSleepTime(),cin));
         cin.ignore();
         s.setTaskList(r.askTasks());
         s.popOffExtraHours();
