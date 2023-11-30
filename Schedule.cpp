@@ -5,12 +5,6 @@
 #include <sstream>
 using namespace std;
 
-Schedule::~Schedule(){
-    hours.clear();
-    preferences.clear();
-    taskList.clear();
-    busyTimes.clear();
-}
 
 void Schedule::saveSchedule(){
     ofstream outFS;
@@ -26,89 +20,32 @@ void Schedule::saveSchedule(){
 }
 
     // public: std::vector<Event> hours[24];
-void Schedule::makeSchedule(){
-    Leisure sleep("go to bed","");
-    hours.at(hours.size()-1)=sleep;
-
-    for(unsigned i = 0; i < busyTimes.size(); i++){
-        if(busyTimes.at(i) == true){
-            Taken e;
-            hours.at(i-timeNow)=e;
+vector<Event> Schedule::makeSchedule(){
+    int j = 0;
+    for(int i = 1; i < busy.size(); i++){
+        if(busy[i] == false){
+            hours.push_back(taskList[j]);
+            j++;
         }
-    } 
-    vector<Event> leisureList;
-    vector<Event> workList;
-    for(int i=0; i<taskList.size();i++){
-        if(taskList.at(i).getType()=="Leisure"){
-            leisureList.push_back(taskList.at(i));
-        }else{
-            workList.push_back(taskList.at(i));
-        }
-    }
-    cout<<"leisurelist size is "<<leisureList.size()<<endl;
-    cout<<"worklist size is "<<workList.size()<<endl;
-
-    int leisureIndex=0;
-    int workIndex=0;
-    if(preferences.at(0)==false){//index 0 is hardcoded to doing nothing
-        if(preferences.at(1)==true){//true means procrastinator
-            cout<<"procrastinator"<<endl;
-            for(int i=0; i<hours.size();i++){
-                if(leisureList.size()==leisureIndex){//if already at end of list
-                    break;
-                }
-                if(hours.at(i).getName()=="free time"){
-                    hours.at(i)=leisureList.at(leisureIndex);
-                    leisureIndex++;
-                }
-
-            }
-            for(int i=hours.size()-1; i>=0;i--){//last element is always go to bed
-                cout<<"setting work events"<<endl;
-                if(workList.size()==workIndex){//if already at end of list
-                    break;
-                }
-            if( !(hours.at(i).getType()=="Taken"|| (hours.at(i).getType()=="Leisure" && hours.at(i).getName()!="free time"))){//if it is not a user set leisure activity or taken
-                    hours.at(i)=workList.at(workIndex);
-                    workIndex++;
-                }
-            }
-
+        else{
+            Taken e = Taken();
+            hours.push_back(e);
         }
     }
 
-}
+    
+    // for(int i = 1; i < 24){
+    //     hours.push_back(Event());
+    // }
 
-void Schedule::setTimeNow(int t){
-    timeNow=t;
-}
-
-int Schedule::getTimeNow(){
-    return timeNow;
-}
-
-void Schedule::setSleepTime(int t){
-    sleepTime=t;
+    return hours;
 }
 
 
 void Schedule::displaySchedule(ostream & out){
-
-    for(unsigned i=0;i<hours.size();i++){
-        out<<"hour "<<1+timeNow+i;
-        out<<":00 - " << hours.at(i).getName()<<endl;
+    for(int i = 0; i < hours.size(); i++){
+        out<< "hour "<< to_string(i) <<":00 - " << hours[i].getName()<<endl;
     }
-    
-    // for(int i = 0; i < hours.size(); i++){
-    //     out<< "hour ";
-        
-    //     if(1+timeNow+i >=24){
-    //         out<<(1+timeNow+i)-23;
-    //     }else{
-    //         out<<" "<<1+timeNow+i;
-    //     }
-    //     out<<":00 - " << hours.at(i).getName()<<endl;
-    // }
 }
 
 void Schedule::displayDetailedSchedule(ostream &out){
@@ -118,39 +55,8 @@ void Schedule::displayDetailedSchedule(ostream &out){
     }
 }
 
-void Schedule::checkOffTask() {//main
-    Event* targetEvent;
+void Schedule::checkOffTask(string taskName){
 
-    string taskName;
-    string newName;
-    string newDesc;
-    
-    do {
-        cout << "Enter the current name of your task: ";
-        cin.ignore();
-        getline(cin, taskName);
-        cout << endl;
-
-        targetEvent = checkOffTask(taskName);
-        if (targetEvent == nullptr) {
-            cout << "Not a valid input." << endl;
-        }
-    } while (targetEvent == nullptr);
-
-    targetEvent->setDescription("[COMPLETED] " + targetEvent->getDescription());
-    cout << targetEvent->getDescription();
-    return;
-}
-
-Event* Schedule::checkOffTask(const string taskName){//helper
-    Event* task = nullptr;
-    for(int i = 0; i < taskList.size(); i++) {
-        if (taskList.at(i).getName() == taskName) {
-            task = &taskList.at(i);
-            break;
-        }
-    }
-    return task;
 }
 
 void Schedule::setTaskList(vector<Event> e){
@@ -201,15 +107,5 @@ int Schedule::getTaskListSize(){
 }
 
 Schedule::Schedule(){
-    for(int i=0; i<24;i++){
-        Leisure e("free time"," ");
-        hours.push_back(e);
-    }
 
-}
-
-void Schedule::popOffExtraHours(){
-    for(int i=0; i<timeNow+(24-sleepTime);i++){
-        hours.pop_back();
-    }
 }
