@@ -98,17 +98,6 @@ void Schedule::displaySchedule(ostream & out){
         out<<"hour "<<1+timeNow+i;
         out<<":00 - " << hours.at(i).getName()<<endl;
     }
-    
-    // for(int i = 0; i < hours.size(); i++){
-    //     out<< "hour ";
-        
-    //     if(1+timeNow+i >=24){
-    //         out<<(1+timeNow+i)-23;
-    //     }else{
-    //         out<<" "<<1+timeNow+i;
-    //     }
-    //     out<<":00 - " << hours.at(i).getName()<<endl;
-    // }
 }
 
 void Schedule::displayDetailedSchedule(ostream &out){
