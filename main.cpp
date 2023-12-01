@@ -10,7 +10,7 @@ using namespace std;
 void printMenu(){
     cout<<"a: to add another task"<<endl;
     cout<<"c: to check off a task"<<endl;
-    cout<<"s: to save and end day"<<endl;
+    cout<<"s: to save and end day"<<endl; //input validation broken
 }
 
 
@@ -25,7 +25,6 @@ void clearLog(){
 
 int main(){
     clearLog();
-    char input;
     Event dummy;
     Schedule s;
     RawInput r;
@@ -33,12 +32,17 @@ int main(){
     bool dayIsOver=false;
 
     while(true){
-        s.setTaskList(r.askTasks());
-        s.setPreferences(r.askPreferences());
-        s.setBusyTimes(r.askBusyTimes(cin));
-        while(input!='s'){
-            cout<<"DAY - "<<dayCounter<<endl;
+        cout<<"DAY - "<<dayCounter<<endl;
+        s.setTimeNow(r.askTimeNow());
+        s.setSleepTime(r.askSleepTime());
+        s.setPreferences(r.askPreferences(cin));
+        s.setBusyTimes(r.askBusyTimes(s.getTimeNow(),s.getSleepTime(),cin));
+        cin.ignore();
+        s.setTaskList(r.askTasks(cin));
+        s.popOffExtraHours();
 
+        char input='z';
+        while(input!='s'){
             s.makeSchedule();
             s.displaySchedule(cout);
             printMenu();
@@ -48,16 +52,18 @@ int main(){
             if(input=='a'){
                 s.addTask(cin);
             }else if(input=='c'){
-                s.checkOffTask("dummy");
+                s.checkOffTask();
             }else if(input=='s'){
                 s.saveSchedule();
                 dayCounter++;
                 input=' ';
+                cin.ignore();
                 break;
             }else{
                 cout<<"not a valid choice, try again"<<endl;
             }
         }
+        break;
     }
     return 1;
 };
