@@ -175,16 +175,16 @@ void Schedule::checkOffTask() {//main
         }
     } while (targetEvent == nullptr);
 
-    targetEvent->setDescription("[COMPLETED] " + targetEvent->getDescription());
-    cout << targetEvent->getDescription();
+    targetEvent->setName("[COMPLETED] " + targetEvent->getName());
+    // cout << targetEvent->getDescription();
     return;
 }
 
 Event* Schedule::checkOffTask(const string taskName){//helper
     Event* task = nullptr;
-    for(int i = 0; i < taskList.size(); i++) {
-        if (taskList.at(i).getName() == taskName) {
-            task = &taskList.at(i);
+    for(int i = 0; i < hours.size(); i++) {
+        if (hours.at(i).getName() == taskName) {
+            task = &hours.at(i);
             break;
         }
     }

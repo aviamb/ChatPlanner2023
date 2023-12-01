@@ -48,7 +48,6 @@ int main(){
             printMenu();
 
             cin>>input;
-
             if(input=='a'){
                 s.addTask(cin);
             }else if(input=='c'){
