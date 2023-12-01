@@ -15,12 +15,12 @@ class Schedule{
         int timeNow;
         int sleepTime;
     public:
-        void makeSchedule();
+        void makeSchedule();//2 tests
         void displaySchedule(ostream &);
         void displayDetailedSchedule(ostream &);
-        void saveSchedule();
-        void checkOffTask(istream&);//
-        Event* checkOffTask(string taskName);//
+        void saveSchedule(); 
+        void checkOffTask(istream&);//1 test
+        Event* checkOffTask(string taskName);
         Schedule();
         void setTaskList(vector<Event>);
         void setPreferences(vector<bool>);

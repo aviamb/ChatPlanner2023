@@ -63,8 +63,7 @@ TEST(ScheduleTests, TestProcrastinator){
     EXPECT_EQ(s.getHours().at(6).getName(),"hw");
 }
 
-TEST(ScheduleTests, TestNonprocrastinator){
-
+TEST(ScheduleTests, TestCheckOffNonProcrastinator){
     stringstream preferences("no\nno\nno");
     stringstream busyTimes("10\n11\n17\n18\n0");
     stringstream tasks("swim\nat the pool\nno\nhw\nat the library\nyes\n1\nq");
@@ -79,10 +78,36 @@ TEST(ScheduleTests, TestNonprocrastinator){
     s.setTaskList(r.askTasks(tasks));
     s.popOffExtraHours();
     s.makeSchedule();
-
-    s.checkOffTask(checkOff);
+    Event *doneTask;
+    doneTask=s.checkOffTask("swim");
+    doneTask->setName("[COMPLETED] " + doneTask->getName());
+    cin.ignore();
     EXPECT_EQ(s.getHours().at(6).getName(),"[COMPLETED] swim");
 }
+
+TEST(ScheduleTests,testAddTask){
+
+    stringstream addNewTask("\ngo to library\ndo hw\nyes\nP\nt\n25\nf\n1");
+    
+    stringstream preferences("no\nno\nno");
+    stringstream busyTimes("0");
+    stringstream checkOff("swim");
+    Schedule s;
+    RawInput r;
+    s.setTimeNow(9);
+    s.setSleepTime(19);
+    s.setPreferences(r.askPreferences(preferences));
+    s.setBusyTimes(r.askBusyTimes(9,19,busyTimes));
+    cin.ignore();
+    s.popOffExtraHours();
+    s.addTask(addNewTask);
+    s.makeSchedule();
+    EXPECT_EQ(s.getHours().at(0).getName(),"go to library");
+}
+
+
+
+
 
 int main(int argc, char **argv){
     ::testing::InitGoogleTest(&argc,argv);

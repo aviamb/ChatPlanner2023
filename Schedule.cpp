@@ -223,9 +223,15 @@ void Schedule::addTask(istream &in){
         bool validPriority=false;
         while(!validPriority){
             if(isdigit(priority[0])){
-                Work newTask(name,stoi(priority),description);
-                taskList.push_back(newTask);
-                validPriority=true;
+
+                if(stoi(priority)<4 && stoi(priority)>0){
+                    Work newTask(name,stoi(priority),description);
+                    taskList.push_back(newTask);
+                    validPriority=true;
+                }else{
+                    cout<<"please enter a valid priority"<<endl;
+                    in>>priority;
+                }
             }else{
                 cout<<"please enter an int"<<endl;
                 in>>priority;
