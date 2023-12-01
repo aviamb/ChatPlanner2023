@@ -7,36 +7,6 @@
 #include <iostream>
 
 using namespace std;
-
-// TEST(ScheduleTests, testScheduleCreation){
-//     Event e;
-//     vector<Event> vectorOfE = {e};
-//     Schedule s;
-//     s.setTaskList(vectorOfE);
-//     EXPECT_EQ(s.makeSchedule().size(),1);
-// }
-
-// TEST(ScheduleTests, testScheduleDisplayMult){
-//     Event e;
-//     Event f;
-//     vector<Event> vectorOfE = {e, f};
-//     Schedule s;
-//     ostream &out;
-//     s.setTaskList(vectorOfE);
-//     s.makeSchedule();
-//     EXPECT_EQ(s.displaySchedule(out),"hour 0:00 - dummyhour 1:00 - dummy");
-// }
-
-// TEST(ScheduleTests, testScheduleDisplaySingle){
-//     Event e;
-//     Event f;
-//     vector<Event> vectorOfE = {e};
-//     Schedule s;
-//     s.setTaskList(vectorOfE);
-//     s.makeSchedule();
-//     EXPECT_EQ(s.displaySchedule(),"hour 0:00 - dummy");
-// }
-
 #include <sstream>
 
 TEST(EventTests,TestTakenConstructor){
@@ -93,25 +63,28 @@ TEST(ScheduleTests, TestLazy){
     EXPECT_EQ(s.getHours().at(6).getName(),"hw");
 }
 
-TEST(ScheduleTests, TestNotLazy){
-
+TEST(ScheduleTests, TestCheckOffNonProcrastinator){
     stringstream preferences("no\nno\nno");
-    stringstream busyTimes("11\n17\n18\n0");
+    stringstream busyTimes("10\n11\n17\n18\n0");
     stringstream tasks("swim\nat the pool\nno\nhw\nat the library\nyes\n1\nq");
-
+    stringstream checkOff("swim");
     Schedule s;
     RawInput r;
     s.setTimeNow(9);
     s.setSleepTime(19);
-    
     s.setPreferences(r.askPreferences(preferences));
     s.setBusyTimes(r.askBusyTimes(9,19,busyTimes));
     cin.ignore();
     s.setTaskList(r.askTasks(tasks));
     s.popOffExtraHours();
     s.makeSchedule();
-    EXPECT_EQ(s.getHours().at(0).getName(),"hw");
+    Event *doneTask;
+    doneTask=s.checkOffTask("swim");
+    doneTask->setName("[COMPLETED] " + doneTask->getName());
+    cin.ignore();
+    EXPECT_EQ(s.getHours().at(6).getName(),"[COMPLETED] swim");
 }
+
 
 TEST(ScheduleTests, TestDoNothing){
 
@@ -143,7 +116,7 @@ TEST(ScheduleTests, TestPriority){
     RawInput r;
     s.setTimeNow(9);
     s.setSleepTime(19);
-    
+
     s.setPreferences(r.askPreferences(preferences));
     s.setBusyTimes(r.askBusyTimes(9,19,busyTimes));
     cin.ignore();
@@ -152,10 +125,7 @@ TEST(ScheduleTests, TestPriority){
     s.makeSchedule();
 
     EXPECT_EQ(s.getHours().at(0).getName(),"hw");
-    
-    ostringstream out;
-    s.displaySchedule(out);
-    //EXPECT_EQ(out.str(),"hw");
+
 }
 
 TEST(ScheduleTests, TestPriorityWithNonWork){
@@ -177,10 +147,6 @@ TEST(ScheduleTests, TestPriorityWithNonWork){
     s.makeSchedule();
 
     EXPECT_EQ(s.getHours().at(8).getName(),"video games");
-    
-    ostringstream out;
-    s.displaySchedule(out);
-    //EXPECT_EQ(out.str(),"hw");
 }
 
 int main(int argc, char **argv){

@@ -48,11 +48,10 @@ int main(){
             printMenu();
 
             cin>>input;
-
             if(input=='a'){
                 s.addTask(cin);
             }else if(input=='c'){
-                s.checkOffTask();
+                s.checkOffTask(cin);
             }else if(input=='s'){
                 s.saveSchedule();
                 dayCounter++;

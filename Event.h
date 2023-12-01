@@ -17,11 +17,12 @@ class Event{
         void setDescription(string);
         string getType();
         int getPriority();
-        int priority;
+
     protected:
         string name;
         string description;
         string type;
+        int priority;
 };
 
 class Work: public Event{

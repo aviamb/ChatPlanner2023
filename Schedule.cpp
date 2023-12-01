@@ -19,8 +19,10 @@ void Schedule::saveSchedule(){
     if(!outFS.is_open()){
         cout<<"error opening log"<<endl;
     }
+    int hour=timeNow+1;
     for(int i=0; i<hours.size();i++){
-        outFS<<hours.at(i).getName()<<" - "<<hours.at(i).getDescription()<<endl;
+        outFS<<hour<<":00 "<<hours.at(i).getName()<<" - "<<hours.at(i).getDescription()<<endl;
+        hour++;
     }
     outFS.close();
 }
@@ -109,6 +111,7 @@ void Schedule::makeSchedule(){
             cout<<"done setting fun events"<<endl;
         }
     }
+    taskList.clear();
 
 }
 
@@ -164,7 +167,7 @@ void Schedule::displayDetailedSchedule(ostream &out){
     }
 }
 
-void Schedule::checkOffTask() {//main
+void Schedule::checkOffTask(istream &in) {//main
     Event* targetEvent;
 
     string taskName;
@@ -173,8 +176,8 @@ void Schedule::checkOffTask() {//main
     
     do {
         cout << "Enter the current name of your task: ";
-        cin.ignore();
-        getline(cin, taskName);
+        in.ignore();
+        getline(in, taskName);
         cout << endl;
 
         targetEvent = checkOffTask(taskName);
@@ -183,16 +186,16 @@ void Schedule::checkOffTask() {//main
         }
     } while (targetEvent == nullptr);
 
-    targetEvent->setDescription("[COMPLETED] " + targetEvent->getDescription());
-    cout << targetEvent->getDescription();
+    targetEvent->setName("[COMPLETED] " + targetEvent->getName());
+    // cout << targetEvent->getDescription();
     return;
 }
 
 Event* Schedule::checkOffTask(const string taskName){//helper
     Event* task = nullptr;
-    for(int i = 0; i < taskList.size(); i++) {
-        if (taskList.at(i).getName() == taskName) {
-            task = &taskList.at(i);
+    for(int i = 0; i < hours.size(); i++) {
+        if (hours.at(i).getName() == taskName) {
+            task = &hours.at(i);
             break;
         }
     }
@@ -228,9 +231,15 @@ void Schedule::addTask(istream &in){
         bool validPriority=false;
         while(!validPriority){
             if(isdigit(priority[0])){
-                Work newTask(name,stoi(priority),description);
-                taskList.push_back(newTask);
-                validPriority=true;
+
+                if(stoi(priority)<4 && stoi(priority)>0){
+                    Work newTask(name,stoi(priority),description);
+                    taskList.push_back(newTask);
+                    validPriority=true;
+                }else{
+                    cout<<"please enter a valid priority"<<endl;
+                    in>>priority;
+                }
             }else{
                 cout<<"please enter an int"<<endl;
                 in>>priority;
