@@ -68,12 +68,14 @@ void Schedule::makeSchedule(){
                 }
 
             }
+
+            workList = sortWorkEvents(workList);
             for(int i=hours.size()-1; i>=0;i--){//last element is always go to bed
                 cout<<"setting work events"<<endl;
                 if(workList.size()==workIndex){//if already at end of list
                     break;
                 }
-            if( !(hours.at(i).getType()=="Taken"|| (hours.at(i).getType()=="Leisure" && hours.at(i).getName()!="free time"))){//if it is not a user set leisure activity or taken
+                if( !(hours.at(i).getType()=="Taken"|| (hours.at(i).getType()=="Leisure" && hours.at(i).getName()!="free time"))){//if it is not a user set leisure activity or taken
                     hours.at(i)=workList.at(workIndex);
                     workIndex++;
                 }
@@ -82,6 +84,7 @@ void Schedule::makeSchedule(){
             leisureIndex=0;
             workIndex=0;
             cout<<"not a prcastinator"<<endl;
+            workList = sortWorkEvents(workList);
             for(int i=0; i<hours.size();i++){
                 cout<<"i is  "<<i<<endl;
 
@@ -112,6 +115,22 @@ void Schedule::makeSchedule(){
 
 }
 
+vector<Event> Schedule::sortWorkEvents(vector<Event> & workEvents){
+    for(int i = 0; i < workEvents.size()-1; i++){
+        int minIndex = i;
+        for (int j = i + 1; j < workEvents.size(); j++) {
+            if (workEvents[j].getPriority() < workEvents[minIndex].getPriority()) {
+                minIndex = j;
+            }
+        }
+        Event tobeswapped = workEvents[i];
+        workEvents[i] = workEvents[minIndex];
+        workEvents[minIndex] = tobeswapped;
+    }
+
+    return workEvents;
+}
+
 void Schedule::setTimeNow(int t){
     timeNow=t;
 }
@@ -139,17 +158,6 @@ void Schedule::displaySchedule(ostream & out){
         out<<"hour "<<1+timeNow+i;
         out<<":00 - " << hours.at(i).getName()<<endl;
     }
-    
-    // for(int i = 0; i < hours.size(); i++){
-    //     out<< "hour ";
-        
-    //     if(1+timeNow+i >=24){
-    //         out<<(1+timeNow+i)-23;
-    //     }else{
-    //         out<<" "<<1+timeNow+i;
-    //     }
-    //     out<<":00 - " << hours.at(i).getName()<<endl;
-    // }
 }
 
 void Schedule::displayDetailedSchedule(ostream &out){

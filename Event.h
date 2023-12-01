@@ -17,6 +17,7 @@ class Event{
         void setDescription(string);
         string getType();
         int getPriority();
+
     protected:
         string name;
         string description;
