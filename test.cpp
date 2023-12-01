@@ -158,6 +158,31 @@ TEST(ScheduleTests, TestPriority){
     //EXPECT_EQ(out.str(),"hw");
 }
 
+TEST(ScheduleTests, TestPriorityWithNonWork){
+
+    stringstream preferences("no\nno\nno");
+    stringstream busyTimes("0");
+    stringstream tasks("swim\nat the pool\nyes\n3\ne\nhw\nat the library\nyes\n1\ne\nlecture\nfor cs100\nyes\n2\ne\nvideo games\nwith friends\nn\nq");
+
+    Schedule s;
+    RawInput r;
+    s.setTimeNow(9);
+    s.setSleepTime(19);
+    
+    s.setPreferences(r.askPreferences(preferences));
+    s.setBusyTimes(r.askBusyTimes(9,19,busyTimes));
+    cin.ignore();
+    s.setTaskList(r.askTasks(tasks));
+    s.popOffExtraHours();
+    s.makeSchedule();
+
+    EXPECT_EQ(s.getHours().at(8).getName(),"video games");
+    
+    ostringstream out;
+    s.displaySchedule(out);
+    //EXPECT_EQ(out.str(),"hw");
+}
+
 int main(int argc, char **argv){
     ::testing::InitGoogleTest(&argc,argv);
     return RUN_ALL_TESTS();
