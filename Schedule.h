@@ -19,7 +19,7 @@ class Schedule{
         void displaySchedule(ostream &);
         void displayDetailedSchedule(ostream &);
         void saveSchedule();
-        void checkOffTask();//
+        void checkOffTask(istream&);//
         Event* checkOffTask(string taskName);//
         Schedule();
         void setTaskList(vector<Event>);
@@ -36,7 +36,6 @@ class Schedule{
         vector<Event>getHours();
         void popOffExtraHours();
         ~Schedule();
-
 };
 
 

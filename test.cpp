@@ -47,7 +47,7 @@ TEST(ScheduleTests, TestProcrastinator){
 
     stringstream preferences("no\nyes\nno");
     stringstream busyTimes("10\n11\n17\n18\n0");
-    stringstream tasks("swim\nat the pool\nno\ne\nhw\nat the library\nyes\n1\nq");
+    stringstream tasks("swim\nat the pool\nno\nhw\nat the library\nyes\n1\nq");
 
     Schedule s;
     RawInput r;
@@ -67,20 +67,21 @@ TEST(ScheduleTests, TestNonprocrastinator){
 
     stringstream preferences("no\nno\nno");
     stringstream busyTimes("10\n11\n17\n18\n0");
-    stringstream tasks("swim\nat the pool\nno\ne\nhw\nat the library\nyes\n1\nq");
-
+    stringstream tasks("swim\nat the pool\nno\nhw\nat the library\nyes\n1\nq");
+    stringstream checkOff("swim");
     Schedule s;
     RawInput r;
     s.setTimeNow(9);
     s.setSleepTime(19);
-    
     s.setPreferences(r.askPreferences(preferences));
     s.setBusyTimes(r.askBusyTimes(9,19,busyTimes));
     cin.ignore();
     s.setTaskList(r.askTasks(tasks));
     s.popOffExtraHours();
     s.makeSchedule();
-    EXPECT_EQ(s.getHours().at(6).getName(),"swim");
+
+    s.checkOffTask(checkOff);
+    EXPECT_EQ(s.getHours().at(6).getName(),"[COMPLETED] swim");
 }
 
 int main(int argc, char **argv){

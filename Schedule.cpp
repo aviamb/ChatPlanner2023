@@ -19,8 +19,10 @@ void Schedule::saveSchedule(){
     if(!outFS.is_open()){
         cout<<"error opening log"<<endl;
     }
+    int hour=timeNow+1;
     for(int i=0; i<hours.size();i++){
-        outFS<<hours.at(i).getName()<<" - "<<hours.at(i).getDescription()<<endl;
+        outFS<<hour<<":00 "<<hours.at(i).getName()<<" - "<<hours.at(i).getDescription()<<endl;
+        hour++;
     }
     outFS.close();
 }
@@ -106,6 +108,7 @@ void Schedule::makeSchedule(){
             cout<<"done setting fun events"<<endl;
         }
     }
+    taskList.clear();
 
 }
 
@@ -156,7 +159,7 @@ void Schedule::displayDetailedSchedule(ostream &out){
     }
 }
 
-void Schedule::checkOffTask() {//main
+void Schedule::checkOffTask(istream &in) {//main
     Event* targetEvent;
 
     string taskName;
@@ -165,8 +168,8 @@ void Schedule::checkOffTask() {//main
     
     do {
         cout << "Enter the current name of your task: ";
-        cin.ignore();
-        getline(cin, taskName);
+        in.ignore();
+        getline(in, taskName);
         cout << endl;
 
         targetEvent = checkOffTask(taskName);
