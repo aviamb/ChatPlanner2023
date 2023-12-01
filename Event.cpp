@@ -45,6 +45,7 @@ Leisure::Leisure(string name, string description){
     this->name=name;
     this->description=description;
     this->type="Leisure";
+    this->priority = 0;
 
 }
 void Leisure::printEvent(ostream & out){
@@ -61,5 +62,9 @@ Taken::Taken(){
 }
 void Taken::printEvent(ostream & out){
     out<<"-------------------"<<endl;
+}
+
+int Event::getPriority(){
+    return priority;
 }
 

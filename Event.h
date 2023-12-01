@@ -16,6 +16,8 @@ class Event{
         void setName(string);
         void setDescription(string);
         string getType();
+        int getPriority();
+        int priority;
     protected:
         string name;
         string description;
@@ -27,7 +29,6 @@ class Work: public Event{
         string getType();
         void printEvent(ostream & out);
         Work(string,int,string);
-        int priority;
 };
 
 class Leisure: public Event{

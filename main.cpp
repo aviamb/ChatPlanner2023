@@ -10,7 +10,7 @@ using namespace std;
 void printMenu(){
     cout<<"a: to add another task"<<endl;
     cout<<"c: to check off a task"<<endl;
-    cout<<"s: to save and end day"<<endl;
+    cout<<"s: to save and end day"<<endl; //input validation broken
 }
 
 

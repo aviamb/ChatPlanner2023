@@ -73,11 +73,11 @@ TEST(EventTests,TestPrintTaken){
     EXPECT_EQ(out.str(),"-------------------\n");
 }
 
-TEST(ScheduleTests, TestAddLeisureTask){
+TEST(ScheduleTests, TestLazy){
 
     stringstream preferences("no\nyes\nno");
     stringstream busyTimes("10\n11\n17\n18\n0");
-    stringstream tasks("swim\nat the pool\nno\ne\nhw\nat the library\nyes\n1\nq");
+    stringstream tasks("swim\nat the pool\nno\nhw\nat the library\nyes\n1\nq");
 
     Schedule s;
     RawInput r;
@@ -91,6 +91,71 @@ TEST(ScheduleTests, TestAddLeisureTask){
     s.popOffExtraHours();
     s.makeSchedule();
     EXPECT_EQ(s.getHours().at(6).getName(),"hw");
+}
+
+TEST(ScheduleTests, TestNotLazy){
+
+    stringstream preferences("no\nno\nno");
+    stringstream busyTimes("11\n17\n18\n0");
+    stringstream tasks("swim\nat the pool\nno\nhw\nat the library\nyes\n1\nq");
+
+    Schedule s;
+    RawInput r;
+    s.setTimeNow(9);
+    s.setSleepTime(19);
+    
+    s.setPreferences(r.askPreferences(preferences));
+    s.setBusyTimes(r.askBusyTimes(9,19,busyTimes));
+    cin.ignore();
+    s.setTaskList(r.askTasks(tasks));
+    s.popOffExtraHours();
+    s.makeSchedule();
+    EXPECT_EQ(s.getHours().at(0).getName(),"hw");
+}
+
+TEST(ScheduleTests, TestDoNothing){
+
+    stringstream preferences("yes\nno\nno");
+    stringstream busyTimes("0");
+    stringstream tasks("swim\nat the pool\nno\ne\nhw\nat the library\nyes\n1\nq");
+
+    Schedule s;
+    RawInput r;
+    s.setTimeNow(9);
+    s.setSleepTime(19);
+    
+    s.setPreferences(r.askPreferences(preferences));
+    s.setBusyTimes(r.askBusyTimes(9,19,busyTimes));
+    cin.ignore();
+    s.setTaskList(r.askTasks(tasks));
+    s.popOffExtraHours();
+    s.makeSchedule();
+    EXPECT_EQ(s.getHours().at(0).getName(),"free time");
+}
+
+TEST(ScheduleTests, TestPriority){
+
+    stringstream preferences("no\nno\nno");
+    stringstream busyTimes("0");
+    stringstream tasks("swim\nat the pool\nyes\n3\ne\nhw\nat the library\nyes\n1\ne\nlecture\nfor cs100\nyes\n2\nq");
+
+    Schedule s;
+    RawInput r;
+    s.setTimeNow(9);
+    s.setSleepTime(19);
+    
+    s.setPreferences(r.askPreferences(preferences));
+    s.setBusyTimes(r.askBusyTimes(9,19,busyTimes));
+    cin.ignore();
+    s.setTaskList(r.askTasks(tasks));
+    s.popOffExtraHours();
+    s.makeSchedule();
+
+    EXPECT_EQ(s.getHours().at(0).getName(),"hw");
+    
+    ostringstream out;
+    s.displaySchedule(out);
+    //EXPECT_EQ(out.str(),"hw");
 }
 
 int main(int argc, char **argv){

@@ -36,6 +36,7 @@ class Schedule{
         vector<Event>getHours();
         void popOffExtraHours();
         ~Schedule();
+        vector<Event> sortWorkEvents(vector<Event>&);
 
 };
 
