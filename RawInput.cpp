@@ -122,16 +122,29 @@ vector<bool> RawInput::askPreferences(istream &in)
     
     return prefList;
 
+    /*for(bool preference : prefList) //TestFunction to check inside the vector.
+    {
+        if(preference)
+        {
+            cout << "Yes" << endl;
+        }
+        else
+        {
+            cout << "No" << endl;
+        }
+    }
+    */
+
 }
 
 
 
 vector<Event> RawInput::askTasks(istream &in) {
-    string userDecision;
+    char userDecision;
     vector<Event> rawTaskList;
 
     string name;
-    string category;
+    char category;
     string description;
     int priority = 0;
 
@@ -147,11 +160,7 @@ vector<Event> RawInput::askTasks(istream &in) {
         cout << "Is this task work-related? (y/n): ";
         
         while (in >> category) {
-            if (category != "y" && category != "Y" && category != "n" && category != "N") {
-                cout << "Not a valid input. " << endl;
-                cout << "Is this task work-related? (y/n): ";
-            }
-            else if (category == "y" || category == "Y") {
+            if (category == 'y' || category == 'Y') {
                 cout << "Enter task priority (1 = most, 3 = least): " ;
 
                 in >> priority;
@@ -168,12 +177,17 @@ vector<Event> RawInput::askTasks(istream &in) {
                 rawTaskList.push_back(currWorkEvent);
                 break;
             } 
-            else {
-          (name, description);
-                rawTaskList.push_back(cu      Leisure currLeisureEventrrLeisureEvent);
+            else if (category == 'n' || category == 'N') {
+                Leisure currLeisureEvent(name, description);
+                rawTaskList.push_back(currLeisureEvent);
                 break;
             } 
+            else {
+                cout << "Not a valid input. " << endl;
+                cout << "Is this task work-related? (y/n): ";
+            }
             in.clear();
+            //break;
         }
         
         cout << "Task added successfully!" << endl;
@@ -181,7 +195,13 @@ vector<Event> RawInput::askTasks(istream &in) {
         in >> userDecision;
         cout << endl;
         in.ignore();
-    } while (userDecision != "q" && userDecision != "Q");
+    } while (userDecision != 'q' && userDecision != 'Q');
 
+
+     /*for (int i = 0; i < rawTaskList.size(); i++) {
+        rawTaskList.at(i)->printEvent();
+        cout << endl;
+    }  //testing code */
+  
     return rawTaskList;
 }
