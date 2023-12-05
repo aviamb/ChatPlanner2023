@@ -9,6 +9,48 @@
 using namespace std;
 #include <sstream>
 
+TEST(RawInputTests,testNYY)
+{
+    stringstream preferences("no\nyes\nyes");
+    RawInput r;
+    vector<bool> vectorOfAskP = r.askPreferences(preferences);
+    ASSERT_EQ(vectorOfAskP.size(), 3);
+    EXPECT_FALSE(vectorOfAskP[0]);
+    EXPECT_TRUE(vectorOfAskP[1]);
+    EXPECT_TRUE(vectorOfAskP[2]);
+}
+
+TEST(RawInputTests,testNYN)
+{
+    stringstream preferences("no\nyes\nno");
+    RawInput r;
+    vector<bool> vectorOfAskP = r.askPreferences(preferences);
+    ASSERT_EQ(vectorOfAskP.size(), 3);
+    EXPECT_FALSE(vectorOfAskP[0]);
+    EXPECT_TRUE(vectorOfAskP[1]);
+    EXPECT_FALSE(vectorOfAskP[2]);
+}
+
+TEST(RawInputTests,testNNY)
+{
+    stringstream preferences("no\nno\nyes");
+    RawInput r;
+    vector<bool> vectorOfAskP = r.askPreferences(preferences);
+    ASSERT_EQ(vectorOfAskP.size(), 3);
+    EXPECT_FALSE(vectorOfAskP[0]);
+    EXPECT_FALSE(vectorOfAskP[1]);
+    EXPECT_TRUE(vectorOfAskP[2]);
+}
+
+TEST(RawInputTests,testY)
+{
+    stringstream preferences("yes");
+    RawInput r;
+    vector<bool> vectorOfAskP = r.askPreferences(preferences);
+    ASSERT_EQ(vectorOfAskP.size(), 1);
+    EXPECT_TRUE(vectorOfAskP[0]);
+}
+
 TEST(EventTests,TestTakenConstructor){
     Taken t;
     EXPECT_EQ(t.getName(), "-------");

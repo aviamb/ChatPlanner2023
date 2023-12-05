@@ -89,7 +89,7 @@ vector<bool> RawInput::askPreferences(istream &in)
     vector<bool> prefList;
     string userInput = "";
 
-    cout << "Do you not want to do nothing today? (Yes or No)" << endl;
+    cout << "Do you want to do nothing today? (Yes or No)" << endl;
 
     in >> userInput;
 
