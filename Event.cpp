@@ -35,7 +35,7 @@ int Event::getPriority(){
 
 
 Work::Work(string name,int priority,string description){ //Default constructor 
-    this->name=name
+    this->name=name;
     this->priority=priority;
     this->description=description;
     this->type="Work";
