@@ -61,7 +61,7 @@ vector<bool> RawInput::askBusyTimes(int currentTime,int sleepTime,istream & in){
             if(stoi(input)==0){
             endUserInput=true;
             }
-            else if(stoi(input)<currentTime){
+            else if(stoi(input)<=currentTime){
                 cout<<"that is less than the current Time"<<endl;
             }
             else if(stoi(input)>=sleepTime){
