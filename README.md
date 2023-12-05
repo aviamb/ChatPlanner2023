@@ -19,7 +19,7 @@ Chatplanner is an interactive task manager that can help users plan their daily 
 
   Chatplanner is a textbot and will be executed through the terminal only.
 
-  >Users may enter preferences, tasks, and times not available. Chatplanner will generate a potential schedule for the user with each run.
+  Users may enter preferences, tasks, and times not available. Chatplanner will generate a potential schedule for the user with each run.
 
 #### Project Features:
  * generate non rigid schedule for a user based on user input
