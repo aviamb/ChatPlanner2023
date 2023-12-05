@@ -83,12 +83,12 @@ Using the menu, the user can add additional tasks or checkoff tasks
 ![image](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/a950f550-5bed-416f-89d6-5783de49a6b8)  
 Finally, the user can save everything into a log file that gets updated every time the program runs.  
 ![image](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/83c13802-1b0a-42d1-9ad7-37e5a50c97e2)
- ## Installation/Usage
+  ## Installation/Usage
   *You must have a C++ compiler to use this program
   *To install, clone the repo into a folder
   *The program will ask you for the time now and the time you want to stop planning events and end your day.
   *Then, enter your preferences for the day
-       *The program will ask you if you want to do anything today, and your work habits
+  *The program will ask you if you want to do anything today, and your work habits
   *Enter the times you are already busy so the program will not schedule anything during those blocks
   *Enter tasks you would like the program to plan for you
   *After your schedule displays, you can check off, add additional tasks, or save and end the program
