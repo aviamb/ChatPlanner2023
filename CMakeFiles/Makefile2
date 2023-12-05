@@ -63,7 +63,8 @@ CMAKE_BINARY_DIR = /home/csmajs/sjeon065/final-project-alin157-mrela001-abequ001
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/runAllTests.dir/all
+all: CMakeFiles/runProgram.dir/all
+all: CMakeFiles/test.dir/all
 all: googletest/all
 .PHONY : all
 
@@ -72,7 +73,8 @@ preinstall: googletest/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/runAllTests.dir/clean
+clean: CMakeFiles/runProgram.dir/clean
+clean: CMakeFiles/test.dir/clean
 clean: googletest/clean
 .PHONY : clean
 
@@ -128,30 +130,56 @@ googletest/googletest/clean: googletest/googletest/CMakeFiles/gtest.dir/clean
 .PHONY : googletest/googletest/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/runAllTests.dir
+# Target rules for target CMakeFiles/runProgram.dir
 
 # All Build rule for target.
-CMakeFiles/runAllTests.dir/all: googletest/googletest/CMakeFiles/gtest.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/csmajs/sjeon065/final-project-alin157-mrela001-abequ001-sjeon065/CMakeFiles --progress-num=9,10,11,12,13 "Built target runAllTests"
-.PHONY : CMakeFiles/runAllTests.dir/all
+CMakeFiles/runProgram.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runProgram.dir/build.make CMakeFiles/runProgram.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runProgram.dir/build.make CMakeFiles/runProgram.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/csmajs/sjeon065/final-project-alin157-mrela001-abequ001-sjeon065/CMakeFiles --progress-num=9,10,11,12,13 "Built target runProgram"
+.PHONY : CMakeFiles/runProgram.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/runAllTests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/sjeon065/final-project-alin157-mrela001-abequ001-sjeon065/CMakeFiles 7
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/runAllTests.dir/all
+CMakeFiles/runProgram.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/sjeon065/final-project-alin157-mrela001-abequ001-sjeon065/CMakeFiles 5
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/runProgram.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/sjeon065/final-project-alin157-mrela001-abequ001-sjeon065/CMakeFiles 0
-.PHONY : CMakeFiles/runAllTests.dir/rule
+.PHONY : CMakeFiles/runProgram.dir/rule
 
 # Convenience name for target.
-runAllTests: CMakeFiles/runAllTests.dir/rule
-.PHONY : runAllTests
+runProgram: CMakeFiles/runProgram.dir/rule
+.PHONY : runProgram
 
 # clean rule for target.
-CMakeFiles/runAllTests.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/runAllTests.dir/build.make CMakeFiles/runAllTests.dir/clean
-.PHONY : CMakeFiles/runAllTests.dir/clean
+CMakeFiles/runProgram.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/runProgram.dir/build.make CMakeFiles/runProgram.dir/clean
+.PHONY : CMakeFiles/runProgram.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/test.dir
+
+# All Build rule for target.
+CMakeFiles/test.dir/all: googletest/googletest/CMakeFiles/gtest.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/csmajs/sjeon065/final-project-alin157-mrela001-abequ001-sjeon065/CMakeFiles --progress-num=14,15,16,17,18 "Built target test"
+.PHONY : CMakeFiles/test.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/test.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/sjeon065/final-project-alin157-mrela001-abequ001-sjeon065/CMakeFiles 7
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/csmajs/sjeon065/final-project-alin157-mrela001-abequ001-sjeon065/CMakeFiles 0
+.PHONY : CMakeFiles/test.dir/rule
+
+# Convenience name for target.
+test: CMakeFiles/test.dir/rule
+.PHONY : test
+
+# clean rule for target.
+CMakeFiles/test.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/clean
+.PHONY : CMakeFiles/test.dir/clean
 
 #=============================================================================
 # Target rules for target googletest/googlemock/CMakeFiles/gmock_main.dir
