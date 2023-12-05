@@ -149,6 +149,31 @@ TEST(ScheduleTests, TestPriorityWithNonWork){
     EXPECT_EQ(s.getHours().at(8).getName(),"video games");
 }
 
+TEST(RawInputTests, TestAskOneTask_NoSpace) {
+
+}
+
+TEST(RawInputTests, TestAskOneTask_Spaces) {
+
+}
+
+TEST(RawInputTests, TestAskThreeTask_NoSpace) {
+
+}
+
+TEST(RawInputTests, TestAskThreeTask_Spaces) {
+
+}
+
+TEST(RawInputTests, TestAskManyTask_NoSpace) {
+
+}
+
+TEST(RawInputTests, TestAskManyTask_Spaces) {
+
+}
+
+
 int main(int argc, char **argv){
     ::testing::InitGoogleTest(&argc,argv);
     return RUN_ALL_TESTS();

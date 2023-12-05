@@ -122,19 +122,6 @@ vector<bool> RawInput::askPreferences(istream &in)
     
     return prefList;
 
-    /*for(bool preference : prefList) //TestFunction to check inside the vector.
-    {
-        if(preference)
-        {
-            cout << "Yes" << endl;
-        }
-        else
-        {
-            cout << "No" << endl;
-        }
-    }
-    */
-
 }
 
 
@@ -197,11 +184,5 @@ vector<Event> RawInput::askTasks(istream &in) {
         in.ignore();
     } while (userDecision != 'q' && userDecision != 'Q');
 
-
-     /*for (int i = 0; i < rawTaskList.size(); i++) {
-        rawTaskList.at(i)->printEvent();
-        cout << endl;
-    }  //testing code */
-  
     return rawTaskList;
 }
