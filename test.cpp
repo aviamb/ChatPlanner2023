@@ -9,7 +9,7 @@
 using namespace std;
 #include <sstream>
 
-/*(TEST(EventTests,TestTakenConstructor){
+TEST(EventTests,TestTakenConstructor){
     Taken t;
     EXPECT_EQ(t.getName(), "-------");
     EXPECT_EQ(t.getDescription(), "");
@@ -147,7 +147,7 @@ TEST(ScheduleTests, TestPriorityWithNonWork){
     s.makeSchedule();
 
     EXPECT_EQ(s.getHours().at(8).getName(),"video games");
-}*/
+}
 
 TEST(RawInputTests, TestOneTaskName) { //testing ONE task input, multiple word inputs only (for getline/cin testing)
     vector<Event> testTaskList;
