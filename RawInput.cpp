@@ -169,8 +169,8 @@ vector<Event> RawInput::askTasks(istream &in) {
                 break;
             } 
             else {
-          (name, description);
-                rawTaskList.push_back(cu      Leisure currLeisureEventrrLeisureEvent);
+                Leisure currLeisureEvent(name, description);
+                rawTaskList.push_back(currLeisureEvent);
                 break;
             } 
             in.clear();
