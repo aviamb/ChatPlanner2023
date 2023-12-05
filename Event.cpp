@@ -29,6 +29,10 @@ string Event::getType(){
     return type;
 }   
 
+int Event::getPriority(){
+    return priority;
+}
+
 
 Work::Work(string name,int priority,string description){ //Default constructor 
     this->name=name;

@@ -63,93 +63,92 @@ TEST(ScheduleTests, TestLazy){
     EXPECT_EQ(s.getHours().at(6).getName(),"hw");
 }
 
-// TEST(ScheduleTests, TestCheckOffNonProcrastinator){
-//     stringstream preferences("no\nno\nno");
-//     stringstream busyTimes("10\n11\n17\n18\n0");
-//     stringstream tasks("swim\nat the pool\nno\nhw\nat the library\nyes\n1\nq");
-//     stringstream checkOff("swim");
-//     Schedule s;
-//     RawInput r;
-//     s.setTimeNow(9);
-//     s.setSleepTime(19);
-//     s.setPreferences(r.askPreferences(preferences));
-//     s.setBusyTimes(r.askBusyTimes(9,19,busyTimes));
-//     cin.ignore();
-//     s.setTaskList(r.askTasks(tasks));
-//     s.popOffExtraHours();
-//     s.makeSchedule();
-//     Event *doneTask;
-//     doneTask=s.checkOffTask("swim");
-//     doneTask->setName("[COMPLETED] " + doneTask->getName());
-//     cin.ignore();
-//     EXPECT_EQ(s.getHours().at(6).getName(),"[COMPLETED] swim");
-// }
+TEST(ScheduleTests, TestCheckOffNonProcrastinator){
+    stringstream preferences("no\nno\nno");
+    stringstream busyTimes("10\n11\n17\n18\n0");
+    stringstream tasks("swim\nat the pool\nno\nhw\nat the library\nyes\n1\nq");
+    stringstream checkOff("swim");
+    Schedule s;
+    RawInput r;
+    s.setTimeNow(9);
+    s.setSleepTime(19);
+    s.setPreferences(r.askPreferences(preferences));
+    s.setBusyTimes(r.askBusyTimes(9,19,busyTimes));
+    cin.ignore();
+    s.setTaskList(r.askTasks(tasks));
+    s.popOffExtraHours();
+    s.makeSchedule();
+    Event *doneTask;
+    doneTask=s.checkOffTask("swim");
+    doneTask->setName("[COMPLETED] " + doneTask->getName());
+    cin.ignore();
+    EXPECT_EQ(s.getHours().at(6).getName(),"[COMPLETED] swim");
+}
 
 
-// TEST(ScheduleTests, TestDoNothing){
+TEST(ScheduleTests, TestDoNothing){
 
-//     stringstream preferences("yes\nno\nno");
-//     stringstream busyTimes("0");
-//     stringstream tasks("swim\nat the pool\nno\ne\nhw\nat the library\nyes\n1\nq");
+    stringstream preferences("yes\nno\nno");
+    stringstream busyTimes("0");
+    stringstream tasks("swim\nat the pool\nno\ne\nhw\nat the library\nyes\n1\nq");
 
-//     Schedule s;
-//     RawInput r;
-//     s.setTimeNow(9);
-//     s.setSleepTime(19);
+    Schedule s;
+    RawInput r;
+    s.setTimeNow(9);
+    s.setSleepTime(19);
     
-//     s.setPreferences(r.askPreferences(preferences));
-//     s.setBusyTimes(r.askBusyTimes(9,19,busyTimes));
-//     cin.ignore();
-//     s.setTaskList(r.askTasks(tasks));
-//     s.popOffExtraHours();
-//     s.makeSchedule();
-//     EXPECT_EQ(s.getHours().at(0).getName(),"free time");
-// }
+    s.setPreferences(r.askPreferences(preferences));
+    s.setBusyTimes(r.askBusyTimes(9,19,busyTimes));
+    cin.ignore();
+    s.setTaskList(r.askTasks(tasks));
+    s.popOffExtraHours();
+    s.makeSchedule();
+    EXPECT_EQ(s.getHours().at(0).getName(),"free time");
+}
 
-// TEST(ScheduleTests, TestPriority){
+TEST(ScheduleTests, TestPriority){
 
-//     stringstream preferences("no\nno\nno");
-//     stringstream busyTimes("0");
-//     stringstream tasks("swim\nat the pool\nyes\n3\ne\nhw\nat the library\nyes\n1\ne\nlecture\nfor cs100\nyes\n2\nq");
+    stringstream preferences("no\nno\nno");
+    stringstream busyTimes("0");
+    stringstream tasks("swim\nat the pool\nyes\n3\ne\nhw\nat the library\nyes\n1\ne\nlecture\nfor cs100\nyes\n2\nq");
 
-//     Schedule s;
-//     RawInput r;
-//     s.setTimeNow(9);
-//     s.setSleepTime(19);
+    Schedule s;
+    RawInput r;
+    s.setTimeNow(9);
+    s.setSleepTime(19);
 
-//     s.setPreferences(r.askPreferences(preferences));
-//     s.setBusyTimes(r.askBusyTimes(9,19,busyTimes));
-//     cin.ignore();
-//     s.setTaskList(r.askTasks(tasks));
-//     s.popOffExtraHours();
-//     s.makeSchedule();
+    s.setPreferences(r.askPreferences(preferences));
+    s.setBusyTimes(r.askBusyTimes(9,19,busyTimes));
+    cin.ignore();
+    s.setTaskList(r.askTasks(tasks));
+    s.popOffExtraHours();
+    s.makeSchedule();
 
-//     EXPECT_EQ(s.getHours().at(0).getName(),"hw");
+    EXPECT_EQ(s.getHours().at(0).getName(),"hw");
 
-// }
+}
 
-// TEST(ScheduleTests, TestPriorityWithNonWork){
+TEST(ScheduleTests, TestPriorityWithNonWork){
 
-//     stringstream preferences("no\nno\nno");
-//     stringstream busyTimes("0");
-//     stringstream tasks("swim\nat the pool\nyes\n3\ne\nhw\nat the library\nyes\n1\ne\nlecture\nfor cs100\nyes\n2\ne\nvideo games\nwith friends\nn\nq");
+    stringstream preferences("no\nno\nno");
+    stringstream busyTimes("0");
+    stringstream tasks("swim\nat the pool\nyes\n3\ne\nhw\nat the library\nyes\n1\ne\nlecture\nfor cs100\nyes\n2\ne\nvideo games\nwith friends\nn\nq");
 
-//     Schedule s;
-//     RawInput r;
-//     s.setTimeNow(9);
-//     s.setSleepTime(19);
+    Schedule s;
+    RawInput r;
+    s.setTimeNow(9);
+    s.setSleepTime(19);
     
-//     s.setPreferences(r.askPreferences(preferences));
-//     s.setBusyTimes(r.askBusyTimes(9,19,busyTimes));
-//     cin.ignore();
-//     s.setTaskList(r.askTasks(tasks));
-//     s.popOffExtraHours();
-//     s.makeSchedule();
+    s.setPreferences(r.askPreferences(preferences));
+    s.setBusyTimes(r.askBusyTimes(9,19,busyTimes));
+    cin.ignore();
+    s.setTaskList(r.askTasks(tasks));
+    s.popOffExtraHours();
+    s.makeSchedule();
 
-//     EXPECT_EQ(s.getHours().at(8).getName(),"video games");
-// }
+    EXPECT_EQ(s.getHours().at(8).getName(),"video games");
+}
 
-<<<<<<< HEAD
 // TEST(RawInputTests, TestOneTaskName) { //testing ONE task input, multiple word inputs only (for getline/cin testing)
 //     vector<Event> testTaskList;
 //     RawInput r; 
@@ -304,8 +303,6 @@ TEST(ScheduleTests, TestLazy){
 // }
 
 
-=======
->>>>>>> f48efd3933eb947ab53d387c941ffbed7c500a88
 int main(int argc, char **argv){
     ::testing::InitGoogleTest(&argc,argv);
     return RUN_ALL_TESTS();
