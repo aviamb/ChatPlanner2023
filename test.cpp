@@ -149,158 +149,158 @@ TEST(ScheduleTests, TestPriorityWithNonWork){
     EXPECT_EQ(s.getHours().at(8).getName(),"video games");
 }
 
-// TEST(RawInputTests, TestOneTaskName) { //testing ONE task input, multiple word inputs only (for getline/cin testing)
-//     vector<Event> testTaskList;
-//     RawInput r; 
+TEST(RawInputTests, TestOneTaskName) { //testing ONE task input, multiple word inputs only (for getline/cin testing)
+    vector<Event> testTaskList;
+    RawInput r; 
 
-//     stringstream tasks("cs100 milestone 4\ndemo preparation, unit testing,update README\ny\n1\nq");
+    stringstream tasks("cs100 milestone 4\ndemo preparation, unit testing,update README\ny\n1\nq");
  
-//     // testTaskList = r.askTasks(tasks);
+    testTaskList = r.askTasks(tasks);
 
-//     // EXPECT_EQ(testTaskList.at(0).getName(), "cs100 milestone 4");
-// }
+    EXPECT_EQ(testTaskList.at(0).getName(), "cs100 milestone 4");
+}
 
-// TEST(RawInputTests, TestOneTaskDescription) {
-//     vector<Event> testTaskList;
-//     RawInput r;
+TEST(RawInputTests, TestOneTaskDescription) {
+    vector<Event> testTaskList;
+    RawInput r;
 
-//     stringstream tasks("cs100 milestone 4\ndemo preparation, unit testing,update README\ny\n1\nq");
+    stringstream tasks("cs100 milestone 4\ndemo preparation, unit testing,update README\ny\n1\nq");
 
-//     testTaskList = r.askTasks(tasks);
+    testTaskList = r.askTasks(tasks);
 
-//     EXPECT_EQ(testTaskList.at(0).getDescription(), "demo preparation, unit testing,update README");
-// }
+    EXPECT_EQ(testTaskList.at(0).getDescription(), "demo preparation, unit testing,update README");
+}
 
-// TEST(RawInputTests, TestOneTaskType) { 
-//     vector<Event> testTaskList;
-//     RawInput r;
+TEST(RawInputTests, TestOneTaskType) { 
+    vector<Event> testTaskList;
+    RawInput r;
 
-//     stringstream tasks("cs100 milestone 4\ndemo preparation, unit testing,update README\ny\n1\nq");
+    stringstream tasks("cs100 milestone 4\ndemo preparation, unit testing,update README\ny\n1\nq");
 
-//     testTaskList = r.askTasks(tasks);
+    testTaskList = r.askTasks(tasks);
 
-//     EXPECT_EQ(testTaskList.at(0).getType(), "Work");
-// }
+    EXPECT_EQ(testTaskList.at(0).getType(), "Work");
+}
 
-// TEST(RawInputTests, TestFourTaskName) { //testing MULTIPLE tasks with multiple/single word inputs mixed. tests elements later in the vector
-//     vector<Event> testTaskList;
-//     RawInput r;
+TEST(RawInputTests, TestFourTaskName) { //testing MULTIPLE tasks with multiple/single word inputs mixed. tests elements later in the vector
+    vector<Event> testTaskList;
+    RawInput r;
 
-//     stringstream tasks("cs100 project\nmilestone 4\ny\n1\nA\nstudy for cs061\nquiz on wednesday\ny\n2\nA\noverwatch\nnew season!\nn\nA\nlab\nbio\nn\nq");
+    stringstream tasks("cs100 project\nmilestone 4\ny\n1\nA\nstudy for cs061\nquiz on wednesday\ny\n2\nA\noverwatch\nnew season!\nn\nA\nlab\nbio\nn\nq");
 
-//     testTaskList = r.askTasks(tasks);
+    testTaskList = r.askTasks(tasks);
 
-//     string s;
+    string s;
 
-//     for (int i = 0; i < 4; i++) {
-//         s += testTaskList.at(i).getName();
-//         s += " ";
-//     }
+    for (int i = 0; i < 4; i++) {
+        s += testTaskList.at(i).getName();
+        s += " ";
+    }
 
-//     EXPECT_EQ(s, "cs100 project study for cs061 overwatch lab ");
-// }
+    EXPECT_EQ(s, "cs100 project study for cs061 overwatch lab ");
+}
 
-// TEST(RawInputTests, TestFourTaskDescription) {
-//     vector<Event> testTaskList;
-//     RawInput r;
+TEST(RawInputTests, TestFourTaskDescription) {
+    vector<Event> testTaskList;
+    RawInput r;
 
-//     stringstream tasks("cs100 project\nmilestone 4\ny\n1\nA\nstudy for cs061\nquiz on wednesday\ny\n2\nA\noverwatch\nnew season!\nn\nA\nlab\nbio\nn\nq");
+    stringstream tasks("cs100 project\nmilestone 4\ny\n1\nA\nstudy for cs061\nquiz on wednesday\ny\n2\nA\noverwatch\nnew season!\nn\nA\nlab\nbio\nn\nq");
 
-//     testTaskList = r.askTasks(tasks);
+    testTaskList = r.askTasks(tasks);
 
-//     string s;
+    string s;
 
-//     for (int i = 0; i < 4; i++) {
-//         s += testTaskList.at(i).getDescription();
-//         s += " ";
-//     }
+    for (int i = 0; i < 4; i++) {
+        s += testTaskList.at(i).getDescription();
+        s += " ";
+    }
 
-//     EXPECT_EQ(s, "milestone 4 quiz on wednesday new season! bio ");
-// }
+    EXPECT_EQ(s, "milestone 4 quiz on wednesday new season! bio ");
+}
 
-// TEST(RawInputTests, TestFourTaskType) {
-//     vector<Event> testTaskList;
-//     RawInput r;
+TEST(RawInputTests, TestFourTaskType) {
+    vector<Event> testTaskList;
+    RawInput r;
 
-//     stringstream tasks("cs100 project\nmilestone 4\ny\n1\nA\nstudy for cs061\nquiz on wednesday\ny\n2\nA\noverwatch\nnew season!\nn\nA\nlab\nbio\nn\nq");
+    stringstream tasks("cs100 project\nmilestone 4\ny\n1\nA\nstudy for cs061\nquiz on wednesday\ny\n2\nA\noverwatch\nnew season!\nn\nA\nlab\nbio\nn\nq");
 
-//     testTaskList = r.askTasks(tasks);
+    testTaskList = r.askTasks(tasks);
 
-//     string s;
+    string s;
 
-//     for (int i = 0; i < 4; i++) {
-//         s += testTaskList.at(i).getType();
-//         s = s + "(" + to_string(testTaskList.at(i).getPriority()) + ")";
-//         s += " ";
-//     }
+    for (int i = 0; i < 4; i++) {
+        s += testTaskList.at(i).getType();
+        s = s + "(" + to_string(testTaskList.at(i).getPriority()) + ")";
+        s += " ";
+    }
 
-//     EXPECT_EQ(s, "Work(1) Work(2) Leisure(0) Leisure(0) ");
-// }
+    EXPECT_EQ(s, "Work(1) Work(2) Leisure(0) Leisure(0) ");
+}
 
-// TEST(RawInputTests, TestManyTaskName) {
-//     vector<Event> testTaskList;
-//     RawInput r;
+TEST(RawInputTests, TestManyTaskName) {
+    vector<Event> testTaskList;
+    RawInput r;
 
-//     stringstream tasks;
-//     tasks << "cs100 project\nmilestone 4\ny\n1\nA\nstudy for cs061\nquiz on wednesday\ny\n2\nA\noverwatch\nnew season!\nn\nA\nlab\nbio\nn\nA\n";
-//     tasks << "take pills\nvitamin C\nN\nA\nwatch movie with friends\nnew hunger games\nN\nA\nskincare\nN/A\nN\nA\nattend Philosophy discussion\n11AM\nY\n3\nA\n";
-//     tasks << "swim\nat beach\nN\nA\ngo golfing\nwith mom\nn\nA\napply for internships\nmicrosoft,google,etc.\nY\n2\nA\nbrush teeth\nuse mouthwash\nn\nQ";
+    stringstream tasks;
+    tasks << "cs100 project\nmilestone 4\ny\n1\nA\nstudy for cs061\nquiz on wednesday\ny\n2\nA\noverwatch\nnew season!\nn\nA\nlab\nbio\nn\nA\n";
+    tasks << "take pills\nvitamin C\nN\nA\nwatch movie with friends\nnew hunger games\nN\nA\nskincare\nN/A\nN\nA\nattend Philosophy discussion\n11AM\nY\n3\nA\n";
+    tasks << "swim\nat beach\nN\nA\ngo golfing\nwith mom\nn\nA\napply for internships\nmicrosoft,google,etc.\nY\n2\nA\nbrush teeth\nuse mouthwash\nn\nQ";
 
-//     testTaskList = r.askTasks(tasks);
+    testTaskList = r.askTasks(tasks);
 
-//     string s;
+    string s;
 
-//     for (int i = 0; i < 12; i++) {
-//         s += testTaskList.at(i).getName();
-//         s += " ";
-//     }
+    for (int i = 0; i < 12; i++) {
+        s += testTaskList.at(i).getName();
+        s += " ";
+    }
 
-//     EXPECT_EQ(s, "cs100 project study for cs061 overwatch lab take pills watch movie with friends skincare attend Philosophy discussion swim go golfing apply for internships brush teeth ");
-// }
+    EXPECT_EQ(s, "cs100 project study for cs061 overwatch lab take pills watch movie with friends skincare attend Philosophy discussion swim go golfing apply for internships brush teeth ");
+}
 
 
-// TEST(RawInputTests, TestManyTaskDescription) {
-//     vector<Event> testTaskList;
-//     RawInput r;
+TEST(RawInputTests, TestManyTaskDescription) {
+    vector<Event> testTaskList;
+    RawInput r;
 
-//     stringstream tasks;
-//     tasks << "cs100 project\nmilestone 4\ny\n1\nA\nstudy for cs061\nquiz on wednesday\ny\n2\nA\noverwatch\nnew season!\nn\nA\nlab\nbio\nn\nA\n";
-//     tasks << "take pills\nvitamin C\nN\nA\nwatch movie with friends\nnew hunger games\nN\nA\nskincare\nN/A\nN\nA\nattend Philosophy discussion\n11AM\nY\n3\nA\n";
-//     tasks << "swim\nat beach\nN\nA\ngo golfing\nwith mom\nn\nA\napply for internships\nmicrosoft,google,etc.\nY\n2\nA\nbrush teeth\nuse mouthwash\nn\nQ";
+    stringstream tasks;
+    tasks << "cs100 project\nmilestone 4\ny\n1\nA\nstudy for cs061\nquiz on wednesday\ny\n2\nA\noverwatch\nnew season!\nn\nA\nlab\nbio\nn\nA\n";
+    tasks << "take pills\nvitamin C\nN\nA\nwatch movie with friends\nnew hunger games\nN\nA\nskincare\nN/A\nN\nA\nattend Philosophy discussion\n11AM\nY\n3\nA\n";
+    tasks << "swim\nat beach\nN\nA\ngo golfing\nwith mom\nn\nA\napply for internships\nmicrosoft,google,etc.\nY\n2\nA\nbrush teeth\nuse mouthwash\nn\nQ";
 
-//     testTaskList = r.askTasks(tasks);
+    testTaskList = r.askTasks(tasks);
 
-//     string s;
+    string s;
 
-//     for (int i = 0; i < 12; i++) {
-//         s += testTaskList.at(i).getDescription();
-//         s += " ";
-//     }
+    for (int i = 0; i < 12; i++) {
+        s += testTaskList.at(i).getDescription();
+        s += " ";
+    }
 
-//     EXPECT_EQ(s, "milestone 4 quiz on wednesday new season! bio vitamin C new hunger games N/A 11AM at beach with mom microsoft,google,etc. use mouthwash ");
-// }
+    EXPECT_EQ(s, "milestone 4 quiz on wednesday new season! bio vitamin C new hunger games N/A 11AM at beach with mom microsoft,google,etc. use mouthwash ");
+}
 
-// TEST(RawInputTests, TestAskManyTask_Spaces) {
-//     vector<Event> testTaskList;
-//     RawInput r;
+TEST(RawInputTests, TestAskManyTask_Spaces) {
+    vector<Event> testTaskList;
+    RawInput r;
 
-//     stringstream tasks;
-//     tasks << "cs100 project\nmilestone 4\ny\n1\nA\nstudy for cs061\nquiz on wednesday\ny\n2\nA\noverwatch\nnew season!\nn\nA\nlab\nbio\nn\nA\n";
-//     tasks << "take pills\nvitamin C\nN\nA\nwatch movie with friends\nnew hunger games\nN\nA\nskincare\nN/A\nN\nA\nattend Philosophy discussion\n11AM\nY\n3\nA\n";
-//     tasks << "swim\nat beach\nN\nA\ngo golfing\nwith mom\nn\nA\napply for internships\nmicrosoft,google,etc.\nY\n2\nA\nbrush teeth\nuse mouthwash\nn\nQ";
+    stringstream tasks;
+    tasks << "cs100 project\nmilestone 4\ny\n1\nA\nstudy for cs061\nquiz on wednesday\ny\n2\nA\noverwatch\nnew season!\nn\nA\nlab\nbio\nn\nA\n";
+    tasks << "take pills\nvitamin C\nN\nA\nwatch movie with friends\nnew hunger games\nN\nA\nskincare\nN/A\nN\nA\nattend Philosophy discussion\n11AM\nY\n3\nA\n";
+    tasks << "swim\nat beach\nN\nA\ngo golfing\nwith mom\nn\nA\napply for internships\nmicrosoft,google,etc.\nY\n2\nA\nbrush teeth\nuse mouthwash\nn\nQ";
 
-//     testTaskList = r.askTasks(tasks);
+    testTaskList = r.askTasks(tasks);
 
-//     string s;
+    string s;
 
-//     for (int i = 0; i < 12; i++) {
-//         s += testTaskList.at(i).getType();
-//         s = s + "(" + to_string(testTaskList.at(i).getPriority()) + ")";
-//         s += " ";
-//     }
+    for (int i = 0; i < 12; i++) {
+        s += testTaskList.at(i).getType();
+        s = s + "(" + to_string(testTaskList.at(i).getPriority()) + ")";
+        s += " ";
+    }
 
-//     EXPECT_EQ(s, "Work(1) Work(2) Leisure(0) Leisure(0) Leisure(0) Leisure(0) Leisure(0) Work(3) Leisure(0) Leisure(0) Work(2) Leisure(0) ");
-// }
+    EXPECT_EQ(s, "Work(1) Work(2) Leisure(0) Leisure(0) Leisure(0) Leisure(0) Leisure(0) Work(3) Leisure(0) Leisure(0) Work(2) Leisure(0) ");
+}
 
 
 int main(int argc, char **argv){
