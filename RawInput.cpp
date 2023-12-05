@@ -174,7 +174,6 @@ vector<Event> RawInput::askTasks(istream &in) {
                 cout << "Is this task work-related? (y/n): ";
             }
             in.clear();
-            //break;
         }
         
         cout << "Task added successfully!" << endl;
