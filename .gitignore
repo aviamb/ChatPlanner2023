@@ -8,8 +8,8 @@ Makefile
 cmake_install.cmake
 test
 a.out
-runAllTests
-runProgram
+runnAllTests
+
 
 
 

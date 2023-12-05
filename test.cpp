@@ -149,6 +149,7 @@ TEST(ScheduleTests, TestLazy){
 //     EXPECT_EQ(s.getHours().at(8).getName(),"video games");
 // }
 
+<<<<<<< HEAD
 // TEST(RawInputTests, TestOneTaskName) { //testing ONE task input, multiple word inputs only (for getline/cin testing)
 //     vector<Event> testTaskList;
 //     RawInput r; 
@@ -303,6 +304,8 @@ TEST(ScheduleTests, TestLazy){
 // }
 
 
+=======
+>>>>>>> f48efd3933eb947ab53d387c941ffbed7c500a88
 int main(int argc, char **argv){
     ::testing::InitGoogleTest(&argc,argv);
     return RUN_ALL_TESTS();
