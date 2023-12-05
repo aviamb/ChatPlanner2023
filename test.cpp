@@ -135,6 +135,8 @@ TEST(ScheduleTests, TestDoNothing){
 
 TEST(ScheduleTests, TestPriority){
 
+
+    //tasks input will be swim, priority 3, homework, priority 1, and lecture priority 2.
     stringstream preferences("no\nno\nno");
     stringstream busyTimes("0");
     stringstream tasks("swim\nat the pool\nyes\n3\ne\nhw\nat the library\nyes\n1\ne\nlecture\nfor cs100\nyes\n2\nq");
@@ -162,6 +164,8 @@ TEST(ScheduleTests, TestPriorityWithNonWork){
 
     stringstream preferences("no\nno\nno");
     stringstream busyTimes("0");
+
+    //tasks input will be swim, priority 3, homework, priority 1, and video games which doesnt have a priority.
     stringstream tasks("swim\nat the pool\nyes\n3\ne\nhw\nat the library\nyes\n1\ne\nlecture\nfor cs100\nyes\n2\ne\nvideo games\nwith friends\nn\nq");
 
     Schedule s;
