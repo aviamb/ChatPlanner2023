@@ -65,7 +65,3 @@ void Taken::printEvent(ostream & out){
     out<<"-------------------"<<endl;
 }
 
-int Event::getPriority(){
-    return priority;
-}
-
