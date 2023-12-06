@@ -68,8 +68,7 @@ Users will be prompted for schedule preferences and their choices will be stored
   * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
  
  ## Screenshots
-  Screenshots of the input/output after running your application
-  The user is first prompted with when they want to start and end their day
+The user is first prompted with when they want to start and end their day  
 ![image](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/b6ed8d6c-1387-44bf-b1f8-3c44f1675ab0)  
 The user is then prompted for their work habits  
 ![image](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/739498b1-1ac2-4b21-9a63-477dd1da1cd9)  
