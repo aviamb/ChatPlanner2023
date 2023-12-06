@@ -28,8 +28,10 @@ class Schedule{
         void addTask(Event);
         void setBusyTimes(vector<bool>);
         void addTask(istream &in);
+        void deleteTask();
         void setTimeNow(int);
         void setSleepTime(int);
+
         int getTaskListSize();
         int getTimeNow();
         int getSleepTime();

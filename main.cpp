@@ -8,6 +8,7 @@
 using namespace std;
 
 void printMenu(){
+    cout<<"d: to delete a task"<<endl;
     cout<<"a: to add another task"<<endl;
     cout<<"c: to check off a task"<<endl;
     cout<<"s: to save and end day"<<endl; //input validation broken
@@ -28,9 +29,9 @@ int main(){
     Event dummy;
     Schedule s;
     RawInput r;
-    int dayCounter=0;
-    bool dayIsOver=false;
-
+    char input;
+    int dayCounter = 0;
+    
     while(true){
         cout<<"DAY - "<<dayCounter<<endl;
         s.setTimeNow(r.askTimeNow());
@@ -48,10 +49,13 @@ int main(){
             printMenu();
 
             cin>>input;
+
             if(input=='a'){
                 s.addTask(cin);
             }else if(input=='c'){
                 s.checkOffTask(cin);
+            }else if(input=='d'){
+                s.deleteTask();
             }else if(input=='s'){
                 s.saveSchedule();
                 dayCounter++;
