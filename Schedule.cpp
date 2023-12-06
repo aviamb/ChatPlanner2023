@@ -86,10 +86,8 @@ void Schedule::makeSchedule(){
             cout<<"not a prcastinator"<<endl;
             workList = sortWorkEvents(workList);
             for(int i=0; i<hours.size();i++){
-                cout<<"i is  "<<i<<endl;
 
                 if(workList.size()==workIndex){//if already at end of list
-                    cout<<"breaking"<<endl;
                     break;
                 }
                 if(hours.at(i).getName()=="free time"){
@@ -98,17 +96,17 @@ void Schedule::makeSchedule(){
                     workIndex++;
                 }
             }
-            cout<<"done setting work events";
             for(int i=hours.size()-2; i>=0;i--){//last element is always go to bed
                 if(leisureList.size()==leisureIndex){//if already at end of list
+                    cout<<"bruh";
                     break;
                 }
-                if( !(hours.at(i).getType()=="Taken"|| (hours.at(i).getType()=="Work"))){//if it is not a user set leisure activity or taken
+                if((hours.at(i).getName()=="free time")){//if it is not a user set leisure activity or taken
+                    cout<<"hm"<<endl;
                     hours.at(i)=leisureList.at(leisureIndex);
                     leisureIndex++;
                 }
             }
-            cout<<"done setting fun events"<<endl;
         }
     }
     taskList.clear();
@@ -116,7 +114,8 @@ void Schedule::makeSchedule(){
 }
 
 vector<Event> Schedule::sortWorkEvents(vector<Event> & workEvents){
-    for(int i = 0; i < workEvents.size()-1; i++){
+    cout<<"sorting work events"<<endl;
+    for(int i = 0; i < workEvents.size(); i++){
         int minIndex = i;
         for (int j = i + 1; j < workEvents.size(); j++) {
             if (workEvents[j].getPriority() < workEvents[minIndex].getPriority()) {
@@ -127,7 +126,7 @@ vector<Event> Schedule::sortWorkEvents(vector<Event> & workEvents){
         workEvents[i] = workEvents[minIndex];
         workEvents[minIndex] = tobeswapped;
     }
-
+    cout<<"end of work events"<<endl;
     return workEvents;
 }
 
@@ -176,7 +175,7 @@ void Schedule::checkOffTask(istream &in) {//main
     
     do {
         cout << "Enter the current name of your task: ";
-        in.ignore();
+        // in.ignore();
         getline(in, taskName);
         cout << endl;
 

@@ -19,7 +19,7 @@ Chatplanner is an interactive task manager that can help users plan their daily 
 
   Chatplanner is a textbot and will be executed through the terminal only.
 
-  >Users may enter preferences, tasks, and times not available. Chatplanner will generate a potential schedule for the user with each run.
+  Users may enter preferences, tasks, and times not available. Chatplanner will generate a potential schedule for the user with each run.
 
 #### Project Features:
  * generate non rigid schedule for a user based on user input
@@ -69,8 +69,30 @@ Users will be prompted for schedule preferences and their choices will be stored
  
  ## Screenshots
   Screenshots of the input/output after running your application
- ## Installation/Usage
-  Instructions on installing and running your application
+  The user is first prompted with when they want to start and end their day
+![image](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/b6ed8d6c-1387-44bf-b1f8-3c44f1675ab0)  
+The user is then prompted for their work habits  
+![image](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/739498b1-1ac2-4b21-9a63-477dd1da1cd9)  
+The user can then enter the tasks they want the program to plan  
+![image](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/cc08630c-3b9b-4fb2-af00-37074fad5cc2)  
+![image](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/153fa49d-da97-46aa-9856-e286af6aaaa3)  
+After several more entries, the program displays a suggested schedule based on user preferences. "-----" denotes a time the user already said they were busy.  
+![image](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/ddd9d690-ad5b-4e84-a104-dd96438638d4)  
+Using the menu, the user can add additional tasks or checkoff tasks  
+![image](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/81d536e0-8f1e-4d6b-aef8-25a0cbe42326)
+![image](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/a950f550-5bed-416f-89d6-5783de49a6b8)  
+Finally, the user can save everything into a log file that gets updated every time the program runs.  
+![image](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/83c13802-1b0a-42d1-9ad7-37e5a50c97e2)
+  ## Installation/Usage
+  * You must have a C++ compiler to use this program
+  * To install, clone the repo into a folder
+  * The program will ask you for the time now and the time you want to stop planning events and end your day.
+  * Then, enter your preferences for the day
+  * The program will ask you if you want to do anything today, and your work habits
+  * Enter the times you are already busy so the program will not schedule anything during those blocks
+  * Enter tasks you would like the program to plan for you
+  * After your schedule displays, you can check off, add additional tasks, or save and end the program
+  * The program will save a log of what you have done into a txt file that will updated with each day.
  ## Testing
-  How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+  We used googletest to test our functions before making a pull request. This is to avoid pulling broken code that you didn't write. Our tests consist of making sure bad input is handled, and making sure schedules build a certain way.
  
