@@ -8,9 +8,11 @@ using namespace std;
 class RawInput{
     public: 
     RawInput();
-    vector<bool> askPreferences(); 
-    vector<Event> askTasks(); 
-    vector<bool> askBusyTimes(istream &);
+    vector<bool> askPreferences(istream &); 
+    vector<Event> askTasks(istream &); 
+    vector<bool> askBusyTimes(int,int,istream &);
+    int askTimeNow();
+    int askSleepTime();
 };
 
 #endif
