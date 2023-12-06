@@ -127,15 +127,15 @@ vector<bool> RawInput::askPreferences(istream &in)
 
 
 vector<Event> RawInput::askTasks(istream &in) {
-    string userDecision;
+    char userDecision;
     vector<Event> rawTaskList;
 
     string name;
-    string category;
+    char category;
     string description;
     int priority = 0;
 
-    do {
+     do {        
         cout << "Enter task name: ";
         getline(in, name);
         cout << endl;
@@ -144,14 +144,16 @@ vector<Event> RawInput::askTasks(istream &in) {
         getline(in >> ws, description);
         cout << endl;
 
-        cout << "Is this task work-related? (y/n): ";
+         cout << "Is this task work-related? (y/n): ";
         
         while (in >> category) {
-            if (category != "y" && category != "Y" && category != "n" && category != "N") {
+            category = tolower(category);
+
+            if(category != 'y' && category != 'n') {
                 cout << "Not a valid input. " << endl;
                 cout << "Is this task work-related? (y/n): ";
             }
-            else if (category == "y" || category == "Y") {
+            else if (category == 'y') {
                 cout << "Enter task priority (1 = most, 3 = least): " ;
 
                 in >> priority;
@@ -169,10 +171,11 @@ vector<Event> RawInput::askTasks(istream &in) {
                 break;
             } 
             else {
-          (name, description);
-                rawTaskList.push_back(cu      Leisure currLeisureEventrrLeisureEvent);
+                Leisure currLeisureEvent(name, description);
+                rawTaskList.push_back(currLeisureEvent);
                 break;
             } 
+
             in.clear();
         }
         
@@ -181,7 +184,7 @@ vector<Event> RawInput::askTasks(istream &in) {
         in >> userDecision;
         cout << endl;
         in.ignore();
-    } while (userDecision != "q" && userDecision != "Q");
+    } while (userDecision != 'q' && userDecision != 'Q');
 
     return rawTaskList;
 }
