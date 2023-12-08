@@ -34,7 +34,7 @@ Chatplanner is an interactive task manager that can help users plan their daily 
 ## User Interface Specification
 
 ### Navigation Diagram
-ChatPlanner will begin by prompting users for personal scheduling preferences on one (text) screen within the terminal. The next screen will ask for an event and any associated details such as priority, description, etc. User may terminate task input and generate a schedule, go back to adding tasks (then regenerate), finish a task, or save the schedule to a personal file to terminate the program. 
+ChatPlanner will begin by prompting users for personal scheduling preferences on one (text) screen within the terminal. The next screen will ask for events and any associated details such as priority, description, etc. User may terminate task input and generate a schedule, delete a previously added task, go back to adding tasks (then regenerate), finish a task, or save the schedule to a personal file to terminate the program. 
 
 ### Screen Layouts
 ![nav (2)](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/117532511/d98f3f2e-0b01-4fce-bcfa-c2b902bc6e76)
@@ -44,18 +44,23 @@ Users will be prompted for schedule preferences and their choices will be stored
 ![chatPlannerUML drawio](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/117532511/26318ee8-7f03-4a2c-a265-cc402f6ff25e)
 
 ### Previous class diagrams
+development stage:
 ![chat planner-uml 11 22 drawio](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/e84e0013-1eb8-43db-b09f-997af6c0bada)
+
+initial stage:
 ![image](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/ee0bc048-3b92-4c51-8b4e-385b5bb575c1)
 
  
   ## Phase III
-  * We made the following changes to our class diagram:
+We made the following changes to our initial class diagram :
   * Display_Schedule and Save_Schedule are now inside the Schedule class
      * We applied SRP in a reverse way to fix our Schedule class. Display and Save are functions that the Schedule class should be responsible for, and not their own classes. Now Schedule is responsible for all functions requiring a Schedule. This reduces the amount of classes we have and makes the UML and code easier to read. It also reduces the amount of times a vector has to be passed into functions during the program.
   * Schedule now contains 3 vectors, a list of tasks, a list of hours and a list of preferences
      * We applied OCP to the schedule class. Before, we had these vectors inside a RawInput class (class to ask for user input). This meant that whenever we wanted to add another vector of variable for a preference(ie a boolean for whether or not you are a procrastinator) we had to change a member variable outside of Schedule. This is also an example of SRP because now RawInput only takes input, and Schedule is self contained with all the data it needs to run. This makes our code easier to debug and read because, for example, we don't have to pass in a taskList from an outside class when it should be accessible from Schedule itself.
   * Event is now an abstract base class with specific event classes derived from it
      * We applied ISP to the Event class. Before, every type of event(work, free, busy) had to have a priority and description field when that didn't make sense for events as a null event for time already busy. To solve this, instead of having a category member variable we made subtypes to keep track of the different types of events instead. This makes the code more organized as different kinds of events are defined by their object type, and not by a string member variable entered by the user. This also satisfies the Liskov substution principle. Any type of Event can be valid when an Event is needed. For example, any kind of Event can be added to the hours vector. By seperating Event types, it allows us to create seperate printEvent() functions for each subtype. It doesn't make sense to have the same printEvent for each type of Event(Work Event has a priority variable, while leisure does not). This also satisfies Liskov's substitution principle because any Event can use the printEvent() function. 
+
+*changes apply from initial->development diagrams for Phase III. classes may have extended from these adjustments
  
  ## Screenshots
 The user is first prompted with when they want to start and end their day  
