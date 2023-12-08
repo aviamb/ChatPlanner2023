@@ -158,13 +158,6 @@ void Schedule::displaySchedule(ostream & out){
     }
 }
 
-void Schedule::displayDetailedSchedule(ostream &out){
-    for(int i = 0; i < hours.size(); i++){
-        out << "hour " << i << ":00 - \n";
-        hours.at(i).printEvent(out);
-    }
-}
-
 void Schedule::checkOffTask(istream &in) {//main
     Event* targetEvent;
 
