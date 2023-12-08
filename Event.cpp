@@ -4,11 +4,6 @@
 #include <ostream>
 
 using namespace std;
-// Event::Event(){
-//     // this->name="dummy";
-//     // this->description="dummy description";
-// }
-
 
 const string Event::getName(){
     return name;

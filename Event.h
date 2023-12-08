@@ -27,21 +27,18 @@ class Event{
 
 class Work: public Event{
     public:
-        string getType();
         void printEvent(ostream & out);
         Work(string,int,string);
 };
 
 class Leisure: public Event{
     public:
-        string getType();   
         void printEvent(ostream & out);
         Leisure(string,string);
 };
 
 class Taken: public Event{
     public:
-        string getType();
         void printEvent(ostream & out);
         Taken();
 };
