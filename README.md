@@ -41,12 +41,12 @@ ChatPlanner will begin by prompting users for personal scheduling preferences on
 
 
 ## Class Diagram
-Users will be prompted for schedule preferences and their choices will be stored within a vector of bools within the schedule class, returned by AskPreferences() from the RawInput class. Users will then create tasks from prompts described in the navigation diagram. Tasks will be objects of the event class, and pushed into the unsorted tasks vector of the "Schedule" class, again through the "RawInput" class's AskTasks(). The Schedule class will use the unsorted tasks vector to generate a sorted schedule of events specific to the users preferences, stored in the 'hours' vector of Events. The displaySchedule function is used for printing and design purposes for the user, as represented by the display/menu section of the navigation diagram. The schedule class may also use the writeToFile function to save a user's' most recently generated schedule to a .txt file and "end" the day. ![chat planner-uml 11 22 drawio](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/e84e0013-1eb8-43db-b09f-997af6c0bada)
+Users will be prompted for schedule preferences and their choices will be stored within a vector of bools within the schedule class, returned by AskPreferences() from the RawInput class. Users will then create tasks from prompts described in the navigation diagram. Tasks will be objects of the event class and its subclasses, and pushed into the unsorted tasks vector of the "Schedule" class, again through the "RawInput" class's AskTasks(). The Schedule class will use the unsorted tasks vector to generate a sorted schedule of events specific to the users preferences, stored in the 'hours' vector of Events. Tasks of the "Leisure" class will be sorted as extended Events, while tasks of the Work class will be assigned a priority by the user to move the task up in the day's Schedule. The displaySchedule function is used for printing and design purposes for the user, as represented by the display/menu section of the navigation diagram. The schedule class may also use the saveSchedule() function to save a user's' most recently generated schedule to a .txt file and "end" the day. 
+![chatPlannerUML drawio](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/117532511/26318ee8-7f03-4a2c-a265-cc402f6ff25e)
 
-### Previous class diagram
+### Previous class diagrams
+![chat planner-uml 11 22 drawio](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/e84e0013-1eb8-43db-b09f-997af6c0bada)
 ![image](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/ee0bc048-3b92-4c51-8b4e-385b5bb575c1)
-
-
 
  
   ## Phase III
@@ -61,9 +61,9 @@ Users will be prompted for schedule preferences and their choices will be stored
  ## Screenshots
 The user is first prompted with when they want to start and end their day  
 ![image](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/b6ed8d6c-1387-44bf-b1f8-3c44f1675ab0)  
-The user is then prompted for their work habits  
+The user is then prompted for their work habits so that ChatPlanner may create a personalized schedule to their habits!  
 ![image](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/739498b1-1ac2-4b21-9a63-477dd1da1cd9)  
-The user can then enter the tasks they want the program to plan  
+The user can then enter the tasks they want the program to plan for them 
 ![image](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/cc08630c-3b9b-4fb2-af00-37074fad5cc2)  
 ![image](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/153fa49d-da97-46aa-9856-e286af6aaaa3)  
 After several more entries, the program displays a suggested schedule based on user preferences. "-----" denotes a time the user already said they were busy.  
@@ -82,7 +82,12 @@ Finally, the user can save everything into a log file that gets updated every ti
   * Enter the times you are already busy so the program will not schedule anything during those blocks
   * Enter tasks you would like the program to plan for you
   * After your schedule displays, you can check off, add additional tasks, or save and end the program
-  * The program will save a log of what you have done into a txt file that will updated with each day.
+  * The program will save a log of what you have done into a txt file that will updated with each day: log.txt
+    
  ## Testing
-  We used googletest to test our functions before making a pull request. This is to avoid pulling broken code that you didn't write. Our tests consist of making sure bad input is handled, and making sure schedules build a certain way.
- 
+  We used googletest to test our functions before making a pull request. This is to avoid pulling broken code that you didn't mean to push. Our tests consist of making sure bad input is handled, assuring the exact user input enters the stream, and making sure schedules build a certain way after various user-incited function calls.
+  ![image](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/117532511/fac49d2a-0599-45fb-b15a-e073eaeeaaa4)
+
+  Our program did not use dynamic allocation of memory and is Mem-Check Clean through valgrind: 
+ ![memcheck-clean-valgrind-chatplanner](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/117532511/9d77df43-41cf-452c-98c2-49fb14a3f3c1)
+
