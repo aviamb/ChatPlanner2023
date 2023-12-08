@@ -17,4 +17,3 @@ class RawInput{
 
 #endif
 
-//preferences order:

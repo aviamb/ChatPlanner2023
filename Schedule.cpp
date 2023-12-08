@@ -167,7 +167,6 @@ void Schedule::checkOffTask(istream &in) {//main
     } while (targetEvent == nullptr);
 
     targetEvent->setName("[COMPLETED] " + targetEvent->getName());
-    // cout << targetEvent->getDescription();
     return;
 }
 

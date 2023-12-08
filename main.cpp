@@ -3,16 +3,13 @@
 #include "RawInput.h"
 #include <iostream>
 #include <string>
-//  #include "gtest/gtest.h"
 
 using namespace std;
 
 void printMenu(){
-    cout<<"d: to delete a task"<<endl;
     cout<<"a: to add another task"<<endl;
     cout<<"c: to check off a task"<<endl;
-    cout<<"s: to save and end day"<<endl; //input validation broken
-}
+    cout<<"s: to save and end day"<<endl; 
 
 
 void clearLog(){
