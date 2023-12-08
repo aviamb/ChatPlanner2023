@@ -29,10 +29,6 @@ void Schedule::saveSchedule(){
 
     // public: std::vector<Event> hours[24];
 void Schedule::makeSchedule(){
-    cout<<"hours length is "<<hours.size()<<endl;
-    cout<<"busy times length is "<<busyTimes.size()<<endl;
-    cout<<"preferences length is "<<preferences.size()<<endl;
-    cout<<"tasklist length is "<<taskList.size()<<endl;
     Leisure sleep("go to bed","");
     hours.at(hours.size()-1)=sleep;
 
@@ -57,7 +53,6 @@ void Schedule::makeSchedule(){
         int leisureIndex=0;
         int workIndex=0;
         if(preferences.at(1)==true){//true means procrastinator
-            cout<<"procrastinator"<<endl;
             for(int i=0; i<hours.size();i++){
                 if(leisureList.size()==leisureIndex){//if already at end of list
                     break;
@@ -71,7 +66,6 @@ void Schedule::makeSchedule(){
 
             workList = sortWorkEvents(workList);
             for(int i=hours.size()-1; i>=0;i--){//last element is always go to bed
-                cout<<"setting work events"<<endl;
                 if(workList.size()==workIndex){//if already at end of list
                     break;
                 }
@@ -83,7 +77,6 @@ void Schedule::makeSchedule(){
         }else{
             leisureIndex=0;
             workIndex=0;
-            cout<<"not a prcastinator"<<endl;
             workList = sortWorkEvents(workList);
             for(int i=0; i<hours.size();i++){
 
@@ -91,7 +84,6 @@ void Schedule::makeSchedule(){
                     break;
                 }
                 if(hours.at(i).getName()=="free time"){
-                    cout<<"setting work events"<<endl;
                     hours.at(i)=workList.at(workIndex);
                     workIndex++;
                 }
@@ -101,7 +93,6 @@ void Schedule::makeSchedule(){
                     break;
                 }
                 if((hours.at(i).getName()=="free time")){//if it is not a user set leisure activity or taken
-                    cout<<"hm"<<endl;
                     hours.at(i)=leisureList.at(leisureIndex);
                     leisureIndex++;
                 }
@@ -113,7 +104,6 @@ void Schedule::makeSchedule(){
 }
 
 vector<Event> Schedule::sortWorkEvents(vector<Event> & workEvents){
-    cout<<"sorting work events"<<endl;
     for(int i = 0; i < workEvents.size(); i++){
         int minIndex = i;
         for (int j = i + 1; j < workEvents.size(); j++) {
@@ -125,7 +115,6 @@ vector<Event> Schedule::sortWorkEvents(vector<Event> & workEvents){
         workEvents[i] = workEvents[minIndex];
         workEvents[minIndex] = tobeswapped;
     }
-    cout<<"end of work events"<<endl;
     return workEvents;
 }
 
@@ -167,7 +156,7 @@ void Schedule::checkOffTask(istream &in) {//main
     
     do {
         cout << "Enter the current name of your task: ";
-        // in.ignore();
+        in.ignore();
         getline(in, taskName);
         cout << endl;
 
@@ -178,7 +167,6 @@ void Schedule::checkOffTask(istream &in) {//main
     } while (targetEvent == nullptr);
 
     targetEvent->setName("[COMPLETED] " + targetEvent->getName());
-    // cout << targetEvent->getDescription();
     return;
 }
 
