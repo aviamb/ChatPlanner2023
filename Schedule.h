@@ -15,17 +15,14 @@ class Schedule{
         int timeNow;
         int sleepTime;
     public:
-        void makeSchedule();//2 tests
+        void makeSchedule();
         void displaySchedule(ostream &);
-        void displayDetailedSchedule(ostream &);
         void saveSchedule(); 
-        void checkOffTask(istream&);//1 test
+        void checkOffTask(istream&);
         Event* checkOffTask(string taskName);
         Schedule();
         void setTaskList(vector<Event>);
         void setPreferences(vector<bool>);
-        void setBusyTime(vector<bool>);
-        void addTask(Event);
         void setBusyTimes(vector<bool>);
         void addTask(istream &in);
         void deleteTask();
