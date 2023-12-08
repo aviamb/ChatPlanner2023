@@ -10,7 +10,7 @@ void printMenu(){
     cout<<"a: to add another task"<<endl;
     cout<<"c: to check off a task"<<endl;
     cout<<"s: to save and end day"<<endl; 
-
+}
 
 void clearLog(){
     ofstream outFS;
