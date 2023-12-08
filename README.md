@@ -37,8 +37,7 @@ Chatplanner is an interactive task manager that can help users plan their daily 
 ChatPlanner will begin by prompting users for personal scheduling preferences on one (text) screen within the terminal. The next screen will ask for an event and any associated details such as priority, description, etc. User may terminate task input and generate a schedule, go back to adding tasks (then regenerate), finish a task, or save the schedule to a personal file to terminate the program. 
 
 ### Screen Layouts
- ![nav (1)](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/117532511/e5a737cc-c166-458a-b494-42da698e9e5b)
-
+![nav (2)](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/117532511/d98f3f2e-0b01-4fce-bcfa-c2b902bc6e76)
 
 ## Class Diagram
 Users will be prompted for schedule preferences and their choices will be stored within a vector of bools within the schedule class, returned by AskPreferences() from the RawInput class. Users will then create tasks from prompts described in the navigation diagram. Tasks will be objects of the event class and its subclasses, and pushed into the unsorted tasks vector of the "Schedule" class, again through the "RawInput" class's AskTasks(). The Schedule class will use the unsorted tasks vector to generate a sorted schedule of events specific to the users preferences, stored in the 'hours' vector of Events. Tasks of the "Leisure" class will be sorted as extended Events, while tasks of the Work class will be assigned a priority by the user to move the task up in the day's Schedule. The displaySchedule function is used for printing and design purposes for the user, as represented by the display/menu section of the navigation diagram. The schedule class may also use the saveSchedule() function to save a user's' most recently generated schedule to a .txt file and "end" the day. 
