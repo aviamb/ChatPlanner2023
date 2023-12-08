@@ -23,14 +23,13 @@ Chatplanner is an interactive task manager that can help users plan their daily 
 
 #### Project Features:
  * generate non rigid schedule for a user based on user input
- * ability to add, edit, and delete tasks
+ * ability to add, checkoff, and delete tasks
  * automatically categorize tasks
  * ability to block out time that is currently busy
  * ability to ask for schedule preferences (ex. night owl, early sleeper, procrastinator)
  * check off tasks as day goes on
  * save schedule to a log.txt file
  * look at past events
- * delete and edit task features TBA
 
 ## User Interface Specification
 
@@ -58,18 +57,9 @@ Users will be prompted for schedule preferences and their choices will be stored
      * We applied OCP to the schedule class. Before, we had these vectors inside a RawInput class (class to ask for user input). This meant that whenever we wanted to add another vector of variable for a preference(ie a boolean for whether or not you are a procrastinator) we had to change a member variable outside of Schedule. This is also an example of SRP because now RawInput only takes input, and Schedule is self contained with all the data it needs to run. This makes our code easier to debug and read because, for example, we don't have to pass in a taskList from an outside class when it should be accessible from Schedule itself.
   * Event is now an abstract base class with specific event classes derived from it
      * We applied ISP to the Event class. Before, every type of event(work, free, busy) had to have a priority and description field when that didn't make sense for events as a null event for time already busy. To solve this, instead of having a category member variable we made subtypes to keep track of the different types of events instead. This makes the code more organized as different kinds of events are defined by their object type, and not by a string member variable entered by the user. This also satisfies the Liskov substution principle. Any type of Event can be valid when an Event is needed. For example, any kind of Event can be added to the hours vector. By seperating Event types, it allows us to create seperate printEvent() functions for each subtype. It doesn't make sense to have the same printEvent for each type of Event(Work Event has a priority variable, while leisure does not). This also satisfies Liskov's substitution principle because any Event can use the printEvent() function. 
-
- 
-  ## Final deliverable
-  All group members will give a demo to the reader during lab time. ou should schedule your demo on Calendly with the same reader who took your second scrum meeting. The reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 
-  Before the demo, you should do the following:
-  * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
-  * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Project board.
-  * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
  
  ## Screenshots
-  Screenshots of the input/output after running your application
-  The user is first prompted with when they want to start and end their day
+The user is first prompted with when they want to start and end their day  
 ![image](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/b6ed8d6c-1387-44bf-b1f8-3c44f1675ab0)  
 The user is then prompted for their work habits  
 ![image](https://github.com/cs100/final-project-alin157-mrela001-abequ001-sjeon065/assets/116844248/739498b1-1ac2-4b21-9a63-477dd1da1cd9)  
