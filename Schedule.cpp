@@ -98,7 +98,6 @@ void Schedule::makeSchedule(){
             }
             for(int i=hours.size()-2; i>=0;i--){//last element is always go to bed
                 if(leisureList.size()==leisureIndex){//if already at end of list
-                    cout<<"bruh";
                     break;
                 }
                 if((hours.at(i).getName()=="free time")){//if it is not a user set leisure activity or taken
